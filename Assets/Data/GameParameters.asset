@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abbe1f511c852e40886b7e833d58821, type: 3}
+  m_Name: GameParameters
+  m_EditorClassIdentifier: 
+  _team1Color: {r: 1, g: 0.5, b: 0, a: 1}
+  _team2Color: {r: 0, g: 0.5, b: 1, a: 1}
+  _tankHealth: 5
+  _tankSpeed: 5
+  _tankTurnSpeed: 180
+  _tankCanonTurnSpeed: 720
+  _tankShootDelay: 1
+  _tankShellSpeed: 10
+  _tankShellDamage: 2
+  _tankShellDamageFalloff: 3
+  _zoneCaptureSpeed: 10
+  _zoneDecaySpeed: 5
+  _zoneDecayDelay: 5
+  _tagTank: Tank
+  _tagShell: Shell
+  _tagZone: Zone
+  _tagSpawn: Spawn
+  _tagHealthPickup: HealthPickup
+  _tagShield: Shield
+  _layerBackground: Background
+  _layerNavigationObstacle: NavigationObstacle
+  _layerVisionObstacle: VisionObstacle
+  _layerTank: Tank
+  _layerShell: Shell
+  _layerShield: Shield
+  _layerZone: Zone
+  _layerSpawn: Spawn
+  _layerPickup: Pickup
