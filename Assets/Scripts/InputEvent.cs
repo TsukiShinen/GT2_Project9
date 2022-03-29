@@ -34,7 +34,6 @@ public class InputEvent
     private void SelectedTank(RaycastHit2D hit)
     {
         if (!hit.collider.CompareTag(_parameters.TagTank)) { return; }
-        Debug.Log("Select");
         _selectedTank = hit.collider.gameObject.GetComponent<Tank>();
     }
 
@@ -49,7 +48,6 @@ public class InputEvent
             // _selectedTank.Attack(hit.collider.gameObject); 
         } else
         {
-            Debug.Log("Move");
             _selectedTank.GoTo(MousePosition); 
         }
         UnSelectTank();

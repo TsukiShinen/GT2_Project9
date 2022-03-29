@@ -147,6 +147,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
+      propertyPath: _team
+      value: 
+      objectReference: {fileID: 11400000, guid: d5fd36a89bdf8474aa62cbf92bb4ed45, type: 2}
+    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: _gameParameters
       value: 
       objectReference: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
@@ -1023,6 +1027,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1013819997}
   - component: {fileID: 1013819996}
+  - component: {fileID: 1013819998}
+  - component: {fileID: 1013819999}
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
@@ -1095,6 +1101,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1013819998
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013819995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997
+--- !u!114 &1013819999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013819995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c3bbb1a8428d2478a76cae0faab97e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
 --- !u!1 &1655142113
 GameObject:
   m_ObjectHideFlags: 0
