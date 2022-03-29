@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 
 public class Tank : MonoBehaviour
 {
@@ -27,24 +27,31 @@ public class Tank : MonoBehaviour
     }
     void Start()
     {
+        
     }
 
     void Update()
     {
-        GoTo(new Vector3(10, 10,0));
+        GoTo(new Vector3(-10, -10));
     }
 
     void GoTo(Vector3 EndPosition)
     {
         float step = _gameParameters.TankSpeed * Time.deltaTime;
-        Debug.Log(Vector3.Angle(transform.up,EndPosition));
-        Quaternion target = Quaternion.Euler(0, 0, Vector3.Angle(EndPosition, transform.up));
-        transform.rotation = target;
-        transform.position = Vector3.MoveTowards(transform.position, EndPosition, step);
+        transform.position += transform.up * step;
+
+        Vector3 targetDir = EndPosition - transform.position;
+        
+        float angle = Vector3.Angle(targetDir, transform.up);
+        if (angle > 1f)
+        {
+            transform.Rotate(new Vector3(0, 0, 1));
+        }
     }
+
     private void OnDrawGizmos()
     {
-        Gizmos.DrawRay(transform.position,transform.up);
-
+        Gizmos.DrawLine(new Vector2(-10,-10),transform.position);
+        Gizmos.DrawRay(transform.position, transform.up);
     }
 }
