@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Field Modifier", menuName = "Field Modifier")]
 public class FieldModifier : ScriptableObject
 {
-    [SerializeField] protected GameParameters _parameters;
+    [SerializeField] public GameParameters Parameters;
 
-    [SerializeField] protected float _speedModifier;
+    [SerializeField] private float _speedModifier;
 
     public virtual void Activate(Tank tank)
     {
-        tank.Speed = _parameters.TankSpeed * _speedModifier;
+        tank.Speed = Parameters.TankSpeed * _speedModifier;
     }
 
     public virtual void Desactivate(Tank tank)
