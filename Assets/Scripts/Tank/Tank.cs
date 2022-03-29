@@ -35,10 +35,4 @@ public class Tank : StateMachine<Tank>
         PositionToGo = positionToGo;
         NextState = "GoTo";
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(new Vector2(-10,-10),transform.position);
-        Gizmos.DrawRay(transform.position, transform.up);
-    }
 }
