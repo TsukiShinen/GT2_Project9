@@ -1130,6 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  _score: {fileID: 11400000, guid: a892dee7fab2a0d45b099ae88153298b, type: 2}
 --- !u!1 &1655142113
 GameObject:
   m_ObjectHideFlags: 0
