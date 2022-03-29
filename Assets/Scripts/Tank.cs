@@ -6,6 +6,7 @@ public class Tank : MonoBehaviour
     [SerializeField] private GameParameters _gameParameters;
     [SerializeField] private Team _team;
     public Team Team => _team;
+    public float Speed;
 
     private IState state;
 
