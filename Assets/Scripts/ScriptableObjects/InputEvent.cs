@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Input Event", menuName = "Input Event")]
-public class InputEvent : ScriptableObject
+public class InputEvent
 {
     private Tank _selectedTank;
-    [SerializeField] private GameParameters _parameters;
+    private GameParameters _parameters;
 
     private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+    public InputEvent(GameParameters parameters)
+    {
+        _parameters = parameters;
+    }
 
     public void OnRightClick()
     {
@@ -40,7 +44,8 @@ public class InputEvent : ScriptableObject
 
     private void Action(RaycastHit2D hit)
     {
-        if (hit.collider.CompareTag(_parameters.TagTank)) { 
+        if (hit.collider.CompareTag(_parameters.TagTank)) {
+            Debug.Log("Attack");
             // _selectedTank.Attack(hit.collider.gameObject); 
         } else { 
             // _selectedTank.GoTo(MousePosition); 

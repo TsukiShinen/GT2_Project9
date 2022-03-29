@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private InputEvent _inputEvent;
+    private InputEvent _inputEvent;
+    [SerializeField] private GameParameters _parameters;
+
+    private void Awake()
+    {
+        _inputEvent = new InputEvent(_parameters);
+    }
 
     void Update()
     {
