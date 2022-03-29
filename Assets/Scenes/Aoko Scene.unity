@@ -146,22 +146,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
-      propertyPath: _gameParameters
-      value: 
-      objectReference: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
-    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
-      propertyPath: _endListPosition.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
-      propertyPath: _endListPosition.Array.data[0].x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
-      propertyPath: _endListPosition.Array.data[0].y
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219267, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -651,10 +635,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
-      propertyPath: _gameParameters
-      value: 
-      objectReference: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
     - target: {fileID: 5528921651584219267, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_Color.b
       value: 0
