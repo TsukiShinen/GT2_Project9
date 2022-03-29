@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
+      propertyPath: _gameParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
     - target: {fileID: 5528921651584219267, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -164,11 +168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219292, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.25
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219292, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.33
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219292, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -628,6 +632,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219264, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528921651584219264, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_TagString
       value: Tank
       objectReference: {fileID: 0}
@@ -635,6 +643,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
+      propertyPath: _gameParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
     - target: {fileID: 5528921651584219267, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -653,11 +665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219292, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219292, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.98
       objectReference: {fileID: 0}
     - target: {fileID: 5528921651584219292, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
       propertyPath: m_LocalPosition.z
