@@ -8,7 +8,8 @@ public class Tank : StateMachine<Tank>
     public Team Team => _team;
 
     public float Speed { get; set; }
-    public Vector3 PositionToGo { get; private set; }
+    public Vector3 PositionToGo { get; set; }
+    public Transform Target { get; set; }
 
     public TankStates States { get; private set; }
     public string NextState { get; set; }
@@ -28,11 +29,5 @@ public class Tank : StateMachine<Tank>
     public override void Update()
     {
         base.Update();
-    }
-
-    public void GoTo(Vector3 positionToGo)
-    {
-        PositionToGo = positionToGo;
-        NextState = "GoTo";
     }
 }
