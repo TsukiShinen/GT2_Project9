@@ -26,15 +26,6 @@ public class Goto : IState<Tank>
 
     public void Update(Tank Entity)
     {
-        Vector3 targetDir = Entity.PositionToGo - Entity.transform.position;
-        float angle = Vector3.Angle(targetDir, Entity.transform.up);
-        if (angle > 1f)
-        {
-            Entity.transform.Rotate(new Vector3(0, 0, 1));
-        } 
-        else
-        {
-            Entity.transform.position += Entity.transform.up * Entity.Speed * Time.deltaTime;
-        }
+        Entity.Move(Entity.PositionToGo);
     }
 }

@@ -6,12 +6,14 @@ public class InputEvent
 {
     private Tank _selectedTank;
     private GameParameters _parameters;
+    private TankActions _actions;
 
     private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     public InputEvent(GameParameters parameters)
     {
         _parameters = parameters;
+        _actions = new TankActions();
     }
 
     public void OnRightClick()
@@ -44,11 +46,12 @@ public class InputEvent
 
     private void Action(RaycastHit2D hit)
     {
-        if (hit.collider.CompareTag(_parameters.TagTank)) {
-            // _selectedTank.Attack(hit.collider.gameObject); 
+        if (hit.collider.CompareTag(_parameters.TagTank))
+        {
+            _actions.Target.Execute(_selectedTank, hit.collider.gameObject.transform);
         } else
         {
-            _selectedTank.GoTo(MousePosition); 
+            _actions.GoTo.Execute(_selectedTank, MousePosition);
         }
         UnSelectTank();
     }
