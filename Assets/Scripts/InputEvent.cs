@@ -48,7 +48,7 @@ public class InputEvent
     {
         if (hit.collider.CompareTag(_parameters.TagTank))
         {
-            _actions.Target.Execute(_selectedTank, hit.collider.transform);
+            _actions.Target.Execute(_selectedTank, hit.collider.gameObject.transform);
         } else
         {
             _actions.GoTo.Execute(_selectedTank, MousePosition);

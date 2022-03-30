@@ -8,7 +8,7 @@ public class ActionTarget : IAction
     {
         Tank tank = args[0] as Tank;
         if (tank == null) { return; }
-        Transform target = args[0] as Transform;
+        Transform target = args[1] as Transform;
 
         tank.Target = target;
         tank.NextState = "Target";
