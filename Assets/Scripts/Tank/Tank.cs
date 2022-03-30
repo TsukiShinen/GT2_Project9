@@ -5,13 +5,14 @@ public class Tank : StateMachine<Tank>
     public GameParameters GameParameters;
     [SerializeField] private Team _team;
     public Team Team => _team;
-
+    public GameObject Bullet;
     public float Speed { get; set; }
     public Vector3 PositionToGo { get; set; }
     public Transform Target { get; set; }
     public TankStates States { get; private set; }
     public string NextState { get; set; }
     public float TimerShoot { get; set; }
+    public bool CanShoot => TimerShoot <= 0;
 
     private void Awake()
     {
@@ -42,7 +43,7 @@ public class Tank : StateMachine<Tank>
             float angle = Vector2.SignedAngle(targetDir, transform.up);
             if (angle > 1f || angle < -1f)
             {
-                transform.Rotate(new Vector3(0, 0, 1f * -Mathf.Sign(angle)));
+                transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
             }
             else
             {

@@ -24,10 +24,10 @@ public class Target : IState<Tank>
             Entity.Move(Entity.Target.position);
         }
 
-        if(Entity.TimerShoot <= 0 && Vector3.Distance(Entity.transform.position, Entity.Target.position) < 3f)
+        if(Entity.CanShoot && Vector3.Distance(Entity.transform.position, Entity.Target.position) < 3f)
         {
             Entity.TimerShoot = Entity.GameParameters.TankShootDelay;
-            Entity.StartCoroutine(Shoot());
+            Entity.StartCoroutine(Shoot(Entity));
         }
         
     }
@@ -39,8 +39,9 @@ public class Target : IState<Tank>
         return this;
     }
 
-    public IEnumerator Shoot()
+    public IEnumerator Shoot(Tank Entity)
     {
+        GameObject bullet = GameObject.Instantiate(Entity.Bullet, Entity.transform.position, Entity.transform.rotation);
         Debug.Log("boom");
         yield return null;
     }
