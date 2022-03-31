@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Player Team
   m_EditorClassIdentifier: 
   Name: Player
+  Color: {r: 0, g: 0.5764303, b: 1, a: 1}

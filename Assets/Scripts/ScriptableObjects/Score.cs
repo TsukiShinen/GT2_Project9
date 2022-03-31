@@ -7,8 +7,11 @@ public class Score : ScriptableObject
 {
     [SerializeField] float _timeToScore = 10f;
 
-    public float _progression = 0;
-    public Team _teamScoring;
+    public TeamScore _playerScore;
+    public TeamScore _enemyScore;
+
+    public float _progression { set; get; }
+    public Team _teamScoring { set; get; }
 
     public void Capture(Team team)
     {
@@ -24,7 +27,20 @@ public class Score : ScriptableObject
             }
         } else
         {
-            _progression += Time.deltaTime * 100 / _timeToScore;
+            if (_progression < 100)
+            {
+                _progression += Time.deltaTime * 100 / _timeToScore;
+            } else
+            {
+                _progression = 100;
+                if (team == _playerScore.Team)
+                {
+                    _playerScore.Score += Time.deltaTime;
+                } else
+                {
+                    _enemyScore.Score += Time.deltaTime;
+                }
+            }
         }
     }
 

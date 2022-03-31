@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Score
   m_EditorClassIdentifier: 
   _timeToScore: 10
-  _progression: 0
-  _teamScoring: {fileID: 0}
+  _playerScore:
+    Team: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
+    Score: 0
+  _enemyScore:
+    Team: {fileID: 11400000, guid: d5fd36a89bdf8474aa62cbf92bb4ed45, type: 2}
+    Score: 0

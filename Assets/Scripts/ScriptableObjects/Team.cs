@@ -6,4 +6,5 @@ using UnityEngine;
 public class Team : ScriptableObject
 {
     public string Name;
+    public Color Color;
 }

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Enemy Team
   m_EditorClassIdentifier: 
   Name: Enemy
+  Color: {r: 1, g: 0.46787477, b: 0, a: 1}
