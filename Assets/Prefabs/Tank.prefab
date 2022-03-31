@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310986502741539561}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0.26, z: 0}
+  m_LocalPosition: {x: 0, y: -0.035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7487745502015494510}
@@ -243,8 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed70d9e204477f543848fb99437b745e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameParameters: {fileID: 0}
+  GameParameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
   _team: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
+  Bullet: {fileID: 8201686019607275655, guid: be8aeeeffb591e2419bd4c546594421d, type: 3}
+  Canon: {fileID: 6704171966508232030}
 --- !u!61 &5528921651584219265
 BoxCollider2D:
   m_ObjectHideFlags: 0

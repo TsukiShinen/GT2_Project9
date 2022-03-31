@@ -23,7 +23,6 @@ public class CaptureView : MonoBehaviour
         }
 
         _image.color = team.Color;
-        Debug.Log(team.Color);
         _image.fillAmount = _score._progression / 100f;
         _text.text = Mathf.FloorToInt(_score._progression).ToString();
     }
