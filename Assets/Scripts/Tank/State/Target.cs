@@ -27,7 +27,7 @@ public class Target : IState<Tank>
         {
             Vector3 targetDir = Entity.Canon.position - Entity.Target.position;
             float angle = Vector2.SignedAngle(targetDir, Entity.Canon.up);
-            Debug.Log(angle);
+
             if (angle > 1f || angle < -1f)
             {
                 Entity.Canon.Rotate(new Vector3(0, 0, (Entity.GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
