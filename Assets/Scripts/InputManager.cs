@@ -6,10 +6,11 @@ public class InputManager : MonoBehaviour
 {
     private InputEvent _inputEvent;
     [SerializeField] private GameParameters _parameters;
+    [SerializeField] private Team _playerTeam;
 
     private void Awake()
     {
-        _inputEvent = new InputEvent(_parameters);
+        _inputEvent = new InputEvent(_parameters, _playerTeam);
     }
 
     void Update()

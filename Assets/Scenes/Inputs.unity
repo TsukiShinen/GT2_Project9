@@ -167,3 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  _playerTeam: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}

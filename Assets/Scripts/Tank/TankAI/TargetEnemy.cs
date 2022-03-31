@@ -16,7 +16,6 @@ public class TargetEnemy : Node
     public override NodeState Evaluate()
     {
         Transform target = (Transform)GetData("target");
-        Debug.Log(target);
         if (target)
         {
             TankActions.Target.Execute(_tank, target);
