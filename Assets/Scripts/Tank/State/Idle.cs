@@ -24,8 +24,8 @@ public class Idle : IState<Tank>
 
     public IState<Tank> Handle(Tank Entity)
     {
-        if (Entity.NextState == "GoTo") { Entity.NextState = ""; return Entity.States.Goto; }
-        if (Entity.NextState == "Target") { Entity.NextState = ""; return Entity.States.Target; }
+        if (Entity.NextState == "GoTo") { Entity.NextState = ""; return TankStates.Goto; }
+        if (Entity.NextState == "Target") { Entity.NextState = ""; return TankStates.Target; }
 
         return this;
     }
