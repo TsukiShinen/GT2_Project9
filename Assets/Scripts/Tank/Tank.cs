@@ -6,6 +6,7 @@ public class Tank : MonoBehaviour
     [SerializeField] private Team _team;
     public Team Team => _team;
     public GameObject Bullet;
+    public Transform Canon;
     public float Speed { get; set; }
     public Vector3 PositionToGo { get; set; }
     public Transform Target { get; set; }
