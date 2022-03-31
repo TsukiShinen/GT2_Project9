@@ -31,7 +31,8 @@ public class Bullet : MonoBehaviour
 
         for (var i = 0; i < hitColliders.Length; i++)
         {
-            float damage = (Vector3.Distance(hitColliders[i].transform.position, transform.position) / _gameParameters.TankShellDamageFalloff) * _gameParameters.TankShellDamage;
+            float damage = (1 - (Vector3.Distance(hitColliders[i].transform.position, transform.position) / _gameParameters.TankShellDamageFalloff)) * _gameParameters.TankShellDamage;
+            damage = Mathf.Clamp(damage, 0, Mathf.Infinity);
             Debug.Log($"to : {hitColliders[i].name}, Damage : {damage}");
         }
         Destroy(gameObject);
