@@ -6,14 +6,14 @@ public class InputEvent
 {
     private Tank _selectedTank;
     private GameParameters _parameters;
-    private TankActions _actions;
+    private Team _playerTeam;
 
     private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-    public InputEvent(GameParameters parameters)
+    public InputEvent(GameParameters parameters, Team playerTeam)
     {
         _parameters = parameters;
-        _actions = new TankActions();
+        _playerTeam = playerTeam;
     }
 
     public void OnRightClick()
@@ -36,7 +36,9 @@ public class InputEvent
     private void SelectedTank(RaycastHit2D hit)
     {
         if (!hit.collider.CompareTag(_parameters.TagTank)) { return; }
-        _selectedTank = hit.collider.gameObject.GetComponent<Tank>();
+        Tank tank = hit.collider.gameObject.GetComponent<Tank>();
+        if (tank.Team != _playerTeam) { return; }
+        _selectedTank = tank;
     }
 
     private void UnSelectTank()
@@ -48,10 +50,10 @@ public class InputEvent
     {
         if (hit.collider.CompareTag(_parameters.TagTank))
         {
-            _actions.Target.Execute(_selectedTank, hit.collider.gameObject.transform);
+            TankActions.Target.Execute(_selectedTank, hit.collider.gameObject.transform);
         } else
         {
-            _actions.GoTo.Execute(_selectedTank, MousePosition);
+            TankActions.GoTo.Execute(_selectedTank, (Vector3)MousePosition);
         }
         UnSelectTank();
     }
