@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class TankActions
 {
-    public ActionGoTo GoTo = new ActionGoTo();
-    public ActionTarget Target = new ActionTarget();
+    public static ActionGoTo GoTo = new ActionGoTo();
+    public static ActionTarget Target = new ActionTarget();
 }

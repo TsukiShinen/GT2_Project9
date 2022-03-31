@@ -241,6 +241,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5528921651584219264, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
   m_PrefabInstance: {fileID: 93221039}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &270833655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270833654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e54eac4fc62db42aed2193f3efc65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tank: {fileID: 270833658}
+  _capturePointTransform: {fileID: 1013819997}
+--- !u!114 &270833658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5528921651584219266, guid: 898562d9dc56ed64e8a8b5bbe96c819c, type: 3}
+  m_PrefabInstance: {fileID: 93221039}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270833654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed70d9e204477f543848fb99437b745e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &270833659
 Rigidbody2D:
   serializedVersion: 4
