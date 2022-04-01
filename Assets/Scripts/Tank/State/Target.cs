@@ -19,7 +19,7 @@ public class Target : IState<Tank>
 
     public void Update(Tank Entity)
     {
-        if(Vector3.Distance(Entity.transform.position, Entity.Target.position) > 3f)
+        if(Vector3.Distance(Entity.transform.position, Entity.Target.position) > 6f)
         {
             Entity.Move(Entity.Target.position);
         }
