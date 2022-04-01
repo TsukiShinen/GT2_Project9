@@ -50,6 +50,7 @@ public class InputEvent
     {
         if (hit.collider.CompareTag(_parameters.TagTank))
         {
+            if (_selectedTank.Team == _playerTeam) { return; }
             TankActions.Target.Execute(_selectedTank, hit.collider.gameObject.transform);
         } else
         {
