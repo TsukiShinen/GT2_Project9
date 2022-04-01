@@ -49,6 +49,10 @@ public class GameParameters : ScriptableObject
     [SerializeField] private float _tankShellSpeed;
     public float TankShellSpeed { get => _tankShellSpeed; }
 
+    [Tooltip("La durée de vie en s d'un obus de tank")]
+    [SerializeField] private float _tankShellDuration;
+    public float TankShellDuration { get => _tankShellDuration; }
+
     [Tooltip("Les dégâts de l'explosion d'un obus de tank")]
     [SerializeField] private float _tankShellDamage;
     public float TankShellDamage { get => _tankShellDamage; }
@@ -71,6 +75,24 @@ public class GameParameters : ScriptableObject
     [SerializeField] private float _zoneDecayDelay;
     public float ZoneDecayDelay { get => _zoneDecayDelay; }
 
+    [Tooltip("La distance en m de vision d'un tank, pour le fog of war et la détection")]
+    [SerializeField] private float _tankVisionRange;
+    public float TankVisionRange { get => _tankVisionRange; }
+
+    [Header("Terrain")]
+
+    [Tooltip("La vitesse d'un tank en m/s sur terrain normal")]
+    [SerializeField] private float _tankSpeedNormal;
+    public float TankSpeedNormal { get => _tankSpeedNormal; }
+
+    [Tooltip("La vitesse d'un tank en m/s sur terrain ralenti")]
+    [SerializeField] private float _tankSpeedSlow;
+    public float TankSpeedSlow { get => _tankSpeedSlow; }
+
+    [Tooltip("La vitesse d'un tank en m/s sur terrain rapide")]
+    [SerializeField] private float _tankSpeedQuick;
+    public float TankSpeedQuick { get => _tankSpeedQuick; }
+
     [Header("Tags")]
 
     [SerializeField] private string _tagTank;
@@ -91,8 +113,16 @@ public class GameParameters : ScriptableObject
     [SerializeField] private string _tagShield;
     public string TagShield { get => _tagShield; }
 
-    [Header("Layers")]
+    [SerializeField] private string _tagGroundNormal;
+    public string TagGroundNormal { get => _tagGroundNormal; }
 
+    [SerializeField] private string _tagGroundSlow;
+    public string TagGroundSlow { get => _tagGroundSlow; }
+
+    [SerializeField] private string _tagGroundQuick;
+    public string TagGroundQuick { get => _tagGroundQuick; }
+
+    [Header("Layers")]
 
     [SerializeField] private string _layerBackground;
     public string LayerBackground { get => _layerBackground; }
@@ -154,4 +184,21 @@ public class GameParameters : ScriptableObject
     public LayerMask LayerPickupAsMask { get => LayerMask.GetMask(LayerPickup); }
 
 
+
+    [SerializeField] private string _layerGroundNormal;
+    public string LayerGroundNormal { get => _layerGroundNormal; }
+    public int GroundNormalAsLayer { get => LayerMask.NameToLayer(LayerGroundNormal); }
+    public LayerMask GroundNormalAsMask { get => LayerMask.GetMask(LayerGroundNormal); }
+
+
+    [SerializeField] private string _layerGroundQuick;
+    public string LayerGroundQuick { get => _layerGroundQuick; }
+    public int LayerGroundQuickAsLayer { get => LayerMask.NameToLayer(LayerGroundQuick); }
+    public LayerMask LayerGroundQuickAsMask { get => LayerMask.GetMask(LayerGroundQuick); }
+
+
+    [SerializeField] private string _layerGroundSlow;
+    public string LayerGroundSlow { get => _layerGroundSlow; }
+    public int LayerGroundSlowAsLayer { get => LayerMask.NameToLayer(LayerGroundSlow); }
+    public LayerMask LayerGroundSlowAsMask { get => LayerMask.GetMask(LayerGroundSlow); }
 }

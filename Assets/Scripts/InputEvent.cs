@@ -18,10 +18,8 @@ public class InputEvent
 
     public void OnRightClick()
     {
-        Debug.Log("click");
         RaycastHit2D hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
-        Debug.Log("found : " + hit.collider.name) ;
 
         if (_selectedTank) { 
             Action(hit);

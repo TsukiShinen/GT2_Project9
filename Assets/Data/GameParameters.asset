@@ -14,29 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team1Color: {r: 1, g: 0.5, b: 0, a: 1}
   _team2Color: {r: 0, g: 0.5, b: 1, a: 1}
+  _matchTimeLimit: 0
   _tankHealth: 5
   _tankSpeed: 5
   _tankTurnSpeed: 180
   _tankCanonTurnSpeed: 720
   _tankShootDelay: 1
   _tankShellSpeed: 10
+  _tankShellDuration: 0
   _tankShellDamage: 2
   _tankShellDamageFalloff: 3
   _zoneCaptureSpeed: 10
   _zoneDecaySpeed: 5
   _zoneDecayDelay: 5
+  _tankVisionRange: 0
+  _tankSpeedNormal: 5
+  _tankSpeedSlow: 2.5
+  _tankSpeedQuick: 7.5
   _tagTank: Tank
   _tagShell: Shell
   _tagZone: Zone
   _tagSpawn: Spawn
   _tagHealthPickup: HealthPickup
   _tagShield: Shield
+  _tagGroundNormal: GroundNormal
+  _tagGroundSlow: GroundSlow
+  _tagGroundQuick: GroundQuick
   _layerBackground: Background
   _layerNavigationObstacle: NavigationObstacle
   _layerVisionObstacle: VisionObstacle
+  _layerObstacle: 
   _layerTank: Tank
   _layerShell: Shell
   _layerShield: Shield
   _layerZone: Zone
   _layerSpawn: Spawn
   _layerPickup: Pickup
+  _layerGroundNormal: 
+  _layerGroundQuick: 
+  _layerGroundSlow: 
