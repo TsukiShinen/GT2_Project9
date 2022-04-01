@@ -32,7 +32,7 @@ public class Tank : MonoBehaviour
     public void Update()
     {
         _stateMachine.Update();
-
+        
         if (TimerShoot > 0)
         {
             TimerShoot -= Time.deltaTime;
@@ -41,9 +41,10 @@ public class Tank : MonoBehaviour
 
     public void Move(Vector3 pos)
     {
-        if (Vector3.Distance(pos, transform.position) > 0.1f)
+        if (Vector2.Distance(pos, transform.position) > 0.1f)
         {
-            Vector3 targetDir = pos - transform.position;
+            Debug.Log(Vector2.Distance(pos, transform.position));
+            Vector2 targetDir = pos - transform.position;
             float angle = Vector2.SignedAngle(targetDir, transform.up);
             if (angle > 1f || angle < -1f)
             {
