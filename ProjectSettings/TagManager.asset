@@ -50,6 +50,18 @@ TagManager:
   - name: Ground
     uniqueID: 2702063327
     locked: 0
+  - name: Sand
+    uniqueID: 1593282973
+    locked: 0
+  - name: Water
+    uniqueID: 3242404915
+    locked: 0
+  - name: Road
+    uniqueID: 1644695935
+    locked: 0
   - name: Tank
     uniqueID: 241747167
+    locked: 0
+  - name: Props
+    uniqueID: 3280707743
     locked: 0
