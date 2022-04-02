@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1496436939}
   - component: {fileID: 1628471607}
   - component: {fileID: 1628471608}
+  - component: {fileID: 2093851313}
   m_Layer: 15
   m_Name: Tank
   m_TagString: Tank
@@ -508,6 +509,7 @@ MonoBehaviour:
   _team: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
   Bullet: {fileID: 8201686019607275655, guid: be8aeeeffb591e2419bd4c546594421d, type: 3}
   Canon: {fileID: 6704171966508232030}
+  GridController: {fileID: 2093851313}
 --- !u!61 &5528921651584219265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -582,3 +584,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+--- !u!114 &2093851313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528921651584219264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bafc21336e2c94e83c63e7982c5858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  _terrainMasks:
+    serializedVersion: 2
+    m_Bits: 2944
+  GridSize: {x: 100, y: 100}
+  CellSize: 1

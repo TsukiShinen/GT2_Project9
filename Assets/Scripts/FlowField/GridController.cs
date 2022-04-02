@@ -22,14 +22,13 @@ public class GridController : MonoBehaviour
     {
     }
 
-    public void GenerateFlowField()
+    public void GenerateFlowField(Vector2 position)
     {
         InitializeFlowField();
 
         currentFlowField.CreateCostField();
 
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Cell destinationCell = currentFlowField.GetCellFromWorldPosition(mousePosition);
+        Cell destinationCell = currentFlowField.GetCellFromWorldPosition(position);
         currentFlowField.CreateIntegrationField(destinationCell);
         currentFlowField.CreateFlowField();
     }
@@ -38,21 +37,21 @@ public class GridController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (currentFlowField != null)
-        {
-            DrawGrid(Color.green);
+        //if (currentFlowField != null)
+        //{
+        //    DrawGrid(Color.green);
 
-            GUIStyle style = new GUIStyle(GUI.skin.label);
-            style.alignment = TextAnchor.MiddleCenter;
+        //    GUIStyle style = new GUIStyle(GUI.skin.label);
+        //    style.alignment = TextAnchor.MiddleCenter;
 
-            foreach (Cell cell in currentFlowField.Grid)
-            {
-                Handles.Label(cell.WorldPosition, cell.bestCost.ToString(), style);
-            }
-        } else
-        {
-            DrawGrid(Color.yellow);
-        }
+        //    foreach (Cell cell in currentFlowField.Grid)
+        //    {
+        //        Handles.Label(cell.WorldPosition, cell.bestCost.ToString(), style);
+        //    }
+        //} else
+        //{
+        //    DrawGrid(Color.yellow);
+        //}
     }
 
     private void DrawGrid(Color color)
