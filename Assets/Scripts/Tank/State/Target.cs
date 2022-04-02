@@ -19,13 +19,13 @@ public class Target : IState<Tank>
 
     public void Update(Tank Entity)
     {
-        if(Vector3.Distance(Entity.transform.position, Entity.Target.position) > 6f)
+        if(Vector2.Distance(Entity.transform.position, Entity.Target.position) > 6f)
         {
             Entity.Move(Entity.Target.position);
         }
         else
         {
-            Vector3 targetDir = Entity.Canon.position - Entity.Target.position;
+            Vector2 targetDir = Entity.Canon.position - Entity.Target.position;
             float angle = Vector2.SignedAngle(targetDir, Entity.Canon.up);
 
             if (angle > 1f || angle < -1f)
