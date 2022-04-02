@@ -22,7 +22,7 @@ public class GridController : MonoBehaviour
     {
     }
 
-    private void GenerateFlowField()
+    public void GenerateFlowField()
     {
         InitializeFlowField();
 

@@ -16,6 +16,8 @@ public class Tank : MonoBehaviour
     public float TimerShoot { get; set; }
     public bool CanShoot => TimerShoot <= 0;
 
+    public GridController GridController;
+
     private void Awake()
     {
         _stateMachine = new StateMachine<Tank>();
@@ -43,17 +45,21 @@ public class Tank : MonoBehaviour
     {
         if (Vector2.Distance(pos, transform.position) > 0.1f)
         {
+            Cell cellBelow = GridController.currentFlowField.GetCellFromWorldPosition(transform.position);
+
             Debug.Log(Vector2.Distance(pos, transform.position));
-            Vector2 targetDir = pos - transform.position;
+            Vector2 targetDir = cellBelow.BestDirection.Vector;
+            Vector3 dir = targetDir;
             float angle = Vector2.SignedAngle(targetDir, transform.up);
-            if (angle > 1f || angle < -1f)
-            {
-                transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
-            }
-            else
-            {
-                transform.position += transform.up * Speed * Time.deltaTime;
-            }
+            transform.position += dir.normalized * Speed * Time.deltaTime;
+            //if (angle > 1f || angle < -1f)
+            //{
+            //    transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
+            //}
+            //else
+            //{
+            //    transform.position += transform.up * Speed * Time.deltaTime;
+            //}
         }
     }
 }

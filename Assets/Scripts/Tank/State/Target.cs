@@ -4,7 +4,7 @@ public class Target : IState<Tank>
 {
     public void Enter(Tank Entity)
     {
-
+        Entity.GridController.GenerateFlowField();
     }
 
     public void Exit(Tank Entity)
