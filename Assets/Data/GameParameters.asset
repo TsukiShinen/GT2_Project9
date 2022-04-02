@@ -50,6 +50,6 @@ MonoBehaviour:
   _layerZone: Zone
   _layerSpawn: Spawn
   _layerPickup: Pickup
-  _layerGroundNormal: 
-  _layerGroundQuick: 
-  _layerGroundSlow: 
+  _layerGroundNormal: GroundNormal
+  _layerGroundQuick: GroundQuick
+  _layerGroundSlow: GroundSlow

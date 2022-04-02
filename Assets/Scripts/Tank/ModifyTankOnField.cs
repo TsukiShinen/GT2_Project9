@@ -32,7 +32,6 @@ public class ModifyTankOnField : MonoBehaviour
         {
             newSpeed = _parameters.TankSpeedSlow;
         }
-        Debug.Log(_ground.GroundTag + "   " + newSpeed);
 
         _tank.Speed = newSpeed;
     }

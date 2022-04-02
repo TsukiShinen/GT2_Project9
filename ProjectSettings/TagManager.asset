@@ -21,9 +21,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
+  - GroundQuick
+  - GroundNormal
+  - GroundSlow
   - Background
   - NavigationObstacle
   - VisionObstacle
