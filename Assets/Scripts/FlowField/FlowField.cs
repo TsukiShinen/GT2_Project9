@@ -62,6 +62,7 @@ public class FlowField
 
     public void CreateIntegrationField(Cell destinationCell)
     {
+        ResetBestCost();
         DestinationCell = destinationCell;
 
         byte cost = DestinationCell.Cost;
@@ -88,6 +89,17 @@ public class FlowField
         }
 
         DestinationCell.Cost = cost;
+    }
+
+    private void ResetBestCost()
+    {
+        for (int x = 0; x < GridSize.x; x++)
+        {
+            for (int y = 0; y < GridSize.y; y++)
+            {
+                Grid[x, y].bestCost = ushort.MaxValue;
+            }
+        }
     }
 
     public void CreateFlowField()

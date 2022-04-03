@@ -20,14 +20,12 @@ public class GridController : MonoBehaviour
 
     private void Start()
     {
+        InitializeFlowField();
+        currentFlowField.CreateCostField();
     }
 
     public void GenerateFlowField(Vector2 position)
     {
-        InitializeFlowField();
-
-        currentFlowField.CreateCostField();
-
         Cell destinationCell = currentFlowField.GetCellFromWorldPosition(position);
         currentFlowField.CreateIntegrationField(destinationCell);
         currentFlowField.CreateFlowField();
