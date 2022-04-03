@@ -87,7 +87,7 @@ public class FlowField
                 }
             }
         }
-
+        DestinationCell.BestDirection = GridDirection.None;
         DestinationCell.Cost = cost;
     }
 

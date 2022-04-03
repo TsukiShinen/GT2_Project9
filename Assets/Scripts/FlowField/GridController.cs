@@ -37,16 +37,19 @@ public class GridController : MonoBehaviour
     {
         //if (currentFlowField != null)
         //{
-        //    DrawGrid(Color.green);
+        //    //DrawGrid(Color.green);
 
         //    GUIStyle style = new GUIStyle(GUI.skin.label);
         //    style.alignment = TextAnchor.MiddleCenter;
 
         //    foreach (Cell cell in currentFlowField.Grid)
         //    {
-        //        Handles.Label(cell.WorldPosition, cell.bestCost.ToString(), style);
+        //        //Handles.Label(cell.WorldPosition, cell.bestCost.ToString(), style);
+        //        Vector2 to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y)/ 2;
+        //        Gizmos.DrawLine(cell.WorldPosition, new Vector3(to.x, to.y));
         //    }
-        //} else
+        //}
+        //else
         //{
         //    DrawGrid(Color.yellow);
         //}

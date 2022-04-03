@@ -47,8 +47,8 @@ public class Tank : MonoBehaviour
         {
             Cell cellBelow = GridController.currentFlowField.GetCellFromWorldPosition(transform.position);
 
-            Debug.Log(Vector2.Distance(pos, transform.position));
             Vector2 targetDir = cellBelow.BestDirection.Vector;
+            Debug.Log(targetDir);
             Vector3 dir = targetDir;
             float angle = Vector2.SignedAngle(targetDir, transform.up);
             transform.position += dir.normalized * Speed * Time.deltaTime;
