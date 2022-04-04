@@ -43,7 +43,6 @@ public class GridController : MonoBehaviour
             {
                 //Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
                 var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
-                Gizmos.DrawLine(cell.WorldPosition, new Vector3(to.x, to.y));
             }
         }
         else

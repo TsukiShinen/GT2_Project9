@@ -618,9 +618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6495f3fba36cd4940b34610b1e072d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: {fileID: 11400000, guid: a892dee7fab2a0d45b099ae88153298b, type: 2}
-  _scoreTeamPlayer: {fileID: 950462568}
-  _scoreTeamEnemy: {fileID: 1620447798}
+  score: {fileID: 11400000, guid: a892dee7fab2a0d45b099ae88153298b, type: 2}
+  scoreTeamPlayer: {fileID: 950462568}
+  scoreTeamEnemy: {fileID: 1620447798}
 --- !u!1 &1043800708
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,9 +671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e816e620e524d8c49848a6701ffeb8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: {fileID: 11400000, guid: a892dee7fab2a0d45b099ae88153298b, type: 2}
-  _text: {fileID: 589355260}
-  _image: {fileID: 1475248985}
+  score: {fileID: 11400000, guid: a892dee7fab2a0d45b099ae88153298b, type: 2}
+  text: {fileID: 589355260}
+  image: {fileID: 1475248985}
 --- !u!1 &1344919786
 GameObject:
   m_ObjectHideFlags: 0

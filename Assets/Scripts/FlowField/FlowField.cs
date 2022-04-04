@@ -110,7 +110,7 @@ public class FlowField
 
             foreach (var neighbor in neighbors)
             {
-                if (neighbor.BestCost < bestCost) { continue; }
+                if (neighbor.BestCost >= bestCost) { continue; }
                     
                 bestCost = neighbor.BestCost;
                 cell.BestDirection = GridDirection.GetDirectionFromV2I(neighbor.GridIndex - cell.GridIndex);
