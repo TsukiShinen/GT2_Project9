@@ -45,7 +45,7 @@ public class Tank : MonoBehaviour
     {
         if (Vector2.Distance(pos, transform.position) > 0.1f)
         {
-            Cell cellBelow = GridController.currentFlowField.GetCellFromWorldPosition(transform.position);
+            Cell cellBelow = GridController.CurrentFlowField.GetCellFromWorldPosition(transform.position);
 
             Vector2 targetDir = cellBelow.BestDirection.Vector;
 

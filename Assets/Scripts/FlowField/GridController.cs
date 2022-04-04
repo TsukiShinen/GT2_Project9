@@ -1,69 +1,66 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-    [SerializeField] private GameParameters _parameters;
-    [SerializeField] private LayerMask _terrainMasks;
+    [SerializeField] private GameParameters parameters;
+    [SerializeField] private LayerMask terrainMasks;
 
-    public Vector2Int GridSize;
-    public float CellSize = 1f;
-    public FlowField currentFlowField;
+    public Vector2Int gridSize;
+    public float cellSize = 1f;
+    public FlowField CurrentFlowField;
 
     private void InitializeFlowField()
     {
-        currentFlowField = new FlowField(GridSize, CellSize, _parameters, _terrainMasks);
-        currentFlowField.CreateGrid();
+        CurrentFlowField = new FlowField(gridSize, cellSize, parameters, terrainMasks);
+        CurrentFlowField.CreateGrid();
     }
 
     private void Start()
     {
         InitializeFlowField();
-        currentFlowField.CreateCostField();
+        CurrentFlowField.CreateCostField();
     }
 
     public void GenerateFlowField(Vector2 position)
     {
-        Cell destinationCell = currentFlowField.GetCellFromWorldPosition(position);
-        currentFlowField.CreateIntegrationField(destinationCell);
-        currentFlowField.CreateFlowField();
+        var destinationCell = CurrentFlowField.GetCellFromWorldPosition(position);
+        CurrentFlowField.CreateIntegrationField(destinationCell);
+        CurrentFlowField.CreateFlowField();
     }
 
-    #region Helpers
+    #region Gizmos
 
     private void OnDrawGizmos()
     {
-        if (currentFlowField != null)
+        if (CurrentFlowField != null)
         {
-            DrawGrid(Color.green);
+            //DrawGrid(Color.green);
 
-            GUIStyle style = new GUIStyle(GUI.skin.label);
+            var style = new GUIStyle(GUI.skin.label);
             style.alignment = TextAnchor.MiddleCenter;
 
-            foreach (Cell cell in currentFlowField.Grid)
+            foreach (var cell in CurrentFlowField.Grid)
             {
-                Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
-                //Vector2 to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
-                //Gizmos.DrawLine(cell.WorldPosition, new Vector3(to.x, to.y));
+                //Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
+                var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
+                Gizmos.DrawLine(cell.WorldPosition, new Vector3(to.x, to.y));
             }
         }
         else
         {
-            DrawGrid(Color.yellow);
+            //DrawGrid(Color.yellow);
         }
     }
 
     private void DrawGrid(Color color)
     {
         Gizmos.color = color;
-        for (int x = 0; x < GridSize.x; x++)
+        for (var x = 0; x < gridSize.x; x++)
         {
-            for (int y = 0; y < GridSize.y; y++)
+            for (var y = 0; y < gridSize.y; y++)
             {
-                Vector2 center = new Vector2(CellSize * x + CellSize / 2, CellSize * y + CellSize / 2);
-                Vector2 size = Vector2.one * CellSize;
+                var center = new Vector2(cellSize * x + cellSize / 2, cellSize * y + cellSize / 2);
+                var size = Vector2.one * cellSize;
                 Gizmos.DrawWireCube(center, size);
             }
         }

@@ -23,5 +23,9 @@ public class InputManager : MonoBehaviour
         {
             _inputEvent.OnRightClick();
         }
+        if (Input.GetMouseButton(0))
+        {
+
+        }
     }
 }

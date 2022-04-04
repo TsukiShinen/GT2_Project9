@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,7 +18,7 @@ public class GridDirection
 
     public static GridDirection GetDirectionFromV2I(Vector2Int vector)
     {
-        return CaridinalAndIntercardinalDirections.DefaultIfEmpty(None).FirstOrDefault(direction => direction == vector);
+        return CardinalAndInterCardinalDirections.DefaultIfEmpty(None).FirstOrDefault(direction => direction == vector);
     }
 
     public static readonly GridDirection None = new GridDirection(0, 0);
@@ -32,12 +31,12 @@ public class GridDirection
     public static readonly GridDirection SouthEast = new GridDirection(1, -1);
     public static readonly GridDirection SouthWest = new GridDirection(-1, -1);
 
-    public static readonly List<GridDirection> CaridinalDirections = new List<GridDirection>
+    public static readonly List<GridDirection> CardinalDirections = new List<GridDirection>
     {
         North, South, East, West
     };
 
-    public static readonly List<GridDirection> CaridinalAndIntercardinalDirections = new List<GridDirection>
+    public static readonly List<GridDirection> CardinalAndInterCardinalDirections = new List<GridDirection>
     {
         North, South, East, West, NorthEast, NorthWest, SouthEast, SouthWest
     };

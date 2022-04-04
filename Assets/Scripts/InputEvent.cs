@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class InputEvent
 {
-    private Tank _selectedTank;
+    private ICollection<Tank> _selectedTanks;
     private GameParameters _parameters;
     private Team _playerTeam;
 
+    private Vector3 _mousePosStart;
+
     private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    private bool hasTanksSelected => _selectedTanks.Count > 0;
 
     public InputEvent(GameParameters parameters, Team playerTeam)
     {
         _parameters = parameters;
         _playerTeam = playerTeam;
+        _selectedTanks = new List<Tank>();
     }
 
     public void OnRightClick()
@@ -21,16 +25,30 @@ public class InputEvent
         RaycastHit2D hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
 
-        if (_selectedTank) { 
-            Action(hit);
-            return;
-        }
-        SelectedTank(hit);
+        if (!hasTanksSelected) { return; }
+
+        Action(hit);
     }
 
     public void OnLeftClick()
     {
-        UnSelectTank();
+        RaycastHit2D hit = Physics2D.Raycast(MousePosition, Vector3.forward);
+        if (hit.collider == null) { return; }
+
+        if (!hasTanksSelected)
+            SelectedTank(hit);
+        else 
+            UnSelectTank();
+    }
+
+    public void OnLeftClickStay()
+    {
+
+    }
+
+    public void OnLeftClickRelease()
+    {
+
     }
 
     private void SelectedTank(RaycastHit2D hit)
@@ -38,23 +56,27 @@ public class InputEvent
         if (!hit.collider.CompareTag(_parameters.TagTank)) { return; }
         Tank tank = hit.collider.gameObject.GetComponent<Tank>();
         if (tank.Team != _playerTeam) { return; }
-        _selectedTank = tank;
+        _selectedTanks.Add(tank);
     }
 
     private void UnSelectTank()
     {
-        _selectedTank = null;
+        _selectedTanks.Clear();
     }
 
     private void Action(RaycastHit2D hit)
     {
-        if (hit.collider.CompareTag(_parameters.TagTank))
+        foreach (Tank tank in _selectedTanks)
         {
-            if (_selectedTank.Team == _playerTeam) { return; }
-            TankActions.Target.Execute(_selectedTank, hit.collider.gameObject.transform);
-        } else
-        {
-            TankActions.GoTo.Execute(_selectedTank, (Vector3)MousePosition);
+            if (hit.collider.CompareTag(_parameters.TagTank))
+            {
+                if (tank.Team == _playerTeam) { return; }
+                TankActions.Target.Execute(tank, hit.collider.gameObject.transform);
+            }
+            else
+            {
+                TankActions.GoTo.Execute(tank, (Vector3)MousePosition);
+            }
         }
     }
 }

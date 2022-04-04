@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cell
@@ -9,14 +7,14 @@ public class Cell
     public GridDirection BestDirection;
 
     public byte Cost;
-    public ushort bestCost;
+    public ushort BestCost;
 
     public Cell(Vector2 worldPosition, Vector2Int gridIndex)
     {
         WorldPosition = worldPosition;
         GridIndex = gridIndex;
         Cost = 1;
-        bestCost = ushort.MaxValue;
+        BestCost = ushort.MaxValue;
         BestDirection = GridDirection.None;
     }
 
