@@ -56,16 +56,11 @@ public class Tank : MonoBehaviour
 
             float angle = Vector2.SignedAngle(targetDir, transform.up);
 
-            if (Vector2.Distance(pos, transform.position) > 1f)
-            {
-                transform.position += transform.up * Speed * Time.deltaTime;
-            }
-
             if (Mathf.Abs(angle) > 1f)
             {
                 transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
             }
-            else if (Vector2.Distance(pos, transform.position) <= 1f)
+            else
             {
                 transform.position += transform.up * Speed * Time.deltaTime;
             }
