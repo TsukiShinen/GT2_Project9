@@ -48,18 +48,29 @@ public class Tank : MonoBehaviour
             Cell cellBelow = GridController.currentFlowField.GetCellFromWorldPosition(transform.position);
 
             Vector2 targetDir = cellBelow.BestDirection.Vector;
-            Debug.Log(targetDir);
-            Vector3 dir = targetDir;
+
+            if(cellBelow.BestDirection == GridDirection.None)
+            {
+                targetDir = pos - transform.position;
+            }
+
             float angle = Vector2.SignedAngle(targetDir, transform.up);
-            transform.position += dir.normalized * Speed * Time.deltaTime;
-            //if (angle > 1f || angle < -1f)
-            //{
-            //    transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
-            //}
-            //else
-            //{
-            //    transform.position += transform.up * Speed * Time.deltaTime;
-            //}
+
+            if (Vector2.Distance(pos, transform.position) > 1f)
+            {
+                transform.position += transform.up * Speed * Time.deltaTime;
+            }
+
+            if (Mathf.Abs(angle) > 1f)
+            {
+                transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
+            }
+            else if (Vector2.Distance(pos, transform.position) <= 1f)
+            {
+                transform.position += transform.up * Speed * Time.deltaTime;
+            }
+            
+            
         }
     }
 }
