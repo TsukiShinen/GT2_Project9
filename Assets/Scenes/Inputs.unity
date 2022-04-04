@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd05acd04b659042863e6609b4456b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
-  _playerTeam: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
+  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  playerTeam: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
