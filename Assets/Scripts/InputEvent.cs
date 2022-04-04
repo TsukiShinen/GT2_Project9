@@ -1,17 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputEvent
 {
-    private ICollection<Tank> _selectedTanks;
-    private GameParameters _parameters;
-    private Team _playerTeam;
-
-    private Vector3 _mousePosStart;
+    private readonly ICollection<Tank> _selectedTanks;
+    private readonly GameParameters _parameters;
+    private readonly Team _playerTeam;
+    private bool _drag = false;
 
     private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    private bool hasTanksSelected => _selectedTanks.Count > 0;
+    private bool HasTanksSelected => _selectedTanks.Count > 0;
 
     public InputEvent(GameParameters parameters, Team playerTeam)
     {
@@ -22,10 +20,10 @@ public class InputEvent
 
     public void OnRightClick()
     {
-        RaycastHit2D hit = Physics2D.Raycast(MousePosition, Vector3.forward);
+        var hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
 
-        if (!hasTanksSelected) { return; }
+        if (!HasTanksSelected) { return; }
 
         Action(hit);
     }
@@ -35,26 +33,22 @@ public class InputEvent
         RaycastHit2D hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
 
-        if (!hasTanksSelected)
+        if (!HasTanksSelected)
             SelectedTank(hit);
         else 
             UnSelectTank();
-    }
-
-    public void OnLeftClickStay()
-    {
-
+        _drag = true;
     }
 
     public void OnLeftClickRelease()
     {
-
+        _drag = false;
     }
 
     private void SelectedTank(RaycastHit2D hit)
     {
         if (!hit.collider.CompareTag(_parameters.TagTank)) { return; }
-        Tank tank = hit.collider.gameObject.GetComponent<Tank>();
+        var tank = hit.collider.gameObject.GetComponent<Tank>();
         if (tank.Team != _playerTeam) { return; }
         _selectedTanks.Add(tank);
     }
@@ -66,7 +60,7 @@ public class InputEvent
 
     private void Action(RaycastHit2D hit)
     {
-        foreach (Tank tank in _selectedTanks)
+        foreach (var tank in _selectedTanks)
         {
             if (hit.collider.CompareTag(_parameters.TagTank))
             {

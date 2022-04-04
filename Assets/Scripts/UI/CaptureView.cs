@@ -1,29 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CaptureView : MonoBehaviour
 {
-    [SerializeField] Score _score;
+    [SerializeField] private Score score;
     [Space(10)]
-    [SerializeField] TMP_Text _text;
-    [SerializeField] Image _image;
+    [SerializeField] private TMP_Text text;
+    [SerializeField] private Image image;
 
     public void Update()
     {
-        Team team = _score._teamScoring;
+        var team = score._teamScoring;
         
         if (team == null)
         {
-            _image.color = Color.white;
-            _image.fillAmount = 0;
+            image.color = Color.white;
+            image.fillAmount = 0;
             return;
         }
 
-        _image.color = team.Color;
-        _image.fillAmount = _score._progression / 100f;
-        _text.text = Mathf.FloorToInt(_score._progression).ToString();
+        image.color = team.Color;
+        image.fillAmount = score._progression / 100f;
+        text.text = Mathf.FloorToInt(score._progression).ToString();
     }
 }

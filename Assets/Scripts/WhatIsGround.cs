@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WhatIsGround : MonoBehaviour
 {
-    [SerializeField] private GameParameters _parameters;
+    [SerializeField] private GameParameters parameters;
 
     public string GroundTag { get; private set; }
 
     void FixedUpdate()
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, transform.forward);
-        foreach (RaycastHit2D item in hits)
+        var hits = Physics2D.RaycastAll(transform.position, transform.forward);
+        foreach (var item in hits)
         {
-            if (item.collider.CompareTag(_parameters.TagTank)) { continue; }
+            if (item.collider.CompareTag(parameters.TagTank)) { continue; }
             GroundTag = item.collider.tag;
             return;
         }

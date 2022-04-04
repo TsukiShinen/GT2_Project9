@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     private InputEvent _inputEvent;
-    [SerializeField] private GameParameters _parameters;
-    [SerializeField] private Team _playerTeam;
+    [SerializeField] private GameParameters parameters;
+    [SerializeField] private Team playerTeam;
 
     private void Awake()
     {
-        _inputEvent = new InputEvent(_parameters, _playerTeam);
+        _inputEvent = new InputEvent(parameters, playerTeam);
     }
 
     void Update()
@@ -23,9 +21,9 @@ public class InputManager : MonoBehaviour
         {
             _inputEvent.OnRightClick();
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
-
+            _inputEvent.OnLeftClickRelease();
         }
     }
 }

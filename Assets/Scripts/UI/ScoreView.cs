@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreView : MonoBehaviour
 {
 
-    [SerializeField] Score _score;
+    [SerializeField] private Score score;
     [Space(10)]
-    [SerializeField] TMP_Text _scoreTeamPlayer;
-    [SerializeField] TMP_Text _scoreTeamEnemy;
+    [SerializeField] private TMP_Text scoreTeamPlayer;
+    [SerializeField] private TMP_Text scoreTeamEnemy;
 
     public void Update()
     {
-        _scoreTeamPlayer.text = Mathf.FloorToInt(_score._playerScore.Score).ToString();
-        _scoreTeamEnemy.text = Mathf.FloorToInt(_score._enemyScore.Score).ToString();
+        scoreTeamPlayer.text = Mathf.FloorToInt(score._playerScore.score).ToString();
+        scoreTeamEnemy.text = Mathf.FloorToInt(score._enemyScore.score).ToString();
     }
 }

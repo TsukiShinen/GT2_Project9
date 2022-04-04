@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CapturePoint : MonoBehaviour
 {
-    [SerializeField] GameParameters _parameters;
-    [SerializeField] Score _score;
+    [SerializeField] private GameParameters parameters;
+    [SerializeField] private Score score;
 
-    private Dictionary<Team, int> _tankPerTeamIn = new Dictionary<Team, int>();
+    private readonly Dictionary<Team, int> _tankPerTeamIn = new Dictionary<Team, int>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision == null) { return; }
-        if (!collision.gameObject.CompareTag(_parameters.TagTank)) { return; }
-        Team team = collision.gameObject.GetComponent<Tank>().Team;
+        if (!collision.gameObject.CompareTag(parameters.TagTank)) { return; }
+        var team = collision.gameObject.GetComponent<Tank>().Team;
         if (_tankPerTeamIn.ContainsKey(team))
         {
             _tankPerTeamIn[team] += 1;
@@ -27,8 +27,8 @@ public class CapturePoint : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision == null) { return; }
-        if (!collision.gameObject.CompareTag(_parameters.TagTank)) { return; }
-        Team team = collision.gameObject.GetComponent<Tank>().Team;
+        if (!collision.gameObject.CompareTag(parameters.TagTank)) { return; }
+        var team = collision.gameObject.GetComponent<Tank>().Team;
         _tankPerTeamIn[team] -= 1;
         if (_tankPerTeamIn[team] == 0)
         {
@@ -44,11 +44,11 @@ public class CapturePoint : MonoBehaviour
         } 
         else if (_tankPerTeamIn.Count > 1)
         {
-            _score.Conflict();
+            score.Conflict();
         }
         else 
         {
-            _score.Nobody();
+            score.Nobody();
         }
     }
 
@@ -59,6 +59,6 @@ public class CapturePoint : MonoBehaviour
         {
             team = item.Key;
         }
-        _score.Capture(team);
+        score.Capture(team);
     }
 }

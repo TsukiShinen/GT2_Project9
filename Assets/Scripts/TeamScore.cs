@@ -6,6 +6,6 @@ using UnityEngine;
 [Serializable]
 public class TeamScore
 {
-    public Team Team;
-    public float Score;
+    public Team team;
+    public float score;
 }

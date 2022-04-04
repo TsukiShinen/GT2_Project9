@@ -33,12 +33,12 @@ public class Score : ScriptableObject
             } else
             {
                 _progression = 100;
-                if (team == _playerScore.Team)
+                if (team == _playerScore.team)
                 {
-                    _playerScore.Score += Time.deltaTime;
+                    _playerScore.score += Time.deltaTime;
                 } else
                 {
-                    _enemyScore.Score += Time.deltaTime;
+                    _enemyScore.score += Time.deltaTime;
                 }
             }
         }
