@@ -5,34 +5,34 @@ using UnityEngine;
 [RequireComponent(typeof(WhatIsGround))]
 public class ModifyTankOnField : MonoBehaviour
 {
-    [SerializeField] private GameParameters _parameters;
-    [SerializeField] private Tank _tank;
-
+    [SerializeField] private GameParameters parameters;
+    
+    private Tank _tank;
     private WhatIsGround _ground;
 
     private void Awake()
     {
         _ground = GetComponent<WhatIsGround>();
+        _tank = GetComponent<Tank>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_ground.GroundTag == null) { return; }
-        float newSpeed = _parameters.TankSpeedNormal;
-        if (_ground.GroundTag == _parameters.TagGroundQuick)
+        var newSpeed = parameters.TankSpeedNormal;
+        if (_ground.GroundTag == parameters.TagGroundQuick)
         {
-            newSpeed = _parameters.TankSpeedQuick;
+            newSpeed = parameters.TankSpeedQuick;
         }
-        if (_ground.GroundTag == _parameters.TagGroundNormal)
+        if (_ground.GroundTag == parameters.TagGroundNormal)
         {
-            newSpeed = _parameters.TankSpeedNormal;
+            newSpeed = parameters.TankSpeedNormal;
         }
-        if (_ground.GroundTag == _parameters.TagGroundSlow)
+        if (_ground.GroundTag == parameters.TagGroundSlow)
         {
-            newSpeed = _parameters.TankSpeedSlow;
+            newSpeed = parameters.TankSpeedSlow;
         }
 
-        _tank.Speed = newSpeed;
+        _tank.Movement.speed = newSpeed;
     }
 }

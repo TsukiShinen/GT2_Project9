@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
-    public GameParameters GameParameters;
-    [SerializeField] private Team _team;
-    public Team Team => _team;
-    public GameObject Bullet;
-    public Transform Canon;
-    public float Speed { get; set; }
-    public Vector3 PositionToGo { get; set; }
+    public GameParameters parameters;
+    [SerializeField] private Team team;
+    public Team Team => team;
+    public GameObject bullet;
+    public Transform canon;
+
+    public Movement Movement { get; private set; }
     public Transform Target { get; set; }
 
     private StateMachine<Tank> _stateMachine;
@@ -16,17 +16,19 @@ public class Tank : MonoBehaviour
     public float TimerShoot { get; set; }
     public bool CanShoot => TimerShoot <= 0;
 
-    public GridController GridController;
+    public GridController gridController;
 
     private void Awake()
     {
         _stateMachine = new StateMachine<Tank>();
         _stateMachine.Init(this);
+
+        Movement = GetComponent<Movement>();
     }
 
     void Start()
     {
-        Speed = GameParameters.TankSpeed;
+        Movement.speed = parameters.TankSpeed;
 
         _stateMachine.ChangeState(TankStates.Idle);
     }
@@ -43,29 +45,6 @@ public class Tank : MonoBehaviour
 
     public void Move(Vector3 pos)
     {
-        if (Vector2.Distance(pos, transform.position) > 0.1f)
-        {
-            Cell cellBelow = GridController.CurrentFlowField.GetCellFromWorldPosition(transform.position);
-
-            Vector2 targetDir = cellBelow.BestDirection.Vector;
-
-            if(cellBelow.BestDirection == GridDirection.None)
-            {
-                targetDir = pos - transform.position;
-            }
-
-            float angle = Vector2.SignedAngle(targetDir, transform.up);
-
-            if (Mathf.Abs(angle) > 1f)
-            {
-                transform.Rotate(new Vector3(0, 0, (GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
-            }
-            else
-            {
-                transform.position += transform.up * Speed * Time.deltaTime;
-            }
-            
-            
-        }
+        
     }
 }

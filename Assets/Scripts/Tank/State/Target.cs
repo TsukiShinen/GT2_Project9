@@ -25,16 +25,16 @@ public class Target : IState<Tank>
         }
         else
         {
-            Vector2 targetDir = Entity.Canon.position - Entity.Target.position;
-            float angle = Vector2.SignedAngle(targetDir, Entity.Canon.up);
+            Vector2 targetDir = Entity.canon.position - Entity.Target.position;
+            float angle = Vector2.SignedAngle(targetDir, Entity.canon.up);
 
             if (angle > 1f || angle < -1f)
             {
-                Entity.Canon.Rotate(new Vector3(0, 0, (Entity.GameParameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
+                Entity.canon.Rotate(new Vector3(0, 0, (Entity.parameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
             }
             else if(Entity.CanShoot)
             {
-                Entity.TimerShoot = Entity.GameParameters.TankShootDelay;
+                Entity.TimerShoot = Entity.parameters.TankShootDelay;
                 Entity.StartCoroutine(Shoot(Entity));
             }
             
@@ -51,7 +51,7 @@ public class Target : IState<Tank>
 
     public IEnumerator Shoot(Tank Entity)
     {
-        GameObject bullet = GameObject.Instantiate(Entity.Bullet, Entity.Canon.position, Quaternion.Euler(Entity.Canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
+        GameObject bullet = GameObject.Instantiate(Entity.bullet, Entity.canon.position, Quaternion.Euler(Entity.canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
         Debug.Log("boom");
         yield return null;
     }

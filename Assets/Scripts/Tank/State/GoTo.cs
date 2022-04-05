@@ -20,12 +20,12 @@ public class Goto : IState<Tank>
     public IState<Tank> Handle(Tank Entity)
     {
         if (Entity.NextState == "Target") { Entity.NextState = ""; return TankStates.Target; }
-        if (Vector2.Distance(Entity.PositionToGo, Entity.transform.position) < 0.1f) { Entity.NextState = ""; return TankStates.Idle; }
+        if (Vector2.Distance(Entity.Movement.PositionToGo, Entity.transform.position) < 0.1f) { Entity.NextState = ""; return TankStates.Idle; }
         return this;
     }
 
     public void Update(Tank Entity)
     {
-        Entity.Move(Entity.PositionToGo);
+        Entity.Move(Entity.Movement.PositionToGo);
     }
 }
