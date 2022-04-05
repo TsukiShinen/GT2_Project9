@@ -7,6 +7,7 @@ public class InputEvent
     private readonly GameParameters _parameters;
     private readonly Team _playerTeam;
     
+    
     private bool _drag = false;
     private Vector2 _startingMousePosition;
     private Rect _rect;
@@ -63,11 +64,16 @@ public class InputEvent
         if (!hit.collider.CompareTag(_parameters.TagTank)) { return; }
         var tank = hit.collider.gameObject.GetComponent<Tank>();
         if (tank.Team != _playerTeam) { return; }
+        tank.SelectionCircle.SetActive(true);
         _selectedTanks.Add(tank);
     }
 
     private void UnSelectTank()
     {
+        foreach(Tank tank in _selectedTanks)
+        {
+            tank.SelectionCircle.SetActive(false);
+        }
         _selectedTanks.Clear();
     }
 

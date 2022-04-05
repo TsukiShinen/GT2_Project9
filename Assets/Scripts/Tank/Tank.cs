@@ -5,7 +5,7 @@ public class Tank : MonoBehaviour
     public GameParameters parameters;
     [SerializeField] private Team team;
     public Team Team => team;
-
+    public GameObject SelectionCircle;
     public Movement Movement { get; private set; }
     public Attack Attack { get; private set; }
 
@@ -31,5 +31,5 @@ public class Tank : MonoBehaviour
     public void Update()
     {
         _stateMachine.Update();
-    }
-}
+        
+        if (TimerShoot > 0)
