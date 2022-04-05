@@ -6,8 +6,11 @@ public class InputEvent
     private readonly ICollection<Tank> _selectedTanks;
     private readonly GameParameters _parameters;
     private readonly Team _playerTeam;
+    
     private bool _drag = false;
-
+    private Vector2 _startingMousePosition;
+    private Rect _rect;
+    
     private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
     private bool HasTanksSelected => _selectedTanks.Count > 0;
 
@@ -30,19 +33,29 @@ public class InputEvent
 
     public void OnLeftClick()
     {
-        RaycastHit2D hit = Physics2D.Raycast(MousePosition, Vector3.forward);
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            UnSelectTank();
+        }
+        var hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
 
-        if (!HasTanksSelected)
-            SelectedTank(hit);
-        else 
-            UnSelectTank();
+        SelectedTank(hit);
+        
         _drag = true;
+        _startingMousePosition = Input.mousePosition;
     }
 
     public void OnLeftClickRelease()
     {
         _drag = false;
+
+        var hits = Physics2D.BoxCastAll(Camera.main.ScreenToWorldPoint(_rect.position), _rect.size, 0f, Vector3.forward);
+        foreach (var hit in hits)
+        {
+            if (!hit.collider.CompareTag(_parameters.TagTank)) { continue; }
+            SelectedTank(hit);
+        }
     }
 
     private void SelectedTank(RaycastHit2D hit)
@@ -71,6 +84,16 @@ public class InputEvent
             {
                 TankActions.GoTo.Execute(tank, (Vector3)MousePosition);
             }
+        }
+    }
+
+    public void OnGUI()
+    {
+        if (_drag)
+        {
+            _rect = Utils.GetScreenRect(_startingMousePosition, Input.mousePosition);
+            Utils.DrawScreenRect(_rect, new Color(.5f, .5f, .5f, .5f));
+            Utils.DrawScreenRectBorder(_rect, 0.1f, Color.grey);
         }
     }
 }
