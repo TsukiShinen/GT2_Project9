@@ -21,12 +21,13 @@ public class Target : IState<Tank>
     {
         if(Vector2.Distance(Entity.transform.position, Entity.Target.position) > 6f)
         {
-            Entity.Move(Entity.Target.position);
+            // Add move to Entity.Target.position
+            Entity.Movement.Move();
         }
         else
         {
             Vector2 targetDir = Entity.canon.position - Entity.Target.position;
-            float angle = Vector2.SignedAngle(targetDir, Entity.canon.up);
+            var angle = Vector2.SignedAngle(targetDir, Entity.canon.up);
 
             if (angle > 1f || angle < -1f)
             {
@@ -49,9 +50,9 @@ public class Target : IState<Tank>
         return this;
     }
 
-    public IEnumerator Shoot(Tank Entity)
+    private IEnumerator Shoot(Tank Entity)
     {
-        GameObject bullet = GameObject.Instantiate(Entity.bullet, Entity.canon.position, Quaternion.Euler(Entity.canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
+        var bullet = GameObject.Instantiate(Entity.bullet, Entity.canon.position, Quaternion.Euler(Entity.canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
         Debug.Log("boom");
         yield return null;
     }

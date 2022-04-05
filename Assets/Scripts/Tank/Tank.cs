@@ -16,8 +16,6 @@ public class Tank : MonoBehaviour
     public float TimerShoot { get; set; }
     public bool CanShoot => TimerShoot <= 0;
 
-    public GridController gridController;
-
     private void Awake()
     {
         _stateMachine = new StateMachine<Tank>();
@@ -28,7 +26,7 @@ public class Tank : MonoBehaviour
 
     void Start()
     {
-        Movement.speed = parameters.TankSpeed;
+        Movement.Speed = parameters.TankSpeed;
 
         _stateMachine.ChangeState(TankStates.Idle);
     }
@@ -41,10 +39,5 @@ public class Tank : MonoBehaviour
         {
             TimerShoot -= Time.deltaTime;
         }
-    }
-
-    public void Move(Vector3 pos)
-    {
-        
     }
 }

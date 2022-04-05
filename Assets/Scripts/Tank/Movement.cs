@@ -3,17 +3,23 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-	public float speed;
+	public float Speed { get; set; }
 
 	[SerializeField] private GameParameters parameters;
 	[SerializeField] private GridController grid;
 	
-	public Vector3 PositionToGo { get; set; }
+	public Vector3 PositionToGo { get; private set; }
+
+	public void LoadPathFinding(Vector3 positionToGo)
+	{
+		Debug.Log("Load");
+		PositionToGo = positionToGo;
+		grid.GenerateFlowField(PositionToGo);
+	}
 
 	public void Move()
 	{
-		if (Vector2.Distance(PositionToGo, transform.position) > 0.1f) { return; }
-		
+		if (Vector2.Distance(PositionToGo, transform.position) < 0.1f) { return; }
 		
 		var cellBelow = grid.CurrentFlowField.GetCellFromWorldPosition(transform.position);
 		
@@ -30,7 +36,7 @@ public class Movement : MonoBehaviour
 		}
 		else
 		{
-			transform.position += transform.up * speed * Time.deltaTime;
+			transform.position += transform.up * Speed * Time.deltaTime;
 		}
 	}
 }

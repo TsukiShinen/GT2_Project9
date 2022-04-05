@@ -26,6 +26,6 @@ public class Goto : IState<Tank>
 
     public void Update(Tank Entity)
     {
-        Entity.Move(Entity.Movement.PositionToGo);
+        Entity.Movement.Move();
     }
 }

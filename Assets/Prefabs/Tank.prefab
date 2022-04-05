@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 1628471607}
   - component: {fileID: 1628471608}
   - component: {fileID: 2093851313}
+  - component: {fileID: 2411206688863725786}
   m_Layer: 15
   m_Name: Tank
   m_TagString: Tank
@@ -261,7 +262,6 @@ MonoBehaviour:
   team: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
   bullet: {fileID: 8201686019607275655, guid: be8aeeeffb591e2419bd4c546594421d, type: 3}
   canon: {fileID: 6704171966508232030}
-  gridController: {fileID: 2093851313}
 --- !u!61 &5528921651584219265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -353,3 +353,17 @@ MonoBehaviour:
     m_Bits: 2944
   gridSize: {x: 100, y: 100}
   cellSize: 1
+--- !u!114 &2411206688863725786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528921651584219264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833f003a38cc1c24ca13254837e15913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  grid: {fileID: 2093851313}
