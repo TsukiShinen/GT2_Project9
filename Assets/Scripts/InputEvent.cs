@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InputEvent
 {
-    private readonly ICollection<Tank> _selectedTanks;
+    private readonly IList<Tank> _selectedTanks;
     private readonly GameParameters _parameters;
     private readonly Team _playerTeam;
     
@@ -77,8 +77,17 @@ public class InputEvent
 
     private void Action(RaycastHit2D hit)
     {
-        foreach (var tank in _selectedTanks)
+        var positions = new[]
         {
+            new Vector3(0, 0),
+            new Vector3(1, -1),
+            new Vector3(-1, -1),
+        };
+        
+        for (var i = 0; i < _selectedTanks.Count; i++)
+        {
+            var tank = _selectedTanks[i];
+            
             if (hit.collider.CompareTag(_parameters.TagTank))
             {
                 if (hit.collider.GetComponent<Tank>().Team == _playerTeam) { return; }
@@ -86,7 +95,8 @@ public class InputEvent
             }
             else
             {
-                TankActions.GoTo.Execute(tank, (Vector3)MousePosition);
+                if (hit.collider.gameObject.layer == _parameters.LayerNavigationObstacleAsLayer) { return; }
+                TankActions.GoTo.Execute(tank, (Vector3)MousePosition + positions[i]);
             }
         }
     }
