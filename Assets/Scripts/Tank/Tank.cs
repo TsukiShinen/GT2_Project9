@@ -5,16 +5,12 @@ public class Tank : MonoBehaviour
     public GameParameters parameters;
     [SerializeField] private Team team;
     public Team Team => team;
-    public GameObject bullet;
-    public Transform canon;
 
     public Movement Movement { get; private set; }
-    public Transform Target { get; set; }
+    public Attack Attack { get; private set; }
 
     private StateMachine<Tank> _stateMachine;
     public string NextState { get; set; }
-    public float TimerShoot { get; set; }
-    public bool CanShoot => TimerShoot <= 0;
 
     private void Awake()
     {
@@ -22,9 +18,10 @@ public class Tank : MonoBehaviour
         _stateMachine.Init(this);
 
         Movement = GetComponent<Movement>();
+        Attack = GetComponent<Attack>();
     }
 
-    void Start()
+    private void Start()
     {
         Movement.Speed = parameters.TankSpeed;
 
@@ -34,10 +31,5 @@ public class Tank : MonoBehaviour
     public void Update()
     {
         _stateMachine.Update();
-        
-        if (TimerShoot > 0)
-        {
-            TimerShoot -= Time.deltaTime;
-        }
     }
 }

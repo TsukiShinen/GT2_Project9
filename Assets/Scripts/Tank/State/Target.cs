@@ -19,26 +19,15 @@ public class Target : IState<Tank>
 
     public void Update(Tank Entity)
     {
-        if(Vector2.Distance(Entity.transform.position, Entity.Target.position) > 6f)
+        if(Vector2.Distance(Entity.transform.position, Entity.Attack.Target.position) > 6f)
         {
             // Add move to Entity.Target.position
             Entity.Movement.Move();
         }
         else
         {
-            Vector2 targetDir = Entity.canon.position - Entity.Target.position;
-            var angle = Vector2.SignedAngle(targetDir, Entity.canon.up);
-
-            if (angle > 1f || angle < -1f)
-            {
-                Entity.canon.Rotate(new Vector3(0, 0, (Entity.parameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
-            }
-            else if(Entity.CanShoot)
-            {
-                Entity.TimerShoot = Entity.parameters.TankShootDelay;
-                Entity.StartCoroutine(Shoot(Entity));
-            }
-            
+            Entity.Attack.Aim();
+            Entity.Attack.ShootUpdate();
         }
         
     }
@@ -48,12 +37,5 @@ public class Target : IState<Tank>
         if (Entity.NextState == "GoTo") { Entity.NextState = ""; return TankStates.Goto; }
 
         return this;
-    }
-
-    private IEnumerator Shoot(Tank Entity)
-    {
-        var bullet = GameObject.Instantiate(Entity.bullet, Entity.canon.position, Quaternion.Euler(Entity.canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
-        Debug.Log("boom");
-        yield return null;
     }
 }

@@ -77,7 +77,7 @@ public class InputEvent
         {
             if (hit.collider.CompareTag(_parameters.TagTank))
             {
-                if (tank.Team == _playerTeam) { return; }
+                if (hit.collider.GetComponent<Tank>().Team == _playerTeam) { return; }
                 TankActions.Target.Execute(tank, hit.collider.gameObject.transform);
             }
             else

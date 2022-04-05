@@ -12,7 +12,6 @@ public class Movement : MonoBehaviour
 
 	public void LoadPathFinding(Vector3 positionToGo)
 	{
-		Debug.Log("Load");
 		PositionToGo = positionToGo;
 		grid.GenerateFlowField(PositionToGo);
 	}
