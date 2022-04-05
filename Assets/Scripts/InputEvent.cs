@@ -40,8 +40,6 @@ public class InputEvent
         }
         var hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
-
-        SelectedTank(hit);
         
         _drag = true;
         _startingMousePosition = Input.mousePosition;
@@ -51,18 +49,18 @@ public class InputEvent
     {
         _drag = false;
 
-        var hits = Physics2D.BoxCastAll(Camera.main.ScreenToWorldPoint(_rect.position), _rect.size, 0f, Vector3.forward);
-        foreach (var hit in hits)
+        var colliders = Physics2D.OverlapAreaAll(Camera.main.ScreenToWorldPoint(_startingMousePosition), MousePosition);
+        foreach (var collider in colliders)
         {
-            if (!hit.collider.CompareTag(_parameters.TagTank)) { continue; }
-            SelectedTank(hit);
+            if (!collider.CompareTag(_parameters.TagTank)) { continue; }
+            SelectedTank(collider);
         }
     }
 
-    private void SelectedTank(RaycastHit2D hit)
+    private void SelectedTank(Collider2D collider)
     {
-        if (!hit.collider.CompareTag(_parameters.TagTank)) { return; }
-        var tank = hit.collider.gameObject.GetComponent<Tank>();
+        var tank = collider.gameObject.GetComponent<Tank>();
+        if (tank == null) { return; }
         if (tank.Team != _playerTeam) { return; }
         tank.SelectionCircle.SetActive(true);
         _selectedTanks.Add(tank);
@@ -70,7 +68,7 @@ public class InputEvent
 
     private void UnSelectTank()
     {
-        foreach(Tank tank in _selectedTanks)
+        foreach(var tank in _selectedTanks)
         {
             tank.SelectionCircle.SetActive(false);
         }
