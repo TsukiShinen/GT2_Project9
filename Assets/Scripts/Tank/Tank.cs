@@ -31,5 +31,5 @@ public class Tank : MonoBehaviour
     public void Update()
     {
         _stateMachine.Update();
-        
-        if (TimerShoot > 0)
+    }
+}

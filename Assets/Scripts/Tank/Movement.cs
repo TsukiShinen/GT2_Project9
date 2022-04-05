@@ -38,4 +38,23 @@ public class Movement : MonoBehaviour
 			transform.position += transform.up * Speed * Time.deltaTime;
 		}
 	}
+
+	public void MoveWithoutPathFinding(Vector3 target)
+	{
+		if (Vector2.Distance(target, transform.position) < 0.1f) { return; }
+		
+		var cellBelow = grid.CurrentFlowField.GetCellFromWorldPosition(transform.position);
+		
+		Vector2 targetDir = target - transform.position;
+
+		var angle = Vector2.SignedAngle(targetDir, transform.up);
+		if (Mathf.Abs(angle) > 1f)
+		{
+			transform.Rotate(new Vector3(0, 0, (parameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
+		}
+		else
+		{
+			transform.position += transform.up * Speed * Time.deltaTime;
+		}
+	}
 }

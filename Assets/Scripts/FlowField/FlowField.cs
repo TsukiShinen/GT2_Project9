@@ -42,7 +42,10 @@ public class FlowField
 
         foreach (var cell in Grid)
         {
-            var hit = Physics2D.Raycast(new Vector3(cell.WorldPosition.x, cell.WorldPosition.y, -10), Vector3.forward, 20f, _terrainMasks);
+            var origin = new Vector3(cell.WorldPosition.x, cell.WorldPosition.y, -10);
+            var size = new Vector2(_cellDiameter -0.1f, _cellDiameter-0.1f);
+            var hit = Physics2D.BoxCast(origin, size, 0f, Vector3.forward, 20f, _terrainMasks);
+            
             if (hit.collider == null) { continue; }
             if (hit.collider.gameObject.layer == _parameters.LayerNavigationObstacleAsLayer)
             {

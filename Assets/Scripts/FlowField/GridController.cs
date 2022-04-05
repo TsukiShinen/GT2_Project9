@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class GridController : MonoBehaviour
@@ -34,15 +35,15 @@ public class GridController : MonoBehaviour
     {
         if (CurrentFlowField != null)
         {
-            //DrawGrid(Color.green);
+            DrawGrid(Color.green);
 
             var style = new GUIStyle(GUI.skin.label);
             style.alignment = TextAnchor.MiddleCenter;
 
             foreach (var cell in CurrentFlowField.Grid)
             {
-                //Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
-                var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
+                Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
+                //var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
             }
         }
         else
