@@ -6,21 +6,33 @@ public class Bullet : MonoBehaviour
 {
     private Vector3 OriginPosition;
     [SerializeField] private GameParameters _gameParameters;
-    private float Range = 3f;
-
+    [SerializeField] private Animator _explosion;
+    private float Range = 8f;
+    public Collider2D _myTank;
     public LayerMask LayerTank;
-    // Start is called before the first frame update
+    private bool isExploding = false;
+
     void Start()
     {
         OriginPosition = transform.position;
     }
 
-    // Update is called once per frame
+    public void SetTank(Collider2D collider)
+    {
+        _myTank = collider;
+    }
+
     void Update()
     {
+        if(isExploding) { return; }
         transform.position += transform.up * Time.deltaTime * _gameParameters.TankShellSpeed;
-        if (Vector3.Distance(transform.position, OriginPosition) > Range)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider != _myTank)
         {
+            isExploding = true;
             Explode();
         }
     }
@@ -35,6 +47,13 @@ public class Bullet : MonoBehaviour
             damage = Mathf.Clamp(damage, 0, Mathf.Infinity);
             Debug.Log($"to : {hitColliders[i].name}, Damage : {damage}");
         }
+        StartCoroutine(Explosion());
+    }
+
+    private IEnumerator Explosion()
+    {
+        _explosion.SetTrigger("Explosion");
+        yield return new WaitForSeconds(0.333f);
         Destroy(gameObject);
     }
 }

@@ -6,14 +6,20 @@ public class Attack : MonoBehaviour
 	[SerializeField] private GameParameters parameters;
 	public GameObject bullet;
 	public Transform canon;
-	
+	[SerializeField] private Animator _shootAnim;
+
 	public Transform Target { get; set; }
 
 	private float _timerShoot;
 	private bool _aimed;
 	private bool CanShoot => _timerShoot <= 0;
 
-	private void Update()
+    private void Start()
+    {
+		_timerShoot = parameters.TankShootDelay;
+	}
+
+    private void Update()
 	{
 		if (_timerShoot > 0)
 			_timerShoot -= Time.deltaTime;
@@ -44,8 +50,9 @@ public class Attack : MonoBehaviour
 	
 	private IEnumerator Shoot()
 	{
-		GameObject.Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
-		Debug.Log("boom");
-		yield return null;
+		GameObject newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
+		newBullet.gameObject.GetComponent<Bullet>().SetTank(gameObject.GetComponent<Collider2D>());
+		_shootAnim.SetTrigger("Shooting");
+		yield return new WaitForSeconds(0.25f);
 	}
 }
