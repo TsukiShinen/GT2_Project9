@@ -63,8 +63,6 @@ public class Movement : MonoBehaviour
 	{
 		if (Vector2.Distance(target, transform.position) < 0.1f) { return; }
 		
-		var cellBelow = GridController.GetCellFromWorldPosition(_grid, gridController.cellSize, transform.position);
-		
 		Vector2 targetDir = target - transform.position;
 
 		var angle = Vector2.SignedAngle(targetDir, transform.up);

@@ -1,6 +1,16 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+
+public enum DebugShow
+{
+    Cost,
+    BestCost,
+    Algo
+}
+#endif
 
 public class GridController : MonoBehaviour
 {
@@ -9,6 +19,12 @@ public class GridController : MonoBehaviour
 
     public Vector2Int gridSize;
     public float cellSize = 1f;
+
+#if UNITY_EDITOR
+    [Header("Debug")] 
+    [SerializeField] private bool activateDebug;
+    [SerializeField] private DebugShow debugshow;
+#endif
 
     private Cell[,] _grid;
     private float CellDiameter => cellSize;
@@ -114,25 +130,45 @@ public class GridController : MonoBehaviour
 
     #region Gizmos
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        /*if (CurrentFlowField != null)
+        if (!activateDebug) { return; }
+        
+        if (_currentFlowField != null)
         {
-            DrawGrid(Color.green);
-
             var style = new GUIStyle(GUI.skin.label);
             style.alignment = TextAnchor.MiddleCenter;
 
-            foreach (var cell in CurrentFlowField.Grid)
+            switch (debugshow)
             {
-                Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
-                //var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
+                case DebugShow.Cost:
+                    DrawGrid(Color.green);
+                    foreach (var cell in _currentFlowField.Grid)
+                    {
+                        Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
+                    }
+                    break;
+                case DebugShow.BestCost:
+                    DrawGrid(Color.green);
+                    foreach (var cell in _currentFlowField.Grid)
+                    {
+                        Handles.Label(cell.WorldPosition, cell.BestCost.ToString(), style);
+                    }
+                    break;
+                case DebugShow.Algo:
+                    foreach (var cell in _currentFlowField.Grid)
+                    {
+                        var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2;
+                        Gizmos.DrawLine(cell.WorldPosition, to);
+                    }
+                    break;
             }
         }
         else
         {
-            //DrawGrid(Color.yellow);
-        }*/
+            DrawGrid(Color.yellow);
+        }
     }
 
     private void DrawGrid(Color color)
@@ -148,5 +184,6 @@ public class GridController : MonoBehaviour
             }
         }
     }
+#endif
     #endregion
 }
