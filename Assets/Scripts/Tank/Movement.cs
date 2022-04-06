@@ -6,23 +6,25 @@ public class Movement : MonoBehaviour
 	public float Speed { get; set; }
 
 	[SerializeField] private GameParameters parameters;
-	[SerializeField] private GridController grid;
+	[SerializeField] private GridController gridController;
 	
 	public Vector3 PositionToGo { get; private set; }
+
+	private Cell[,] _grid;
 
 	private float DistanceFromPoint => Vector2.Distance(PositionToGo, transform.position);
 
 	public void LoadPathFinding(Vector3 positionToGo)
 	{
 		PositionToGo = positionToGo;
-		grid.GenerateFlowField(PositionToGo);
+		_grid = gridController.GenerateFlowField(PositionToGo);
 	}
 
 	public void Move()
 	{
 		if (DistanceFromPoint < 0.5f) { return; }
 		
-		var cellBelow = grid.CurrentFlowField.GetCellFromWorldPosition(transform.position);
+		var cellBelow = GridController.GetCellFromWorldPosition(_grid, gridController.cellSize, transform.position);
 		
 		Vector2 targetDir = cellBelow.BestDirection.Vector;
 		if(Vector2.Distance(PositionToGo, transform.position) < 1f)
@@ -61,7 +63,7 @@ public class Movement : MonoBehaviour
 	{
 		if (Vector2.Distance(target, transform.position) < 0.1f) { return; }
 		
-		var cellBelow = grid.CurrentFlowField.GetCellFromWorldPosition(transform.position);
+		var cellBelow = GridController.GetCellFromWorldPosition(_grid, gridController.cellSize, transform.position);
 		
 		Vector2 targetDir = target - transform.position;
 
