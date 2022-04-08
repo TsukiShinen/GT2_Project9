@@ -7,6 +7,8 @@ public class LevelBootstrap : MonoBehaviour
     [SerializeField] private int nbrTankPerTeam;
     [SerializeField] private GameObject tankBlue;
     [SerializeField] private GameObject tankRed;
+
+    [SerializeField] private Score score;
     
     private void Start()
     {
@@ -28,5 +30,7 @@ public class LevelBootstrap : MonoBehaviour
         
         // Camera
         Camera.main.transform.position = Spawn.Instance.spawnBlue.position + new Vector3(0, 0, -10);
+        
+        score.Clear();
     }
 }
