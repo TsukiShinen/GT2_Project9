@@ -4,10 +4,12 @@ using UnityEngine;
 
 using BehaviourTree;
 
-public class CheckEnemyInRange : Node
+public class CheckEnemyInRange : ActionNode
 {
     private Transform _transform;
     private Tank _tank;
+
+    public float DetectionRange;
 
     public CheckEnemyInRange(Transform transform, Tank tank)
     {
@@ -20,7 +22,7 @@ public class CheckEnemyInRange : Node
         object t = GetData("target");
         if (t == null)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(_transform.position, TankBT.DetectionRange);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(_transform.position, DetectionRange);
 
             if (colliders.Length > 0)
             {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BehaviourTree;
 
-public class Capture : Node
+public class Capture : ActionNode
 {
     private Tank _tank;
     private Transform _capturePointTransform;

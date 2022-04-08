@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BehaviourTree
 {
@@ -9,12 +10,15 @@ namespace BehaviourTree
         SUCCESS, 
         FAILURE
     }
-    public class Node
+    public abstract class Node : ScriptableObject
     {
         protected NodeState _state;
-
+        
         public Node Parent;
-        protected List<Node> _children;
+        public List<Node> Children = new List<Node>();
+
+        [HideInInspector] public string guid;
+        [HideInInspector] public Vector2 position;
 
         private Dictionary<string, object> _contextData = new Dictionary<string, object>();
 
@@ -24,7 +28,7 @@ namespace BehaviourTree
         }
         public Node(List<Node> children)
         {
-            _children = new List<Node>();
+            Children = new List<Node>();
             foreach (Node child in children)
                 _Attach(child);
         }
@@ -32,10 +36,10 @@ namespace BehaviourTree
         private void _Attach(Node node)
         {
             node.Parent = this;
-            _children.Add(node);
+            Children.Add(node);
         }
 
-        public virtual NodeState Evaluate() => NodeState.FAILURE;
+        public abstract NodeState Evaluate();
 
         public void SetData(string key, object value)
         {

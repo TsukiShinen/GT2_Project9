@@ -1,7 +1,7 @@
 using BehaviourTree;
 using System.Collections.Generic;
 
-public class TankBT : Tree
+/* class TankBT : Tree
 {
     [UnityEngine.SerializeField] private Tank _tank;
     [UnityEngine.SerializeField] private UnityEngine.Transform _capturePointTransform;
@@ -21,4 +21,4 @@ public class TankBT : Tree
 
         return root;
     }
-}
+}*/
