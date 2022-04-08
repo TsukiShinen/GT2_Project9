@@ -23,7 +23,7 @@ public class GridController : MonoBehaviour
 #if UNITY_EDITOR
     [Header("Debug")] 
     [SerializeField] private bool activateDebug;
-    [SerializeField] private DebugShow debugshow;
+    [SerializeField] private DebugShow debugShow;
 #endif
 
     private Cell[,] _grid;
@@ -140,7 +140,7 @@ public class GridController : MonoBehaviour
             var style = new GUIStyle(GUI.skin.label);
             style.alignment = TextAnchor.MiddleCenter;
 
-            switch (debugshow)
+            switch (debugShow)
             {
                 case DebugShow.Cost:
                     DrawGrid(Color.green);

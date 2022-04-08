@@ -34,6 +34,7 @@ public class Target : IState<Tank>
     public IState<Tank> Handle(Tank Entity)
     {
         if (Entity.NextState == "GoTo") { Entity.NextState = ""; return TankStates.Goto; }
+        if (Entity.NextState == "Idle") { Entity.NextState = ""; return TankStates.Idle; }
 
         return this;
     }

@@ -21,6 +21,7 @@ public class Goto : IState<Tank>
     {
         if (Entity.NextState == "Target") { Entity.NextState = ""; return TankStates.Target; }
         if (Vector2.Distance(Entity.Movement.PositionToGo, Entity.transform.position) < 0.1f) { Entity.NextState = ""; return TankStates.Idle; }
+        if (Entity.NextState == "Idle") { Entity.NextState = ""; return TankStates.Idle; }
         return this;
     }
 

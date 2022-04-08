@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankStates
 {
-    public static Goto Goto = new Goto();
-    public static Target Target = new Target();
-    public static Idle Idle = new Idle();
+    public static readonly Goto Goto = new Goto();
+    public static readonly Target Target = new Target();
+    public static readonly Idle Idle = new Idle();
 }
