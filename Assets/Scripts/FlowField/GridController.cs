@@ -33,6 +33,9 @@ public class GridController : MonoBehaviour
     
     private FlowField _currentFlowField;
 
+    //A*
+    //private AStar _currentAstar;
+
     private void InitializeFlowField()
     {
         _currentFlowField = new FlowField(_grid, gridSize, cellSize, parameters, terrainMasks);
@@ -82,16 +85,22 @@ public class GridController : MonoBehaviour
         CreateGrid();
         CreateCostField();
         InitializeFlowField();
+
+        //A*
+        //_currentAstar = new AStar(_grid, gridSize, cellSize, new Cell(new Vector2(CellDiameter * 11 + CellRadius, CellDiameter * 11 + CellRadius), new Vector2Int(11, 11)));
+        //_currentAstar.CreateAStar(new Cell(new Vector2(CellDiameter * 0 + CellRadius, CellDiameter * 0 + CellRadius), new Vector2Int(0, 0)));
     }
 
     public Cell[,] GenerateFlowField(Vector2 position)
     {
+
         var destinationCell = GetCellFromWorldPosition(_grid, cellSize, position);
         _currentFlowField.CreateIntegrationField(destinationCell);
         _currentFlowField.CreateFlowField();
         return _currentFlowField.Grid;
     }
-    
+
+
     public static List<Cell> GetNeighborCells(Cell[,] grid, Vector2Int nodeIndex, List<GridDirection> directions)
     {
         var neighbors = new List<Cell>();
@@ -168,8 +177,25 @@ public class GridController : MonoBehaviour
         else
         {
             DrawGrid(Color.yellow);
+            
         }
+
+        
     }
+
+    // A*
+    //private void DrawPath(Color color)
+    //{
+    //    if (_currentAstar != null)
+    //    {
+    //        foreach (var cell in _currentAstar.Path)
+    //        {
+    //            var center = new Vector2(cellSize * cell.GridIndex.x + cellSize / 2, cellSize * cell.GridIndex.y + cellSize / 2);
+    //            var size = Vector2.one * cellSize;
+    //            Gizmos.DrawCube(center, size);
+    //        }
+    //    }
+    //}
 
     private void DrawGrid(Color color)
     {
