@@ -539,4 +539,3 @@ MonoBehaviour:
   bullet: {fileID: 8201686019607275655, guid: be8aeeeffb591e2419bd4c546594421d, type: 3}
   canon: {fileID: 6704171966508232030}
   _shootAnim: {fileID: 8815572296639456539}
-  _shootEffect: {fileID: 0}

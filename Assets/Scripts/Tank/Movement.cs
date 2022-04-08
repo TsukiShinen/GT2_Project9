@@ -6,25 +6,33 @@ public class Movement : MonoBehaviour
 	public float Speed { get; set; }
 
 	[SerializeField] private GameParameters parameters;
-	[SerializeField] private GridController gridController;
+	private GridController _gridController;
 	
 	public Vector3 PositionToGo { get; private set; }
+	public bool IsMoving { get; private set; }
 
 	private Cell[,] _grid;
 
 	private float DistanceFromPoint => Vector2.Distance(PositionToGo, transform.position);
 
+	private void Awake()
+	{
+		_gridController = FindObjectOfType<GridController>();
+	}
+
 	public void LoadPathFinding(Vector3 positionToGo)
 	{
 		PositionToGo = positionToGo;
-		_grid = gridController.GenerateFlowField(PositionToGo);
+		_grid = _gridController.GenerateFlowField(PositionToGo);
+		IsMoving = false;
 	}
 
 	public void Move()
 	{
-		if (DistanceFromPoint < 0.5f) { return; }
-		
-		var cellBelow = GridController.GetCellFromWorldPosition(_grid, gridController.cellSize, transform.position);
+		if (DistanceFromPoint < 0.5f) { IsMoving = false; return; }
+
+		IsMoving = true;
+		var cellBelow = GridController.GetCellFromWorldPosition(_grid, _gridController.cellSize, transform.position);
 		
 		Vector2 targetDir = cellBelow.BestDirection.Vector;
 		if(Vector2.Distance(PositionToGo, transform.position) < 1f)

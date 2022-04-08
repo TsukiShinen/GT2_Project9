@@ -29,7 +29,14 @@ public class InputEvent
 
         if (!HasTanksSelected) { return; }
 
-        Action(hit);
+        if (Input.GetKey(KeyCode.A))
+        {
+            ActionZone(hit);
+        }
+        else
+        {
+            Action(hit);
+        }
     }
 
     public void OnLeftClick()
@@ -75,6 +82,14 @@ public class InputEvent
         _selectedTanks.Clear();
     }
 
+    public void StopAllAction()
+    {
+        foreach (var tank in _selectedTanks)
+        {
+            TankActions.Stop.Execute(tank);
+        }
+    }
+
     private void Action(RaycastHit2D hit)
     {
         var positions = new[]
@@ -97,6 +112,21 @@ public class InputEvent
             {
                 if (hit.collider.gameObject.layer == _parameters.LayerNavigationObstacleAsLayer) { return; }
                 TankActions.GoTo.Execute(tank, (Vector3)MousePosition + positions[i]);
+            }
+        }
+    }
+
+    private void ActionZone(RaycastHit2D hit)
+    {
+        foreach (var tank in _selectedTanks)
+        {
+            if (tank.Movement.IsMoving)
+            {
+                // TODO : Tirer dans la direction
+            }
+            else
+            {
+                // TODO : Se mettre a porté de tir et tirer dans la direction
             }
         }
     }

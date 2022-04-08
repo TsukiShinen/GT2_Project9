@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TankActions
 {
-    public static ActionGoTo GoTo = new ActionGoTo();
-    public static ActionTarget Target = new ActionTarget();
+    public static readonly ActionGoTo GoTo = new ActionGoTo();
+    public static readonly ActionTarget Target = new ActionTarget();
+    public static readonly ActionStop Stop = new ActionStop();
 }

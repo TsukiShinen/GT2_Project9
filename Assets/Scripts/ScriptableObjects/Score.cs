@@ -13,6 +13,15 @@ public class Score : ScriptableObject
     public float _progression { set; get; }
     public Team _teamScoring { set; get; }
 
+    public void Clear()
+    {
+        _playerScore.score = 0;
+        _enemyScore.score = 0;
+
+        _teamScoring = null;
+        _progression = 0;
+    }
+
     public void Capture(Team team)
     {
         if (_teamScoring == null) { _teamScoring = team; }

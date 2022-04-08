@@ -26,6 +26,11 @@ public class InputManager : MonoBehaviour
         {
             _inputEvent.OnLeftClickRelease();
         }
+
+        if (Input.GetKeyDown("s"))
+        {
+            _inputEvent.StopAllAction();
+        }
     }
 
     private void OnGUI()
