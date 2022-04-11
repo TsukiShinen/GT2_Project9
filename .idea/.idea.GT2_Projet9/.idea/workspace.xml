@@ -15,9 +15,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ui@1.0.0-preview.18/Core/UXML/VisualTreeAsset.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -81,7 +78,7 @@
       <workItem from="1649661298734" duration="5421000" />
       <workItem from="1649667312857" duration="744000" />
       <workItem from="1649668264177" duration="115000" />
-      <workItem from="1649668397468" duration="1441000" />
+      <workItem from="1649668397468" duration="2116000" />
     </task>
     <servers />
   </component>
