@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BehaviourTree
 {
@@ -9,14 +10,17 @@ namespace BehaviourTree
         SUCCESS, 
         FAILURE
     }
-    public class Node
+    public abstract class Node : ScriptableObject
     {
         protected NodeState _state;
-
+        
         public Node Parent;
-        protected List<Node> _children;
+        public List<Node> Children = new List<Node>();
 
-        private Dictionary<string, object> _contextData = new Dictionary<string, object>();
+        [HideInInspector] public string guid;
+        [HideInInspector] public Vector2 position;
+
+        private Dictionary<string, object> _contextData;
 
         public Node()
         {
@@ -24,31 +28,46 @@ namespace BehaviourTree
         }
         public Node(List<Node> children)
         {
-            _children = new List<Node>();
+            Children = new List<Node>();
             foreach (Node child in children)
                 _Attach(child);
+        }
+
+        public virtual void Init()
+        {
+            foreach (var child in Children)
+            {
+                child.Init();
+            }
         }
 
         private void _Attach(Node node)
         {
             node.Parent = this;
-            _children.Add(node);
+            Children.Add(node);
         }
 
-        public virtual NodeState Evaluate() => NodeState.FAILURE;
+        public abstract NodeState Evaluate();
 
         public void SetData(string key, object value)
         {
+            if (_contextData == null)
+            {
+                _contextData = new Dictionary<string, object>();
+            }
             _contextData[key] = value;
         }
 
-        public object GetData(string key)
+        protected object GetData(string key)
         {
-            object value = null;
-            if (_contextData.TryGetValue(key, out value))
+            if (_contextData == null)
+            {
+                _contextData = new Dictionary<string, object>();
+            }
+            if (_contextData.TryGetValue(key, out var value))
                 return value;
 
-            Node node = Parent;
+            var node = Parent;
             while(node!= null)
             {
                 value = node.GetData(key);
@@ -78,6 +97,14 @@ namespace BehaviourTree
             }
 
             return false;
+        }
+    
+        public Node Clone(Node n)
+        {
+            var node= Instantiate(this);
+            node.Children = Children.ConvertAll(c => c.Clone(node));
+            node.Parent = n;
+            return node;
         }
     }
 }

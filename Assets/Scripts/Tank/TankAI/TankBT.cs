@@ -1,24 +1,21 @@
 using BehaviourTree;
-using System.Collections.Generic;
+using UnityEngine;
 
-public class TankBT : Tree
+public class TankBt : BehaviourTreeRunner
 {
-    [UnityEngine.SerializeField] private Tank _tank;
-    [UnityEngine.SerializeField] private UnityEngine.Transform _capturePointTransform;
-    public static float DetectionRange = 5f;
+	[SerializeField] private Transform point;
+	
+	private Tank _tank;
 
-    protected override Node SetupTree()
-    {
-        Node root = new Selector(new List<Node>
-        {
-            new Sequence(new List<Node>
-            {
-                new CheckEnemyInRange(transform, _tank),
-                new TargetEnemy(_tank)
-            }),
-            new Capture(_tank, _capturePointTransform)
-        });
+	private void Awake()
+	{
+		_tank = GetComponent<Tank>();
+	}
 
-        return root;
-    }
+	protected override void LoadData()
+	{
+		tree.root.SetData("tank", _tank);
+		tree.root.SetData("transform", transform);
+		tree.root.SetData("point", point);
+	}
 }

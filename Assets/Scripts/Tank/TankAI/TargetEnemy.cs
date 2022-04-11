@@ -4,18 +4,19 @@ using UnityEngine;
 
 using BehaviourTree;
 
-public class TargetEnemy : Node
+public class TargetEnemy : ActionNode
 {
     private Tank _tank;
 
-    public TargetEnemy(Tank tank)
+    public override void Init()
     {
-        _tank = tank;
+        base.Init();
+        _tank = GetData("tank") as Tank;
     }
 
     public override NodeState Evaluate()
     {
-        Transform target = (Transform)GetData("target");
+        var target = (Transform)GetData("target");
         if (target)
         {
             TankActions.Target.Execute(_tank, target);

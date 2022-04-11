@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    public class Selector : Node
+    public class Selector : CompositeNode
     {
         public Selector(List<Node> children) : base(children) { }
 
         public override NodeState Evaluate()
         {
-            foreach (Node node in _children)
+            foreach (Node node in Children)
             {
                 switch (node.Evaluate())
                 {

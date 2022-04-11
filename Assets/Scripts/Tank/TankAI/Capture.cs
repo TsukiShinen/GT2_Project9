@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 using BehaviourTree;
 
-public class Capture : Node
+public class Capture : ActionNode
 {
     private Tank _tank;
     private Transform _capturePointTransform;
 
-    public Capture(Tank tank, Transform capturePointTransform)
+    public override void Init()
     {
-        _tank = tank;
-        _capturePointTransform = capturePointTransform;
+        base.Init();
+        _tank = GetData("tank") as Tank;
+        _capturePointTransform = GetData("point") as Transform;
     }
 
     public override NodeState Evaluate()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    public class Sequence : Node
+    public class Sequence : CompositeNode
     {
         public Sequence(List<Node> children) : base(children) { }
 
@@ -12,7 +12,7 @@ namespace BehaviourTree
         {
             bool anyChildIsRunning = false;
 
-            foreach (Node node in _children)
+            foreach (Node node in Children)
             {
                 switch (node.Evaluate())
                 {

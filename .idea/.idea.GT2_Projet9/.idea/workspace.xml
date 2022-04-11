@@ -7,6 +7,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -20,6 +28,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
@@ -36,10 +45,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9744">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="9744" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -58,7 +67,18 @@
       <workItem from="1649063291053" duration="14386000" />
       <workItem from="1649143343413" duration="13265000" />
       <workItem from="1649231340906" duration="3851000" />
-      <workItem from="1649407191101" duration="4564000" />
+      <workItem from="1649407191101" duration="6556000" />
+      <workItem from="1649421609365" duration="3885000" />
+      <workItem from="1649425579213" duration="600000" />
+      <workItem from="1649426218291" duration="389000" />
+      <workItem from="1649426629524" duration="9815000" />
+      <workItem from="1649516201371" duration="27000" />
+      <workItem from="1649593015931" duration="2845000" />
+      <workItem from="1649595993272" duration="698000" />
+      <workItem from="1649661298734" duration="5421000" />
+      <workItem from="1649667312857" duration="744000" />
+      <workItem from="1649668264177" duration="115000" />
+      <workItem from="1649668397468" duration="2116000" />
     </task>
     <servers />
   </component>
@@ -81,5 +101,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#BehaviourTree.Node" memberName="Children" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
