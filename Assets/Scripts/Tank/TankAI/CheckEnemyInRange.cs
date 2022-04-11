@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 using BehaviourTree;
@@ -9,24 +10,25 @@ public class CheckEnemyInRange : ActionNode
     private Transform _transform;
     private Tank _tank;
 
-    public float DetectionRange;
+    public float detectionRange;
 
-    public CheckEnemyInRange(Transform transform, Tank tank)
+    public override void Init()
     {
-        _transform = transform;
-        _tank = tank;
+        base.Init();
+        _tank = GetData("tank") as Tank;
+        _transform = GetData("transform") as Transform;
     }
 
     public override NodeState Evaluate()
     {
-        object t = GetData("target");
+        var t = GetData("target");
         if (t == null)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(_transform.position, DetectionRange);
+            var colliders = Physics2D.OverlapCircleAll(_transform.position, detectionRange);
 
             if (colliders.Length > 0)
             {
-                foreach (Collider2D collider in colliders)
+                foreach (var collider in colliders)
                 {
                     if (!collider.CompareTag("Tank")) { continue; }
                     if (collider.GetComponent<Tank>().Team == _tank.Team) { continue; }

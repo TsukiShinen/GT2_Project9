@@ -8,9 +8,10 @@ public class TargetEnemy : ActionNode
 {
     private Tank _tank;
 
-    public TargetEnemy(Tank tank)
+    public override void Init()
     {
-        this._tank = tank;
+        base.Init();
+        _tank = GetData("tank") as Tank;
     }
 
     public override NodeState Evaluate()

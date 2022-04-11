@@ -12,7 +12,7 @@ namespace BehaviourTree
 
         public List<Node> nodes = new List<Node>();
 
-        private void Update()
+        public void Update()
         {
             if (root != null)
                 root.Evaluate();
@@ -23,17 +23,24 @@ namespace BehaviourTree
             var node = ScriptableObject.CreateInstance(type) as Node;
             node.name = type.Name;
             node.guid = GUID.Generate().ToString();
+            
+            Undo.RecordObject(this, "Behaviour Tree (Create Child)");
             nodes.Add(node);
             
             AssetDatabase.AddObjectToAsset(node,  this);
+            Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (Create Node)");
+            
             AssetDatabase.SaveAssets();
             return node;
         }
 
         public void DeleteNode(Node node)
         {
+            Undo.RecordObject(this, "Behaviour Tree (Delete Child)");
             nodes.Remove(node);
-            AssetDatabase.RemoveObjectFromAsset(node);
+            // AssetDatabase.RemoveObjectFromAsset(node);
+            Undo.DestroyObjectImmediate(node);
+            
             AssetDatabase.SaveAssets();
         }
 
@@ -43,6 +50,7 @@ namespace BehaviourTree
             
             if (node)
             {
+                Undo.RecordObject(node, "Behaviour Tree (Add Child)");
                 if (node.Children == null)
                 {
                     node.Children = new List<Node>();
@@ -57,8 +65,10 @@ namespace BehaviourTree
             var node = parent as Node;
             if (node)
             {
+                Undo.RecordObject(node, "Behaviour Tree (Remove Child)");
                 node.Children.Remove(child);
                 child.Parent = null;
+                EditorUtility.SetDirty(node);
             }
         }
         
@@ -72,6 +82,13 @@ namespace BehaviourTree
             }
 
             return children;
+        }
+
+        public Tree Clone()
+        {
+            var tree = Instantiate(this);
+            tree.root = root.Clone(null);
+            return tree;
         }
     }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   Parent: {fileID: 4892461967672834190}
   Children: []
   guid: c1a911a2b41d4d942bb41bcea5e26634
-  position: {x: 287, y: -76.5}
-  DetectionRange: 0
+  position: {x: 13, y: 363.72}
+  detectionRange: 6
 --- !u!114 &-4035305702278620478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,10 +32,10 @@ MonoBehaviour:
   Parent: {fileID: 0}
   Children:
   - {fileID: 4892461967672834190}
-  - {fileID: -3506448029673821345}
+  - {fileID: 5738726001347866357}
   guid: 584730381ba5e27458199ac7c524b31a
-  position: {x: 0, y: 0}
---- !u!114 &-3506448029673821345
+  position: {x: 214, y: 88.72}
+--- !u!114 &-3705491162808904228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,13 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0c227308ec7484696854daac66fb21, type: 3}
-  m_Name: Capture
+  m_Script: {fileID: 11500000, guid: 52e4a674d79bcff4c91a7894b76f5950, type: 3}
+  m_Name: TargetEnemy
   m_EditorClassIdentifier: 
-  Parent: {fileID: -4035305702278620478}
+  Parent: {fileID: 4892461967672834190}
   Children: []
-  guid: c3d60a155e095ae4d9bcc651dd51e4af
-  position: {x: 152, y: 77}
+  guid: 7e3d65568757f294c8f8a289ac47f634
+  position: {x: 185, y: 363.72}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,25 +67,9 @@ MonoBehaviour:
   nodes:
   - {fileID: -4035305702278620478}
   - {fileID: 4892461967672834190}
-  - {fileID: -3506448029673821345}
   - {fileID: -4678797999320773373}
-  - {fileID: 1434221017946268487}
---- !u!114 &1434221017946268487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e4a674d79bcff4c91a7894b76f5950, type: 3}
-  m_Name: TargetEnemy
-  m_EditorClassIdentifier: 
-  Parent: {fileID: 0}
-  Children: []
-  guid: d53178347bc313242aaf612f2156e8b6
-  position: {x: 0, y: 0}
+  - {fileID: -3705491162808904228}
+  - {fileID: 5738726001347866357}
 --- !u!114 &4892461967672834190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,5 +85,22 @@ MonoBehaviour:
   Parent: {fileID: -4035305702278620478}
   Children:
   - {fileID: -4678797999320773373}
+  - {fileID: -3705491162808904228}
   guid: 321b68f1293038e44a02bcff741e08f1
-  position: {x: 152, y: -38.5}
+  position: {x: 98, y: 221.72}
+--- !u!114 &5738726001347866357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0c227308ec7484696854daac66fb21, type: 3}
+  m_Name: Capture
+  m_EditorClassIdentifier: 
+  Parent: {fileID: -4035305702278620478}
+  Children: []
+  guid: 47df1f1c101e47d469bbe69f7f62b3d7
+  position: {x: 314, y: 221.72}
