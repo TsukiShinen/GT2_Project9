@@ -3,25 +3,17 @@ using UnityEngine;
 
 public class FlowField
 {
-    private readonly GameParameters _parameters;
-    private readonly LayerMask _terrainMasks;
-
     public readonly Cell[,] Grid;
     private Vector2Int _gridSize;
     private Cell _destinationCell;
 
-    private readonly float _cellRadius;
     private readonly float _cellDiameter;
 
     public FlowField(Cell[,] grid, Vector2Int gridSize, float cellSize, GameParameters parameters, LayerMask terrainMasks)
     {
         Grid = grid;
         _gridSize = gridSize;
-        _cellRadius = cellSize / 2f;
         _cellDiameter = cellSize;
-
-        _parameters = parameters;
-        _terrainMasks = terrainMasks;
     }
 
     public void CreateIntegrationField(Cell destinationCell)
@@ -83,5 +75,31 @@ public class FlowField
         }
     }
 
+    public Queue<Vector3> GetPath(Vector2 startingPosition)
+    {
+        var waypoints = new Queue<Vector3>();
+
+        var position = startingPosition;
+        
+        var c = true;
+        while (c)
+        {
+            var cell = GridController.GetCellFromWorldPosition(Grid, _cellDiameter, position);
+            var dir = new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) * _cellDiameter;
+            
+            var newPosition = cell.WorldPosition + dir;
+            if (position == newPosition)
+            {
+                c = false;
+            }
+            else
+            {
+                waypoints.Enqueue(newPosition);
+                position = newPosition;
+            }
+        }
+        
+        return waypoints;
+    }
     
 }

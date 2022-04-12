@@ -31,7 +31,7 @@ public class GridController : MonoBehaviour
     private float CellRadius => cellSize / 2f;
     
     
-    private FlowField _currentFlowField;
+    public FlowField _currentFlowField;
 
     //A*
     //private AStar _currentAstar;

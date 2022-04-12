@@ -120,7 +120,7 @@ public class InputEvent
     {
         foreach (var tank in _selectedTanks)
         {
-            if (tank.Movement.IsMoving)
+            if (!tank.Movement.ArrivedAtDestination)
             {
                 // TODO : Tirer dans la direction
             }

@@ -12,6 +12,9 @@ public class Tank : MonoBehaviour
     private StateMachine<Tank> _stateMachine;
     public string NextState { get; set; }
 
+    public GridController gridController;
+    public Vector3 PositionToGo { get; set; }
+
     private void Awake()
     {
         _stateMachine = new StateMachine<Tank>();
@@ -26,6 +29,13 @@ public class Tank : MonoBehaviour
         Movement.Speed = parameters.TankSpeed;
 
         _stateMachine.ChangeState(TankStates.Idle);
+    }
+
+    public void GoTo(Vector2 position)
+    {
+        PositionToGo = position;
+        gridController.GenerateFlowField(position);
+        Movement.SetPath(gridController._currentFlowField.GetPath(transform.position));
     }
 
     public void Update()

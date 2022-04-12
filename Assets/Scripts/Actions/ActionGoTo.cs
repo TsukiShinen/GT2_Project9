@@ -8,8 +8,8 @@ public class ActionGoTo : IAction
         if (tank == null) { return; }
         var positionToGo = (Vector3)args[1];
         
-        if (tank.Movement.PositionToGo == positionToGo) { return; }
-        //tank.Movement.LoadPathFinding(positionToGo);
+        if (positionToGo == tank.PositionToGo) return;
+        tank.GoTo(positionToGo);
         tank.NextState = "GoTo";
     }
 }
