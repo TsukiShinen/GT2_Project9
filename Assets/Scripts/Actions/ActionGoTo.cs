@@ -9,7 +9,7 @@ public class ActionGoTo : IAction
         var positionToGo = (Vector3)args[1];
         
         if (tank.Movement.PositionToGo == positionToGo) { return; }
-        tank.Movement.LoadPathFinding(positionToGo);
+        //tank.Movement.LoadPathFinding(positionToGo);
         tank.NextState = "GoTo";
     }
 }

@@ -1,33 +1,36 @@
 ﻿using System;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public abstract class Movement : MonoBehaviour
 {
 	public float Speed { get; set; }
 
 	[SerializeField] private GameParameters parameters;
-	private GridController _gridController;
+	//private GridController _gridController;
 	
-	public Vector3 PositionToGo { get; private set; }
-	public bool IsMoving { get; private set; }
+	public Vector3 PositionToGo { get; set; }
+	public bool IsMoving => MustMove;
 
-	private Cell[,] _grid;
+	//private Cell[,] _grid;
 
-	private float DistanceFromPoint => Vector2.Distance(PositionToGo, transform.position);
+	protected float DistanceFromPoint => Vector2.Distance(PositionToGo, transform.position);
+	protected bool MustMove => DistanceFromPoint > 0.5f;
 
 	private void Awake()
 	{
-		_gridController = FindObjectOfType<GridController>();
+		//_gridController = FindObjectOfType<GridController>();
 	}
 
-	public void LoadPathFinding(Vector3 positionToGo)
+	/*public void LoadPathFinding(Vector3 positionToGo)
 	{
 		PositionToGo = positionToGo;
 		_grid = _gridController.GenerateFlowField(PositionToGo);
 		IsMoving = false;
-	}
+	}*/
 
-	public void Move()
+	public abstract void Move();
+
+	/*public void Move()
 	{
 		if (DistanceFromPoint < 0.5f) { IsMoving = false; return; }
 
@@ -50,37 +53,36 @@ public class Movement : MonoBehaviour
 		{
 			Translate();
 		}
-	}
+	}*/
 
-	private void Translate()
+	public void SimpleMove(Vector3 target)
 	{
-		Vector2 oldPos = transform.position;
-		transform.position += transform.up * Speed * Time.deltaTime;
-	}
-
-	private void Turn(float angle, Vector2 targetDir)
-	{
-		transform.Rotate(new Vector3(0, 0, (parameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
-		if (Mathf.Abs(angle) < Mathf.Abs(Vector2.SignedAngle(targetDir, transform.up)))
-		{
-			transform.up = targetDir;
-		}
-	}
-
-	public void MoveWithoutPathFinding(Vector3 target)
-	{
-		if (Vector2.Distance(target, transform.position) < 0.1f) { return; }
+		if (!MustMove) { return; }
 		
 		Vector2 targetDir = target - transform.position;
 
 		var angle = Vector2.SignedAngle(targetDir, transform.up);
 		if (Mathf.Abs(angle) > 1f)
 		{
-			transform.Rotate(new Vector3(0, 0, (parameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
+			Turn(angle, targetDir);
 		}
 		else
 		{
-			transform.position += transform.up * Speed * Time.deltaTime;
+			MoveForward();
+		}
+	}
+
+	protected void MoveForward()
+	{
+		transform.position += transform.up * Speed * Time.deltaTime;
+	}
+
+	protected void Turn(float angle, Vector2 targetDir)
+	{
+		transform.Rotate(new Vector3(0, 0, (parameters.TankTurnSpeed * -Mathf.Sign(angle)) * Time.deltaTime));
+		if (Mathf.Abs(angle) < Mathf.Abs(Vector2.SignedAngle(targetDir, transform.up)))
+		{
+			transform.up = targetDir;
 		}
 	}
 }

@@ -21,7 +21,7 @@ public class Target : IState<Tank>
     {
         if(Vector2.Distance(Entity.transform.position, Entity.Attack.Target.position) > 6f)
         {
-            Entity.Movement.MoveWithoutPathFinding(Entity.Attack.Target.position);
+            Entity.Movement.SimpleMove(Entity.Attack.Target.position);
         }
         else
         {
