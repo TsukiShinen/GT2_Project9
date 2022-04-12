@@ -161,5 +161,9 @@ public class AStar
         {
             FinalLoop(tmpCell.GridIndex);
         }
+        else
+        {
+            Path.Reverse();
+        }
     }
 }
