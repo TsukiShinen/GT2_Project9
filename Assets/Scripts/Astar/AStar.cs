@@ -1,50 +1,40 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 
 public class AStar
 {
-    private readonly GameParameters _parameters;
-    private readonly LayerMask _terrainMasks;
-
-    public readonly Cell[,] Grid;
-    public List<Cell> CellsFound;
-    public List<Cell> Path;
+    private readonly Cell[,] _grid;
+    private readonly List<Cell> _cellsFound;
+    private readonly List<Cell> _path;
 
     private List<Cell> _cells;
-    private List<Cell> _cellsChecked;
+    private readonly List<Cell> _cellsChecked;
 
-    private Vector2Int _gridSize;
     private Cell _destinationCell;
     private Cell _origin;
 
-    private readonly float _cellRadius;
-    private readonly float _cellDiameter;
-
-    public AStar(Cell[,] grid, Vector2Int gridSize, float cellSize, Cell destinationCell)
+    public AStar(Cell[,] grid, Cell destinationCell)
     {
-        Grid = grid;
-        _gridSize = gridSize;
-        _cellRadius = cellSize / 2f;
-        _cellDiameter = cellSize;
+        _grid = grid;
         _destinationCell = destinationCell;
-        CellsFound = new List<Cell>();
+        _cellsFound = new List<Cell>();
         _cellsChecked = new List<Cell>();
-        Path = new List<Cell>();
+        _path = new List<Cell>();
 }
 
-    public void CreateAStar(Cell initalPos)
+    public void CreateAStar(Cell initialPos)
     {
-        _cells = GridController.GetNeighborCells(Grid, initalPos.GridIndex, GridDirection.CardinalAndInterCardinalDirections);
-        _origin = initalPos;
-        CellsFound.Add(Grid[initalPos.GridIndex.x, initalPos.GridIndex.y]);
-        Loop(initalPos.GridIndex);
+        _cells = GridController.GetNeighborCells(_grid, initialPos.GridIndex, GridDirection.CardinalAndInterCardinalDirections);
+        _origin = initialPos;
+        _cellsFound.Add(_grid[initialPos.GridIndex.x, initialPos.GridIndex.y]);
+        Loop(initialPos.GridIndex);
     }
 
-    public float CheckHTile(Cell cell)
+    private float CheckHTile(Cell cell)
     {
         float cost = 0;
-        Vector2 position = Vector2.zero;
-        Vector2 distance = new Vector2(Mathf.Abs(cell.GridIndex.x - _destinationCell.GridIndex.x), Mathf.Abs(cell.GridIndex.y - _destinationCell.GridIndex.y));
+        var position = Vector2.zero;
+        var distance = new Vector2(Mathf.Abs(cell.GridIndex.x - _destinationCell.GridIndex.x), Mathf.Abs(cell.GridIndex.y - _destinationCell.GridIndex.y));
         while (position.x < distance.x && position.y < distance.y)
         {
             position.x += 1;
@@ -62,11 +52,11 @@ public class AStar
         return cost;
     }
 
-    public float CheckGTile(Cell cell, Vector2Int initalPos)
+    private float CheckGTile(Cell cell, Vector2Int initialPos)
     {
         float cost = 0;
-        Vector2 position = Vector2.zero;
-        Vector2 distance = new Vector2(Mathf.Abs(cell.GridIndex.x - initalPos.x), Mathf.Abs(cell.GridIndex.y - initalPos.y));
+        var position = Vector2.zero;
+        var distance = new Vector2(Mathf.Abs(cell.GridIndex.x - initialPos.x), Mathf.Abs(cell.GridIndex.y - initialPos.y));
         while (position.x < distance.x && position.y < distance.y)
         {
             position.x += 1;
@@ -84,52 +74,52 @@ public class AStar
         return cost;
     }
 
-    public void AddToList(Cell cell)
+    private void AddToList(Cell cell)
     {
-        List<Cell> tmpList = GridController.GetNeighborCells(Grid, cell.GridIndex, GridDirection.CardinalAndInterCardinalDirections);
-        foreach (Cell neighborcell in tmpList)
+        var tmpList = GridController.GetNeighborCells(_grid, cell.GridIndex, GridDirection.CardinalAndInterCardinalDirections);
+        foreach (var neighborCell in tmpList)
         {
-            if (!_cells.Contains(neighborcell) && neighborcell.Cost < 255 && !_cellsChecked.Contains(neighborcell))
+            if (!_cells.Contains(neighborCell) && neighborCell.Cost < 255 && !_cellsChecked.Contains(neighborCell))
             {
-                _cells.Add(neighborcell);
+                _cells.Add(neighborCell);
             }
         }
     }
 
-    public void AddToList2(Cell cell)
+    private void AddToList2(Cell cell)
     {
-        List<Cell> tmpList = GridController.GetNeighborCells(Grid, cell.GridIndex, GridDirection.CardinalAndInterCardinalDirections);
-        foreach (Cell neighborcell in tmpList)
+        var tmpList = GridController.GetNeighborCells(_grid, cell.GridIndex, GridDirection.CardinalAndInterCardinalDirections);
+        foreach (var neighborCell in tmpList)
         {
-            if (!_cells.Contains(neighborcell) && neighborcell.Cost < 255 && !_cellsChecked.Contains(neighborcell) && CellsFound.Contains(neighborcell))
+            if (!_cells.Contains(neighborCell) && neighborCell.Cost < 255 && !_cellsChecked.Contains(neighborCell) && _cellsFound.Contains(neighborCell))
             {
-                _cells.Add(neighborcell);
+                _cells.Add(neighborCell);
             }
         }
     }
 
-    public Cell FindMinimalCell(Vector2Int initalPos)
+    private Cell FindMinimalCell(Vector2Int initialPos)
     {
-        float cost = Mathf.Infinity;
-        int index = 0;
+        var cost = Mathf.Infinity;
+        var index = 0;
         for (var x = 0; x < _cells.Count; x++)
         {
-            if (CheckHTile(_cells[x]) + CheckGTile(_cells[x], initalPos) < cost)
+            if (CheckHTile(_cells[x]) + CheckGTile(_cells[x], initialPos) < cost)
             {
-                cost = CheckHTile(_cells[x]) + CheckGTile(_cells[x], initalPos);
+                cost = CheckHTile(_cells[x]) + CheckGTile(_cells[x], initialPos);
                 index = x;
             }
         }
-        Cell tmpCell = _cells[index];
+        var tmpCell = _cells[index];
         return tmpCell;
     }
-    public void Loop(Vector2Int initalPos)
+    private void Loop(Vector2Int initialPos)
     {
-        Cell tmpCell = FindMinimalCell(initalPos);
+        var tmpCell = FindMinimalCell(initialPos);
         _cells.Remove(tmpCell);
         _cellsChecked.Add(tmpCell);
         AddToList(tmpCell);
-        CellsFound.Add(tmpCell);
+        _cellsFound.Add(tmpCell);
         if (tmpCell.GridIndex == _destinationCell.GridIndex)
         {
             _destinationCell = _origin;
@@ -145,25 +135,26 @@ public class AStar
         }
     }
 
-    public void FinalLoop(Vector2Int initalPos)
+    private void FinalLoop(Vector2Int initialPos)
     {
-        if(initalPos == new Vector2Int(2, 2))
+        if(initialPos == new Vector2Int(2, 2))
         {
             Debug.Log("test");
         }
-        Cell tmpCell = FindMinimalCell(initalPos);
+        var tmpCell = FindMinimalCell(initialPos);
         _cells.Remove(tmpCell);
         _cellsChecked.Add(tmpCell);
         
         AddToList2(tmpCell);
-        Path.Add(tmpCell);
+        _path.Add(tmpCell);
         if (tmpCell.GridIndex != _destinationCell.GridIndex)
         {
             FinalLoop(tmpCell.GridIndex);
         }
         else
         {
-            Path.Reverse();
+            _path.Reverse();
         }
     }
 }
+*/

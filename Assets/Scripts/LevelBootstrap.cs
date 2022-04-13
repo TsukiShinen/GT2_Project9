@@ -9,9 +9,12 @@ public class LevelBootstrap : MonoBehaviour
     [SerializeField] private GameObject tankRed;
 
     [SerializeField] private Score score;
+    [SerializeField] private PathFinding.PathFindingController pathFindingController;
     
     private void Start()
     {
+        pathFindingController.Init();
+        
         // Blue spawn
         var blueTanks = new List<GameObject>();
         for (var i = 0; i < nbrTankPerTeam; i++)

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tank : MonoBehaviour
@@ -12,7 +13,7 @@ public class Tank : MonoBehaviour
     private StateMachine<Tank> _stateMachine;
     public string NextState { get; set; }
 
-    public GridController gridController;
+    public PathFinding.PathFindingController pathFindingController;
     public Vector3 PositionToGo { get; set; }
 
     private void Awake()
@@ -34,8 +35,8 @@ public class Tank : MonoBehaviour
     public void GoTo(Vector2 position)
     {
         PositionToGo = position;
-        gridController.GenerateFlowField(position);
-        Movement.SetPath(gridController._currentFlowField.GetPath(transform.position));
+        var path = pathFindingController.GeneratePath(transform.position, position);
+        Movement.SetPath(path);
     }
 
     public void Update()
