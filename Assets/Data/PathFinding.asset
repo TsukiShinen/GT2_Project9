@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e502de7fcd441c915abb1c0f528fc1, type: 3}
   m_Name: PathFinding
   m_EditorClassIdentifier: 
-  parameters: {fileID: 0}
+  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
   terrainMasks:
     serializedVersion: 2
-    m_Bits: 0
-  gridSize: {x: 0, y: 0}
+    m_Bits: 3840
+  gridSize: {x: 100, y: 100}
   cellSize: 1
-  currentAlgo: 0
+  currentAlgo: 2
