@@ -23,6 +23,11 @@ public class Attack : MonoBehaviour
 	{
 		if (_timerShoot > 0)
 			_timerShoot -= Time.deltaTime;
+
+		if (Target == null) return;
+
+		Aim();
+		ShootUpdate();
 	}
 
 	public void Aim()

@@ -1,29 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine<T>
+public class StateMachine<T> : MonoBehaviour
 {
     private IState<T> _currentState;
 
-    private T Entity;
+    private T _entity;
 
     public void Init(T entity)
     {
-        Entity = entity;
+        _entity = entity;
     }
 
-    public void Update()
+    private void Update()
     {
         if (_currentState == null) { return; }
-        ChangeState(_currentState.Handle(Entity));
-        _currentState.Update(Entity);
+        ChangeState(_currentState.Handle(_entity));
+        _currentState.Update(_entity);
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         if (_currentState == null) { return; }
-        _currentState.FixedUpdate(Entity);
+        _currentState.FixedUpdate(_entity);
     }
 
     public void ChangeState(IState<T> newState)
@@ -31,9 +29,9 @@ public class StateMachine<T>
         if (_currentState == newState) { return; }
         if (_currentState != null)
         {
-            _currentState.Exit(Entity);
+            _currentState.Exit(_entity);
         }
         _currentState = newState;
-        _currentState.Enter(Entity);
+        _currentState.Enter(_entity);
     }
 }

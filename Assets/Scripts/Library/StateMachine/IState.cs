@@ -1,8 +1,8 @@
-public interface IState<T>
+public interface IState<in T>
 {
-    IState<T> Handle(T Entity);
-    void Update(T Entity);
-    void FixedUpdate(T Entity);
-    void Enter(T Entity);
-    void Exit(T Entity);
+    IState<T> Handle(T entity);
+    void Update(T entity);
+    void FixedUpdate(T entity);
+    void Enter(T entity);
+    void Exit(T entity);
 }

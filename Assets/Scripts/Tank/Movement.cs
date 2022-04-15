@@ -26,17 +26,27 @@ public class Movement : MonoBehaviour
 		_positionToGo = _waypoints.Dequeue();
 	}
 
-	public void Move()
+	public void AddToPath(Vector3 waypoint)
+	{
+		_waypoints.Enqueue(waypoint);
+	}
+
+	public void ClearPath()
+	{
+		_waypoints.Clear();
+	}
+
+	private void Update()
 	{
 		if (ArrivedAtWaypoint && _waypoints.Count > 0)
 		{
 			_positionToGo = _waypoints.Dequeue();
 		}
 		
-		SimpleMove(_positionToGo);
+		Move(_positionToGo);
 	}
 
-	public void SimpleMove(Vector3 target)
+	private void Move(Vector3 target)
 	{
 		if (DistanceFromPositionToGo < 0.1f) { return; }
 		

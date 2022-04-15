@@ -6,7 +6,8 @@ public class ActionStop : IAction
 	{
 		var tank = args[0] as Tank;
 		if (tank == null) { return; }
-		
-		tank.NextState = "Idle";
+
+		tank.Attack.Target = null;
+		tank.Movement.ClearPath();
 	}
 }

@@ -10,6 +10,5 @@ public class ActionGoTo : IAction
         
         if (positionToGo == tank.PositionToGo) return;
         tank.GoTo(positionToGo);
-        tank.NextState = "GoTo";
     }
 }

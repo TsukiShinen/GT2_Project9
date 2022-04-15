@@ -11,7 +11,7 @@ public class ActionTarget : IAction
         var target = args[1] as Transform;
 
         tank.Attack.Target = target;
-        
-        tank.NextState = "Target";
+        if (!target) return;
+        tank.Movement.AddToPath(target.position);
     }
 }
