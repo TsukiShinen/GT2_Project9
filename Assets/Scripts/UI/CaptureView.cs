@@ -11,7 +11,7 @@ public class CaptureView : MonoBehaviour
 
     public void Update()
     {
-        var team = score._teamScoring;
+        var team = score.TeamScoring;
         
         if (team == null)
         {
@@ -21,7 +21,7 @@ public class CaptureView : MonoBehaviour
         }
 
         image.color = team.Color;
-        image.fillAmount = score._progression / 100f;
-        text.text = Mathf.FloorToInt(score._progression).ToString();
+        image.fillAmount = score.Progression / 100f;
+        text.text = Mathf.FloorToInt(score.Progression).ToString();
     }
 }

@@ -11,7 +11,7 @@ public class ScoreView : MonoBehaviour
 
     public void Update()
     {
-        scoreTeamPlayer.text = Mathf.FloorToInt(score._playerScore.score).ToString();
-        scoreTeamEnemy.text = Mathf.FloorToInt(score._enemyScore.score).ToString();
+        scoreTeamPlayer.text = Mathf.FloorToInt(score.playerScore.score).ToString();
+        scoreTeamEnemy.text = Mathf.FloorToInt(score.enemyScore.score).ToString();
     }
 }
