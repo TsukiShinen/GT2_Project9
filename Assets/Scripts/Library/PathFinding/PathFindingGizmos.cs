@@ -5,6 +5,7 @@ namespace PathFinding
 {
 	public enum DebugMode
 	{
+		None,
 		Grid,
 		Cost,
 		Path
@@ -21,6 +22,8 @@ namespace PathFinding
 		{
 			switch (debugMode)
 			{
+				case DebugMode.None:
+					break;
 				case DebugMode.Grid:
 					pathFindingController.OnDrawGizmosGrid(Color.yellow);
 					break;
