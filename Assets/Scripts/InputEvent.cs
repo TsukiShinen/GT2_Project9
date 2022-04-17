@@ -119,15 +119,8 @@ public class InputEvent
     private void ActionZone(RaycastHit2D hit)
     {
         foreach (var tank in _selectedTanks)
-        {
-            if (!tank.Movement.ArrivedAtDestination)
-            {
-                // TODO : Tirer dans la direction
-            }
-            else
-            {
-                // TODO : Se mettre a porté de tir et tirer dans la direction
-            }
+        { 
+            TankActions.ShootInDirection.Execute(tank, MousePosition);
         }
     }
 
