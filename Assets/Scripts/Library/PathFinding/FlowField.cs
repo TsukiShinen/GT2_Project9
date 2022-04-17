@@ -22,7 +22,18 @@ namespace PathFinding
 #if UNITY_EDITOR
         public override void OnDrawGizmos()
         {
-            
+            foreach (var position in Path)
+            {
+                Gizmos.DrawCube(position, Vector2.one * CellSize);
+            }
+
+            Gizmos.color = Color.red;
+            foreach (var cell in Grid)
+            {
+                var from = cell.WorldPosition;
+                var to = cell.WorldPosition + new Vector2(cell.BestDirection.Vector.x, cell.BestDirection.Vector.y) / 2f;
+                Gizmos.DrawLine(from, to);
+            }
         }
 #endif
 
