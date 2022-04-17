@@ -18,7 +18,14 @@ namespace PathFinding
         
             return Path;
 		}
-		
+
+#if UNITY_EDITOR
+        public override void OnDrawGizmos()
+        {
+            
+        }
+#endif
+
         private void CreateIntegrationField(Cell destinationCell)
         {
             ResetBestCost();

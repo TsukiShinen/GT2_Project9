@@ -3,20 +3,36 @@ using UnityEngine;
 
 namespace PathFinding
 {
+	/// <summary>
+	/// Base of the pathfinding
+	/// </summary>
 	public abstract class PathFinding
 	{
-		public Cell[,] Grid { get; set; }
-		public Cell StartingCell { get; set; }
-		public Cell DestinationCell { get; set; }
-		
-		public Vector2Int GridSize { get; set; }
-		
-		public float CellSize { get; set; }
+		protected Cell[,] Grid { get; private set; }
+		protected Vector2Int GridSize { get; private set; }
+		protected float CellSize { get; private set; }
 
-		public Queue<Vector3> Path;
+		protected Cell StartingCell;
+		protected Cell DestinationCell;
 
+		protected Queue<Vector3> Path;
+
+		/// <summary>
+		/// Create and return the Path 
+		/// </summary>
+		/// <param name="startingPosition"></param>
+		/// <param name="destinationPosition"></param>
+		/// <returns></returns>
 		public abstract Queue<Vector3> GeneratePath(Vector2 startingPosition, Vector2 destinationPosition);
 
+#if UNITY_EDITOR
+		public abstract void OnDrawGizmos();
+#endif
+
+		/// <summary>
+		/// Return the Path already created
+		/// </summary>
+		/// <returns></returns>
 		public Queue<Vector3> GetPath()
 		{
 			return Path;
@@ -27,17 +43,24 @@ namespace PathFinding
 			Grid = baseGrid;
 			CellSize = cellSize;
 			GridSize = new Vector2Int(Grid.GetLength(0), Grid.GetLength(1));
+			Path = new Queue<Vector3>();
 		}
 
 		#region GetCells
 		
-		protected List<Cell> GetNeighborCells(Vector2Int nodeIndex, List<GridDirection> directions)
+		/// <summary>
+		/// Get all neighbor cells from a list of positions
+		/// </summary>
+		/// <param name="cellIndex"></param>
+		/// <param name="directions"></param>
+		/// <returns></returns>
+		protected List<Cell> GetNeighborCells(Vector2Int cellIndex, List<GridDirection> directions)
 		{
 			var neighbors = new List<Cell>();
 
 			foreach (var direction in directions)
 			{
-				var newNeighbor = GetCellAtRelativePosition(nodeIndex, direction);
+				var newNeighbor = GetCellAtRelativePosition(cellIndex, direction);
 				if (newNeighbor == null) { continue; }
 				neighbors.Add(newNeighbor);
 			}
@@ -45,6 +68,12 @@ namespace PathFinding
 			return neighbors;
 		}
 
+		/// <summary>
+		/// Return the cell from the index
+		/// </summary>
+		/// <param name="originPosition"></param>
+		/// <param name="relativePosition"></param>
+		/// <returns></returns>
 		protected Cell GetCellAtRelativePosition(Vector2Int originPosition, Vector2Int relativePosition)
 		{
 			var finalPosition = originPosition + relativePosition;
@@ -54,6 +83,11 @@ namespace PathFinding
 			return Grid[finalPosition.x, finalPosition.y];
 		}
     
+		/// <summary>
+		/// Return the cell from the world position
+		/// </summary>
+		/// <param name="worldPosition"></param>
+		/// <returns></returns>
 		protected Cell GetCellFromWorldPosition(Vector2 worldPosition)
 		{
 			var percentX = worldPosition.x / (GridSize.x * CellSize);

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace PathFinding
@@ -98,5 +101,40 @@ namespace PathFinding
 		{
 			return _currentPathFinding.GetPath();
 		}
+
+#if UNITY_EDITOR
+		
+		public void OnDrawGizmosGrid(Color color)
+		{
+			Gizmos.color = color;
+			for (var x = 0; x < gridSize.x; x++)
+			{
+				for (var y = 0; y < gridSize.y; y++)
+				{
+					var center = new Vector2(cellSize * x + cellSize / 2, cellSize * y + cellSize / 2);
+					var size = Vector2.one * cellSize;
+					Gizmos.DrawWireCube(center, size);
+				}
+			}
+		}
+		
+		public void OnDrawGizmosPath()
+		{
+			_currentPathFinding.OnDrawGizmos();
+		}
+
+		public void OnDrawGizmosCost()
+		{
+			var style = new GUIStyle(GUI.skin.label) {
+				alignment = TextAnchor.MiddleCenter,
+			};
+			
+			foreach (var cell in _grid)
+			{
+				Handles.Label(cell.WorldPosition, cell.Cost.ToString(), style);
+			}
+		}
+		
+#endif
 	}
 }

@@ -1,34 +1,34 @@
 using System;
 using System.Collections.Generic;
 
-public class PriorityQueue<T>
+namespace PathFinding
 {
-    private List<Tuple<T, int>> elements = new List<Tuple<T, int>>();
-
-    public int Count
+    public class PriorityQueue<T>
     {
-        get { return elements.Count; }
-    }
+        private List<Tuple<T, int>> elements = new List<Tuple<T, int>>();
 
-    public void Enqueue(T item, int priority)
-    {
-        elements.Add(Tuple.Create(item, priority));
-    }
+        public int Count => elements.Count;
 
-    public T Dequeue()
-    {
-        int bestIndex = 0;
-
-        for (int i = 0; i < elements.Count; i++)
+        public void Enqueue(T item, int priority)
         {
-            if (elements[i].Item2 < elements[bestIndex].Item2)
-            {
-                bestIndex = i;
-            }
+            elements.Add(Tuple.Create(item, priority));
         }
 
-        T bestItem = elements[bestIndex].Item1;
-        elements.RemoveAt(bestIndex);
-        return bestItem;
+        public T Dequeue()
+        {
+            var bestIndex = 0;
+
+            for (var i = 0; i < elements.Count; i++)
+            {
+                if (elements[i].Item2 < elements[bestIndex].Item2)
+                {
+                    bestIndex = i;
+                }
+            }
+
+            var bestItem = elements[bestIndex].Item1;
+            elements.RemoveAt(bestIndex);
+            return bestItem;
+        }
     }
 }
