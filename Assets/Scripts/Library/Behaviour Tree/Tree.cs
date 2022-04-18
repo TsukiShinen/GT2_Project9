@@ -22,26 +22,35 @@ namespace BehaviourTree
         {
             var node = ScriptableObject.CreateInstance(type) as Node;
             node.name = type.Name;
+
+#if UNITY_EDITOR
             node.guid = GUID.Generate().ToString();
-            
             Undo.RecordObject(this, "Behaviour Tree (Create Child)");
+#endif
+            
             nodes.Add(node);
             
+#if UNITY_EDITOR
             AssetDatabase.AddObjectToAsset(node,  this);
             Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (Create Node)");
             
             AssetDatabase.SaveAssets();
+#endif
             return node;
         }
 
         public void DeleteNode(Node node)
         {
+#if UNITY_EDITOR
             Undo.RecordObject(this, "Behaviour Tree (Delete Child)");
+#endif
             nodes.Remove(node);
-            // AssetDatabase.RemoveObjectFromAsset(node);
+            
+#if UNITY_EDITOR
             Undo.DestroyObjectImmediate(node);
             
             AssetDatabase.SaveAssets();
+#endif
         }
 
         public void AddChild(Node parent, Node child)
@@ -50,7 +59,9 @@ namespace BehaviourTree
             
             if (node)
             {
+#if UNITY_EDITOR
                 Undo.RecordObject(node, "Behaviour Tree (Add Child)");
+#endif
                 if (node.Children == null)
                 {
                     node.Children = new List<Node>();
@@ -65,10 +76,14 @@ namespace BehaviourTree
             var node = parent as Node;
             if (node)
             {
+#if UNITY_EDITOR
                 Undo.RecordObject(node, "Behaviour Tree (Remove Child)");
+#endif
                 node.Children.Remove(child);
                 child.Parent = null;
+#if UNITY_EDITOR
                 EditorUtility.SetDirty(node);
+#endif
             }
         }
         
