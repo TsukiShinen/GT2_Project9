@@ -21,7 +21,7 @@ MonoBehaviour:
   _tankCanonTurnSpeed: 720
   _tankShootDelay: 1
   _tankShellSpeed: 10
-  _tankShellDuration: 0
+  _tankShellDuration: 5
   _tankShellDamage: 2
   _tankShellDamageFalloff: 3
   _zoneCaptureSpeed: 10

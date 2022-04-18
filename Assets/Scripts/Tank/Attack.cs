@@ -4,9 +4,9 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
 	[SerializeField] private GameParameters parameters;
-	public GameObject bullet;
-	public Transform canon;
-	[SerializeField] private Animator _shootAnim;
+	[SerializeField] private GameObject bullet;
+	[SerializeField] private Transform canon;
+	[SerializeField] private Animator animator;
 
 	public Transform Target { get; set; }
 
@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
 		ShootUpdate();
 	}
 
-	public void Aim()
+    private void Aim()
 	{
 		Vector2 targetDir = canon.position - Target.position;
 		var angle = Vector2.SignedAngle(targetDir, canon.up);
@@ -45,7 +45,7 @@ public class Attack : MonoBehaviour
 		}
 	}
 
-	public void ShootUpdate()
+	private void ShootUpdate()
 	{
 		if(!CanShoot) { return; }
 		if(!_aimed) { return; }
@@ -55,9 +55,10 @@ public class Attack : MonoBehaviour
 	
 	private IEnumerator Shoot()
 	{
-		GameObject newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
-		newBullet.gameObject.GetComponent<Bullet>().SetTank(gameObject.GetComponent<Collider2D>());
-		_shootAnim.SetTrigger("Shooting");
+		var newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f)).GetComponent<Bullet>();
+		newBullet.SetTank(gameObject.GetComponent<Collider2D>());
+		newBullet.Init(canon.position, Target.position);
+		animator.SetTrigger("Shooting");
 		yield return new WaitForSeconds(0.25f);
 	}
 }

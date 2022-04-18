@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.873, y: 1.9, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,6 +46,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -97,10 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7050a3f79b3b3e349a7051a6a5afb0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameParameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
-  _explosion: {fileID: 2095296462492747698}
-  _myTank: {fileID: 0}
-  LayerTank:
+  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  animator: {fileID: 2095296462492747698}
+  layerTank:
     serializedVersion: 2
     m_Bits: 32768
 --- !u!61 &6816852677924062239
@@ -131,7 +132,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!95 &2095296462492747698
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -144,6 +145,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
