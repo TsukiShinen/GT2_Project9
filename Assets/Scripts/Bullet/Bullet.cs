@@ -61,12 +61,14 @@ public class Bullet : MonoBehaviour
     {
         _isExploding = true;
         
-        var hits = Physics2D.OverlapCircleAll(transform.position, parameters.TankShellDamageFalloff, layerTank.value);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, parameters.TankShellDamageFalloff, layerTank.value);
         foreach (var hit in hits)
         {
+            if(hit == _myTank) { continue; }
             var damage = (1 - (Vector3.Distance(hit.transform.position, transform.position) / parameters.TankShellDamageFalloff)) * parameters.TankShellDamage;
             damage = Mathf.Clamp(damage, 0, Mathf.Infinity);
-            Debug.Log($"to : {hit.name}, Damage : {damage}");
+            hit.GetComponent<Tank>().LifePoints -= damage;
+            Debug.Log(hit.name + hit.GetComponent<Tank>().LifePoints);
         }
         
         StartCoroutine(Explosion());
