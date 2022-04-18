@@ -53,13 +53,15 @@ public class Tank : MonoBehaviour
 
     private IEnumerator TankDeath()
     {
-        
         _explosion.SetTrigger("TankDeath");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1666f);
         _tankBase.SetActive(false);
         _tankTurret.SetActive(false);
         _tankDestrBase.SetActive(true);
         _tankDestrTurret.SetActive(true);
+        Movement.enabled = false;
+        Attack.enabled = false;
+        yield return new WaitForSeconds(0.3333f);
     }
 
 }

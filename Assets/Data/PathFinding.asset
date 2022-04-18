@@ -18,4 +18,4 @@ MonoBehaviour:
     m_Bits: 3840
   gridSize: {x: 100, y: 100}
   cellSize: 1
-  currentAlgo: 2
+  currentAlgo: 1
