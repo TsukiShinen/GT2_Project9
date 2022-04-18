@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
         var distance = Vector2.Distance(_originPosition, impactPosition);
 
         var timer = distance / parameters.TankShellSpeed;
-        Debug.Log($"impactPosition : {impactPosition} _originPosition = {_originPosition}");
         if (timer < _timer) _timer = timer;
     }
 
