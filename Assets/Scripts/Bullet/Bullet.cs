@@ -4,55 +4,78 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Vector3 OriginPosition;
-    [SerializeField] private GameParameters _gameParameters;
-    [SerializeField] private Animator _explosion;
-    private float Range = 8f;
-    public Collider2D _myTank;
-    public LayerMask LayerTank;
-    private bool isExploding = false;
+    [SerializeField] private GameParameters parameters;
+    [SerializeField] private Animator animator;
+    [SerializeField] private LayerMask layerTank;
 
-    void Start()
+    private float _timer;
+
+    private Vector3 _originPosition;
+    private Collider2D _myTank;
+
+    private bool _isExploding = false;
+
+    public void Init(Vector2 originPosition, Vector2 impactPosition)
     {
-        OriginPosition = transform.position;
+        _originPosition = originPosition;
+
+        _timer = parameters.TankShellDuration;
+
+        SetImpactPoint(impactPosition);
     }
 
-    public void SetTank(Collider2D collider)
+    public void SetTank(Collider2D other)
     {
-        _myTank = collider;
+        _myTank = other;
     }
 
-    void Update()
+    private void SetImpactPoint(Vector2 impactPosition)
     {
-        if(isExploding) { return; }
-        transform.position += transform.up * Time.deltaTime * _gameParameters.TankShellSpeed;
+        var distance = Vector2.Distance(_originPosition, impactPosition);
+
+        var timer = distance / parameters.TankShellSpeed;
+        Debug.Log($"impactPosition : {impactPosition} _originPosition = {_originPosition}");
+        if (timer < _timer) _timer = timer;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void Update()
     {
-        if(collider != _myTank)
+        if(_isExploding) { return; }
+
+        transform.position += transform.up * Time.deltaTime * parameters.TankShellSpeed;
+        
+        _timer -= Time.deltaTime;
+        if (_timer <= 0)
         {
-            isExploding = true;
             Explode();
         }
     }
 
-    public void Explode()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _gameParameters.TankShellDamageFalloff, LayerTank.value);
+        if (other == _myTank) return;
+        
+        Explode();
+    }
 
-        for (var i = 0; i < hitColliders.Length; i++)
+    private void Explode()
+    {
+        _isExploding = true;
+        
+        var hits = Physics2D.OverlapCircleAll(transform.position, parameters.TankShellDamageFalloff, layerTank.value);
+        foreach (var hit in hits)
         {
-            float damage = (1 - (Vector3.Distance(hitColliders[i].transform.position, transform.position) / _gameParameters.TankShellDamageFalloff)) * _gameParameters.TankShellDamage;
+            var damage = (1 - (Vector3.Distance(hit.transform.position, transform.position) / parameters.TankShellDamageFalloff)) * parameters.TankShellDamage;
             damage = Mathf.Clamp(damage, 0, Mathf.Infinity);
-            Debug.Log($"to : {hitColliders[i].name}, Damage : {damage}");
+            Debug.Log($"to : {hit.name}, Damage : {damage}");
         }
+        
         StartCoroutine(Explosion());
     }
 
     private IEnumerator Explosion()
     {
-        _explosion.SetTrigger("Explosion");
+        animator.SetTrigger("Explosion");
         yield return new WaitForSeconds(0.333f);
         Destroy(gameObject);
     }

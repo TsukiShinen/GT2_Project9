@@ -55,8 +55,9 @@ public class Attack : MonoBehaviour
 	
 	private IEnumerator Shoot()
 	{
-		GameObject newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f));
-		newBullet.gameObject.GetComponent<Bullet>().SetTank(gameObject.GetComponent<Collider2D>());
+		var newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f)).GetComponent<Bullet>();
+		newBullet.SetTank(gameObject.GetComponent<Collider2D>());
+		newBullet.Init(canon.position, Target.position);
 		_shootAnim.SetTrigger("Shooting");
 		yield return new WaitForSeconds(0.25f);
 	}

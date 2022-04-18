@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="39a3f9bd-8224-4b78-ba9a-9d3f0847c465" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/TankActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/TankActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/Attack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +95,8 @@
       <workItem from="1650012510861" duration="3750000" />
       <workItem from="1650120283026" duration="684000" />
       <workItem from="1650204248659" duration="3311000" />
-      <workItem from="1650225420138" duration="675000" />
+      <workItem from="1650225420138" duration="1434000" />
+      <workItem from="1650276285239" duration="2438000" />
     </task>
     <servers />
   </component>
