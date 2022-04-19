@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -53,6 +52,8 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other == _myTank) return;
+
+        if (!other.CompareTag(parameters.TagTank)) return;
         
         Explode();
     }
@@ -61,7 +62,7 @@ public class Bullet : MonoBehaviour
     {
         _isExploding = true;
         
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, parameters.TankShellDamageFalloff, layerTank.value);
+        var hits = Physics2D.OverlapCircleAll(transform.position, parameters.TankShellDamageFalloff, layerTank.value);
         foreach (var hit in hits)
         {
             if(hit == _myTank) { continue; }

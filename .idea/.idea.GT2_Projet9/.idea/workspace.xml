@@ -3,20 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="39a3f9bd-8224-4b78-ba9a-9d3f0847c465" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/PathFinding.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/PathFinding.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Score.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Score.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Serene Coast.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Serene Coast.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actions/ActionTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actions/ActionTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Library/Behaviour Tree/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Library/Behaviour Tree/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Library/Behaviour Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Library/Behaviour Tree/Tree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/Capture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/Capture.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/CheckEnemyInRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/CheckEnemyInRange.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/TargetEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/TargetEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +105,7 @@
       <workItem from="1650204248659" duration="3311000" />
       <workItem from="1650225420138" duration="1434000" />
       <workItem from="1650276285239" duration="6279000" />
-      <workItem from="1650352500809" duration="10492000" />
+      <workItem from="1650352500809" duration="13845000" />
     </task>
     <servers />
   </component>
