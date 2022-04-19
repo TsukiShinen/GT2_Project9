@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TankActions
+public static class TankActions
 {
     public static readonly ActionGoTo GoTo = new ActionGoTo();
     public static readonly ActionTarget Target = new ActionTarget();

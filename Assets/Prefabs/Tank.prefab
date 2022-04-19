@@ -1048,6 +1048,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 896
 --- !u!114 &2411206688863725786
 MonoBehaviour:
   m_ObjectHideFlags: 0

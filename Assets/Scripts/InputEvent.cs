@@ -8,11 +8,13 @@ public class InputEvent
     private readonly Team _playerTeam;
     
     
-    private bool _drag = false;
+    private bool _drag;
     private Vector2 _startingMousePosition;
     private Rect _rect;
+
+    private readonly Camera _camera;
     
-    private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    private Vector2 MousePosition => _camera.ScreenToWorldPoint(Input.mousePosition);
     private bool HasTanksSelected => _selectedTanks.Count > 0;
 
     public InputEvent(GameParameters parameters, Team playerTeam)
@@ -20,6 +22,8 @@ public class InputEvent
         _parameters = parameters;
         _playerTeam = playerTeam;
         _selectedTanks = new List<Tank>();
+
+        _camera = Camera.main;
     }
 
     public void OnRightClick()
@@ -31,7 +35,7 @@ public class InputEvent
 
         if (Input.GetKey(KeyCode.A))
         {
-            ActionZone(hit);
+            ActionZone();
         }
         else
         {
@@ -56,7 +60,7 @@ public class InputEvent
     {
         _drag = false;
 
-        var colliders = Physics2D.OverlapAreaAll(Camera.main.ScreenToWorldPoint(_startingMousePosition), MousePosition);
+        var colliders = Physics2D.OverlapAreaAll(_camera.ScreenToWorldPoint(_startingMousePosition), MousePosition);
         foreach (var collider in colliders)
         {
             if (!collider.CompareTag(_parameters.TagTank)) { continue; }
@@ -64,7 +68,7 @@ public class InputEvent
         }
     }
 
-    private void SelectedTank(Collider2D collider)
+    private void SelectedTank(Component collider)
     {
         var tank = collider.gameObject.GetComponent<Tank>();
         if (tank == null) { return; }
@@ -116,7 +120,7 @@ public class InputEvent
         }
     }
 
-    private void ActionZone(RaycastHit2D hit)
+    private void ActionZone()
     {
         foreach (var tank in _selectedTanks)
         { 

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -12,7 +11,7 @@ public class InputManager : MonoBehaviour
         _inputEvent = new InputEvent(parameters, playerTeam);
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
