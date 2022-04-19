@@ -5,7 +5,7 @@ using UnityEngine;
 //used for drawing our marquee
 public static class Utils
 {
-	static Texture2D _whiteTexture;
+	private static Texture2D _whiteTexture;
 	public static Texture2D WhiteTexture
 	{
 		get

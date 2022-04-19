@@ -58,25 +58,35 @@ namespace BehaviourTree
             _contextData[key] = value;
         }
 
-        protected object GetData(string key)
+        protected T GetData<T>(string key)
         {
             if (_contextData == null)
             {
                 _contextData = new Dictionary<string, object>();
             }
-            if (_contextData.TryGetValue(key, out var value))
-                return value;
 
-            var node = Parent;
-            while(node!= null)
+            if (_contextData.TryGetValue(key, out var value))
             {
-                value = node.GetData(key);
+                if (value is T returnValue)
+                {
+                    return returnValue;
+                }
+                else
+                {
+                    Debug.LogError($"value is not of type {nameof(T)}");
+                    return default;
+                }
+            }
+            var node = Parent;
+            while(node != null)
+            {
+                value = node.GetData<T>(key);
                 if(value != null)
-                    return value;
+                    return (T)value;
                 node = node.Parent;
             }
 
-            return null;
+            return default;
         }
 
         public bool ClearData(string key)
