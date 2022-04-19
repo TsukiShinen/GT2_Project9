@@ -5,10 +5,12 @@ namespace PathFinding
 {
 	public class Dijkstra : PathFinding
 	{
+        List<Cell> cellsChecked;
         public override Queue<Vector3> GeneratePath(Vector2 startingPosition, Vector2 destinationPosition)
         {
             var nextCellToGoal = new Dictionary<Cell, Cell>();//Determines for each Cell where you need to go to reach the goal. Key=Cell, Value=Direction to Goal
             var costToReachCell = new Dictionary<Cell, int>();//Total Movement Cost to reach the Cell
+            cellsChecked = new List<Cell>();
 
             StartingCell = GetCellFromWorldPosition(startingPosition);
             DestinationCell = GetCellFromWorldPosition(destinationPosition);
@@ -25,6 +27,7 @@ namespace PathFinding
 
                 foreach (var neighbor in GetNeighborCells(curCell.GridIndex, GridDirection.CardinalAndInterCardinalDirections))
                 {
+                    cellsChecked.Add(neighbor);
                     var newCost = costToReachCell[curCell] + neighbor.Cost;
                     if (!(costToReachCell.ContainsKey(neighbor) == false || newCost < costToReachCell[neighbor])) continue;
                     if (neighbor.Cost >= 255) continue;
@@ -56,7 +59,11 @@ namespace PathFinding
 #if UNITY_EDITOR
         public override void OnDrawGizmos()
         {
-            
+            Gizmos.color = Color.yellow;
+            foreach (var cell in cellsChecked)
+            {
+                Gizmos.DrawCube(cell.WorldPosition, new Vector3(CellSize, CellSize));
+            }
         }
 #endif
     }
