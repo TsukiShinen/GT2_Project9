@@ -11,12 +11,12 @@ public class TargetEnemy : ActionNode
     public override void Init()
     {
         base.Init();
-        _tank = GetData("tank") as Tank;
+        _tank = GetData<Tank>("tank");
     }
 
     public override NodeState Evaluate()
     {
-        var target = (Transform)GetData("target");
+        var target = GetData<Transform>("target");
         if (target)
         {
             TankActions.Target.Execute(_tank, target);

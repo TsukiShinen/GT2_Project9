@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionTarget : IAction
@@ -12,6 +10,10 @@ public class ActionTarget : IAction
 
         tank.Attack.Target = target;
         if (!target) return;
-        tank.Movement.AddToPath(target.position);
+
+        var direction = (target.position - tank.transform.position).normalized;
+        
+        // TODO : Add proper range
+        tank.Movement.AddToPath(target.position - direction*3);
     }
 }

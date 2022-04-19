@@ -1,6 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace BehaviourTree
@@ -21,19 +22,20 @@ namespace BehaviourTree
         public Node CreateNode(System.Type type)
         {
             var node = ScriptableObject.CreateInstance(type) as Node;
+            if (node == null) return null;
             node.name = type.Name;
 
 #if UNITY_EDITOR
             node.guid = GUID.Generate().ToString();
             Undo.RecordObject(this, "Behaviour Tree (Create Child)");
 #endif
-            
+
             nodes.Add(node);
-            
+
 #if UNITY_EDITOR
-            AssetDatabase.AddObjectToAsset(node,  this);
+            AssetDatabase.AddObjectToAsset(node, this);
             Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (Create Node)");
-            
+
             AssetDatabase.SaveAssets();
 #endif
             return node;
@@ -56,35 +58,28 @@ namespace BehaviourTree
         public void AddChild(Node parent, Node child)
         {
             var node = parent as Node;
-            
-            if (node)
-            {
+
+            if (!node) return;
 #if UNITY_EDITOR
-                Undo.RecordObject(node, "Behaviour Tree (Add Child)");
+            Undo.RecordObject(node, "Behaviour Tree (Add Child)");
 #endif
-                if (node.Children == null)
-                {
-                    node.Children = new List<Node>();
-                }
-                node.Children.Add(child);
-                child.Parent = node;
-            }
+            node.Children ??= new List<Node>();
+            node.Children.Add(child);
+            child.Parent = node;
         }
         
         public void RemoveChild(Node parent, Node child)
         {
             var node = parent as Node;
-            if (node)
-            {
+            if (!node) return;
 #if UNITY_EDITOR
-                Undo.RecordObject(node, "Behaviour Tree (Remove Child)");
+            Undo.RecordObject(node, "Behaviour Tree (Remove Child)");
 #endif
-                node.Children.Remove(child);
-                child.Parent = null;
+            node.Children.Remove(child);
+            child.Parent = null;
 #if UNITY_EDITOR
-                EditorUtility.SetDirty(node);
+            EditorUtility.SetDirty(node);
 #endif
-            }
         }
         
         public List<Node> GetChildren(Node parent)

@@ -9,8 +9,8 @@ public class Capture : ActionNode
     public override void Init()
     {
         base.Init();
-        _tank = GetData("tank") as Tank;
-        _capturePointTransform = GetData("point") as Transform;
+        _tank = GetData<Tank>("tank");
+        _capturePointTransform = GetData<Transform>("point");
     }
 
     public override NodeState Evaluate()
