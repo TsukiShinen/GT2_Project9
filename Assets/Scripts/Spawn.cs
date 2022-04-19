@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -8,7 +6,7 @@ public class Spawn : MonoBehaviour
 {
     #region Singleton
 
-    public static Spawn Instance { get; set; }
+    public static Spawn Instance { get; private set; }
 
     private void Awake()
     {

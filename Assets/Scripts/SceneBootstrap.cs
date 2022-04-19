@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +14,6 @@ public class SceneBootstrap : MonoBehaviour
 
     private IEnumerator LoadLevel(System.Action callback = null)
     {
-        var coroutines = new List<Coroutine>();
-
         var count = 0;
 
         foreach (var sceneName in scenesToLoad)
