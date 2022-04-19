@@ -19,8 +19,8 @@ public class Tank : MonoBehaviour
     [SerializeField] private GameObject _tankDestrBase;
     [SerializeField] private GameObject _tankDestrTurret;
     [SerializeField] private Animator _explosion;
-    private bool isAlive = true;
-    public float LifePoints;
+    [SerializeField] private Animator _tracks;
+    
 
     private void Awake()
     {
@@ -31,17 +31,11 @@ public class Tank : MonoBehaviour
     private void Start()
     {
         Movement.Speed = parameters.TankSpeed;
-        LifePoints = parameters.TankHealth;
     }
 
     private void Update()
     {
-        if (!isAlive) { return; }
-        if (LifePoints <= 0)
-        {
-            isAlive = false;
-            StartCoroutine(TankDeath());
-        }
+        _tracks.SetBool("isMoving", Movement.isMoving);
     }
 
     public void GoTo(Vector2 position)
@@ -51,7 +45,7 @@ public class Tank : MonoBehaviour
         Movement.SetPath(path);
     }
 
-    private IEnumerator TankDeath()
+    public IEnumerator TankDeath()
     {
         _explosion.SetTrigger("TankDeath");
         yield return new WaitForSeconds(0.1666f);

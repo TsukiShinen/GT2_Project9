@@ -494,6 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6937587736618017816}
   - component: {fileID: 5145882545772647531}
+  - component: {fileID: 3419558182362167596}
   m_Layer: 15
   m_Name: LifeBar
   m_TagString: Untagged
@@ -568,6 +569,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3419558182362167596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547438873964842798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae692cd894794c4ca7ecf9349aef734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
 --- !u!1 &2893680977573617306
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +939,7 @@ MonoBehaviour:
   _tankDestrBase: {fileID: 2893680977573617306}
   _tankDestrTurret: {fileID: 772869672709051896}
   _explosion: {fileID: 7393990135234927287}
-  LifePoints: 0
+  _tracks: {fileID: 658119575527985489}
 --- !u!61 &5528921651584219265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1012,6 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  velocity: 0
 --- !u!114 &887809563
 MonoBehaviour:
   m_ObjectHideFlags: 0
