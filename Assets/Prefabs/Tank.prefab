@@ -493,8 +493,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6937587736618017816}
-  - component: {fileID: 5145882545772647531}
   - component: {fileID: 3419558182362167596}
+  - component: {fileID: 8683437869646184084}
   m_Layer: 15
   m_Name: LifeBar
   m_TagString: Untagged
@@ -517,7 +517,20 @@ Transform:
   m_Father: {fileID: 5528921651584219292}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5145882545772647531
+--- !u!114 &3419558182362167596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547438873964842798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae692cd894794c4ca7ecf9349aef734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+--- !u!212 &8683437869646184084
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,7 +550,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 559b354d9f7e5c144b2625da741a9c4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -555,10 +568,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1014259553
-  m_SortingLayer: 6
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 81c9ecdca1355714b91936cb85fa3188, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2422e6bb8e7e072408a0e4f44e8fe600, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -569,19 +582,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3419558182362167596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547438873964842798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae692cd894794c4ca7ecf9349aef734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
 --- !u!1 &2893680977573617306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
-  velocity: 0
+  isMoving: 0
 --- !u!114 &887809563
 MonoBehaviour:
   m_ObjectHideFlags: 0
