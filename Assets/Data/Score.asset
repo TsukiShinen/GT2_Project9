@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49f1acd40f346449a64d105072ca2dd, type: 3}
   m_Name: Score
   m_EditorClassIdentifier: 
-  _timeToScore: 10
-  _playerScore:
-    Team: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
-    Score: 0
-  _enemyScore:
-    Team: {fileID: 11400000, guid: d5fd36a89bdf8474aa62cbf92bb4ed45, type: 2}
-    Score: 0
+  timeToScore: 10
+  playerScore:
+    team: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
+    score: 0.1466082
+  enemyScore:
+    team: {fileID: 11400000, guid: d5fd36a89bdf8474aa62cbf92bb4ed45, type: 2}
+    score: 0

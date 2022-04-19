@@ -47,6 +47,6 @@ public class Spawn : MonoBehaviour
 
     private void CreateTankAt(GameObject tank, Vector3 position)
     {
-        GameObject.Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity);
+        Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity);
     }
 }
