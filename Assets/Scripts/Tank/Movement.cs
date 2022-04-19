@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
 	private bool ArrivedAtWaypoint => DistanceFromPositionToGo < 0.5f;
 	public bool ArrivedAtDestination => ArrivedAtWaypoint && _waypoints.Count == 0;
 
+	public bool isMoving = false;
+
 	private Vector3 _positionToGo;
 	private Queue<Vector3> _waypoints;
 
@@ -42,7 +44,7 @@ public class Movement : MonoBehaviour
 		{
 			_positionToGo = _waypoints.Dequeue();
 		}
-		
+		isMoving = false;
 		Move(_positionToGo);
 	}
 
@@ -66,6 +68,7 @@ public class Movement : MonoBehaviour
 	private void MoveForward()
 	{
 		transform.position += transform.up * Speed * Time.deltaTime;
+		isMoving = true;
 	}
 
 	private void Turn(float angle, Vector2 targetDir)
