@@ -12,6 +12,8 @@ public class Attack : MonoBehaviour
 
 	private float _timerShoot;
 	private bool _aimed;
+	
+	private static readonly int Shooting = Animator.StringToHash("Shooting");
 	private bool CanShoot => _timerShoot <= 0;
 
     private void Start()
@@ -58,7 +60,7 @@ public class Attack : MonoBehaviour
 		var newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f)).GetComponent<Bullet>();
 		newBullet.SetTank(gameObject.GetComponent<Collider2D>());
 		newBullet.Init(canon.position, Target.position);
-		animator.SetTrigger("Shooting");
+		animator.SetTrigger(Shooting);
 		yield return new WaitForSeconds(0.25f);
 	}
 }
