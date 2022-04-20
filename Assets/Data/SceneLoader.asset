@@ -19,7 +19,13 @@ MonoBehaviour:
     - MainMenu
   - name: Serene Coast
     scenesToLoad:
-    - Camera
     - Serene Coast
+    - Camera
+    - Inputs
+    - UI
+  - name: Siegfried
+    scenesToLoad:
+    - SiegfriedMap
+    - Camera
     - Inputs
     - UI
