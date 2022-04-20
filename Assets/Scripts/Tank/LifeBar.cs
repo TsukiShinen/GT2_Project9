@@ -5,7 +5,7 @@ public class LifeBar : MonoBehaviour
     public GameParameters parameters;
     private Tank _myTank;
     private float LifePoints { get; set; }
-    private bool IsAlive => LifePoints > 0;
+    public bool IsAlive => LifePoints > 0;
 
     private SpriteRenderer _spriteRenderer;
     

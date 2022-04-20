@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
 
 	public void SetPath(Queue<Vector3> lstWaypoint)
 	{
+		if (lstWaypoint == null) return;
 		_waypoints = lstWaypoint;
 		_positionToGo = _waypoints.Dequeue();
 	}

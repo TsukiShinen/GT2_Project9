@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TankBt : BehaviourTreeRunner
 {
-	[SerializeField] private Transform point;
-	[SerializeField] private LayerMask tankMask;
-	
+	public Transform point;
+	public LayerMask tankMask;
+	public Transform[] waypoints;
 	private Tank _tank;
 
 	private void Awake()
@@ -19,5 +19,12 @@ public class TankBt : BehaviourTreeRunner
 		tree.root.SetData("transform", transform);
 		tree.root.SetData("point", point);
 		tree.root.SetData("tankFilter", tankMask);
+		tree.root.SetData("waypointsPoint", waypoints);
 	}
+
+    public void ChangeTree(BehaviourTree.Tree newTree)
+    {
+        tree = newTree;
+		Init();
+    }
 }
