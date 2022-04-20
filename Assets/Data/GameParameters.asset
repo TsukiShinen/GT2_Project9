@@ -27,7 +27,7 @@ MonoBehaviour:
   _zoneCaptureSpeed: 10
   _zoneDecaySpeed: 5
   _zoneDecayDelay: 5
-  _tankVisionRange: 3
+  _tankVisionRange: 8
   _tankSpeedNormal: 5
   _tankSpeedSlow: 2.5
   _tankSpeedQuick: 7.5
