@@ -21,7 +21,13 @@ public class Spawn : MonoBehaviour
     }
 
     #endregion
-    
+
+    public delegate void MyTankDelegate(Tank tank);
+    public MyTankDelegate OnBlueTankCreated;
+    public MyTankDelegate OnRedTankCreated;
+
+    [SerializeField]  private Team playerTeam;
+
     public Transform spawnBlue;
     [SerializeField] private Transform spawnRed;
 
@@ -45,6 +51,15 @@ public class Spawn : MonoBehaviour
 
     private void CreateTankAt(GameObject tank, Vector3 position)
     {
-        Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity);
+        var TankTmp = Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity).GetComponent<Tank>();
+
+        if (TankTmp.Team == playerTeam) 
+        {
+            OnBlueTankCreated?.Invoke(TankTmp);
+        }
+        else
+        {
+            OnRedTankCreated?.Invoke(TankTmp);
+        }
     }
 }

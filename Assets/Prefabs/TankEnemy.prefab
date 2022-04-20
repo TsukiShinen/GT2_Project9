@@ -699,6 +699,7 @@ GameObject:
   - component: {fileID: 2411206688863725786}
   - component: {fileID: 887809563}
   - component: {fileID: 8445170663399347771}
+  - component: {fileID: 957058850997850750}
   m_Layer: 15
   m_Name: TankEnemy
   m_TagString: Tank
@@ -865,3 +866,20 @@ MonoBehaviour:
   - {fileID: 81173517938864317}
   - {fileID: 1943147553752633634}
   - {fileID: 6224507658178491346}
+--- !u!114 &957058850997850750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528921651584219264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e54eac4fc62db42aed2193f3efc65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 0}
+  point: {fileID: 0}
+  tankMask:
+    serializedVersion: 2
+    m_Bits: 0
