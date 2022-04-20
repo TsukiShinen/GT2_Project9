@@ -11,15 +11,19 @@ public class Bullet : MonoBehaviour
 
     private Vector3 _originPosition;
     private Collider2D _myTank;
+    private Transform _transform;
 
-    private bool _isExploding = false;
+    private bool _isExploding;
+    
+    private static readonly int Explosion1 = Animator.StringToHash("Explosion");
 
     public void Init(Vector2 originPosition, Vector2 impactPosition)
     {
         _originPosition = originPosition;
 
         _timer = parameters.TankShellDuration;
-
+        _transform = transform;
+        
         SetImpactPoint(impactPosition);
     }
 
@@ -40,7 +44,7 @@ public class Bullet : MonoBehaviour
     {
         if(_isExploding) { return; }
 
-        transform.position += transform.up * Time.deltaTime * parameters.TankShellSpeed;
+        _transform.position += _transform.up * (Time.deltaTime * parameters.TankShellSpeed);
         
         _timer -= Time.deltaTime;
         if (_timer <= 0)
@@ -68,7 +72,6 @@ public class Bullet : MonoBehaviour
             if(hit == _myTank) { continue; }
             var damage = (1 - (Vector3.Distance(hit.transform.position, transform.position) / parameters.TankShellDamageFalloff)) * parameters.TankShellDamage;
             damage = Mathf.Clamp(damage, 0, Mathf.Infinity);
-            Debug.Log(hit.name);
             hit.GetComponentInChildren<LifeBar>().TakeDamage(damage);
         }
         
@@ -77,7 +80,7 @@ public class Bullet : MonoBehaviour
 
     private IEnumerator Explosion()
     {
-        animator.SetTrigger("Explosion");
+        animator.SetTrigger(Explosion1);
         yield return new WaitForSeconds(0.333f);
         Destroy(gameObject);
     }

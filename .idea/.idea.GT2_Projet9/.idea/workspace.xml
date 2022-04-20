@@ -3,18 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="39a3f9bd-8224-4b78-ba9a-9d3f0847c465" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tank.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SceneBootstrap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SceneBootstrap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/LifeBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/LifeBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/ModifyTankOnField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/ModifyTankOnField.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/Tank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/Tank.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/TankActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/TankActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TeamScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TeamScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WhatIsGround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WhatIsGround.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/HealthBarv2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/HealthBarv2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,22 +40,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="TODO_SCOPE" value="All Places" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Windows\GTECH2-PROJET9-START.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Tsuki\Documents\Repos\GTech_2\GT2_Projet9\Builds\Windows" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Tsuki\Documents\Repos\GTech_2\GT2_Projet9 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Tsuki\Documents\Repos\GTech_2\GT2_Projet9" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -115,6 +117,9 @@
       <workItem from="1650225420138" duration="1434000" />
       <workItem from="1650276285239" duration="6279000" />
       <workItem from="1650352500809" duration="16608000" />
+      <workItem from="1650441928708" duration="4402000" />
+      <workItem from="1650447899047" duration="94000" />
+      <workItem from="1650448040820" duration="3318000" />
     </task>
     <servers />
   </component>
