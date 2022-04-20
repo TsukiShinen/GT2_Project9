@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Spotted : MonoBehaviour
 {
-    public GameObject Graphics;
+    public SpriteRenderer[] Graphics;
     
     public void SpriteOn()
     {
-        Graphics.SetActive(true);
+        foreach(var sprite in Graphics)
+        {
+            sprite.enabled = true;
+        }
     }
 
     public void SpriteOff()
     {
-        Graphics.SetActive(false);
+        foreach (var sprite in Graphics)
+        {
+            sprite.enabled = false;
+        }
     }
 }
