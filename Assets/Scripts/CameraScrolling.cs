@@ -18,43 +18,22 @@ public class CameraScrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.mousePosition.y >= Screen.height * TopBarier || Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    transform.Translate(Vector3.up * Time.deltaTime * ScrollSpeed, Space.World);
-        //}
-        //if (Input.mousePosition.y <= Screen.height * BotBarier || Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    transform.Translate(Vector3.down * Time.deltaTime * ScrollSpeed, Space.World);
-        //}
-        //if (Input.mousePosition.x >= Screen.width * RightBarier || Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    transform.Translate(Vector3.right * Time.deltaTime * ScrollSpeed, Space.World);
-        //}
-        //if (Input.mousePosition.x <= Screen.width * LeftBarier || Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.Translate(Vector3.left * Time.deltaTime * ScrollSpeed, Space.World);
-        //}
-
-        // for developement ############################################################################################
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.mousePosition.y >= Screen.height * TopBarier || Input.GetKey(KeyCode.UpArrow))
         {
-            if (Input.mousePosition.y >= Screen.height * TopBarier || Input.GetKey(KeyCode.UpArrow))
-            {
-                transform.Translate(Vector3.up * Time.deltaTime * ScrollSpeed, Space.World);
-            }
-            if (Input.mousePosition.y <= Screen.height * BotBarier || Input.GetKey(KeyCode.DownArrow))
-            {
-                transform.Translate(Vector3.down * Time.deltaTime * ScrollSpeed, Space.World);
-            }
-            if (Input.mousePosition.x >= Screen.width * RightBarier || Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.Translate(Vector3.right * Time.deltaTime * ScrollSpeed, Space.World);
-            }
-            if (Input.mousePosition.x <= Screen.width * LeftBarier || Input.GetKey(KeyCode.LeftArrow))
-            {
-                transform.Translate(Vector3.left * Time.deltaTime * ScrollSpeed, Space.World);
-            }
+            transform.Translate(Vector3.up * Time.deltaTime * ScrollSpeed, Space.World);
         }
-        //#######################################################################################################
+        if (Input.mousePosition.y <= Screen.height * BotBarier || Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * ScrollSpeed, Space.World);
+        }
+        if (Input.mousePosition.x >= Screen.width * RightBarier || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * ScrollSpeed, Space.World);
+        }
+        if (Input.mousePosition.x <= Screen.width * LeftBarier || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * ScrollSpeed, Space.World);
+        }
+
     }
 }
