@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team1Color: {r: 1, g: 0.5, b: 0, a: 1}
   _team2Color: {r: 0, g: 0.5, b: 1, a: 1}
-  _matchTimeLimit: 60
+  _matchTimeLimit: 120
   _tankHealth: 5
   _tankSpeed: 5
   _tankTurnSpeed: 180
