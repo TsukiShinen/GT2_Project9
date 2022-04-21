@@ -20,12 +20,15 @@ public class Tank : MonoBehaviour
     [SerializeField] private GameObject _tankDestrTurret;
     [SerializeField] private Animator _explosion;
     [SerializeField] private Animator _tracks;
+
+    public bool isDead;
     
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
     private static readonly int Death = Animator.StringToHash("TankDeath");
 
     private void Awake()
     {
+        isDead = false;
         Movement = GetComponent<Movement>();
         Attack = GetComponent<Attack>();
     }
@@ -49,6 +52,7 @@ public class Tank : MonoBehaviour
 
     public IEnumerator TankDeath()
     {
+        isDead = true;
         _explosion.SetTrigger(Death);
         yield return new WaitForSeconds(0.1666f);
         _tankBase.SetActive(false);

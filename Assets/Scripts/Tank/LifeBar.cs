@@ -32,7 +32,7 @@ public class LifeBar : MonoBehaviour
         transform.rotation = Quaternion.identity;
         transform.position = _myTank.transform.position + new Vector3(0, 2, 0);
         UpdateParams();
-        if (IsAlive) { return; }
+        if (IsAlive || _myTank.isDead) { return; }
         StartCoroutine(_myTank.TankDeath());
     }
 

@@ -39,6 +39,7 @@ public class Spawn : MonoBehaviour
 
     public void SpawnFromTeam(Team team, int nbr, float time = 0f)
     {
+        Debug.Log(team.Name);
         if (playerTeam == team)
         {
             SpawnInBlueSide(nbr, time);
