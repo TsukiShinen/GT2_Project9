@@ -77,7 +77,8 @@ public class Spawn : MonoBehaviour
     private void CreateTankAt(GameObject tank, Vector3 position)
     {
         var tankTmp = Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity).GetComponent<Tank>();
-        
+        tankTmp.transform.SetParent(transform);
+
         if (tankTmp.Team == playerTeam) 
         {
             OnBlueTankCreated?.Invoke(tankTmp);
