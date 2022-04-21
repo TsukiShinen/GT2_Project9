@@ -23,7 +23,7 @@ namespace PathFinding
 		public Vector2Int gridSize;
 		public float cellSize = 1f;
 		[Space(10)]
-		[SerializeField] private Algo currentAlgo;
+		public Algo currentAlgo;
 		
 		private Cell[,] _grid;
 		private PathFinding _currentPathFinding;
@@ -43,10 +43,11 @@ namespace PathFinding
 		{
 			CreateGrid();
 			CreateCostField();
-
+			
 			_currentPathFinding = _getPathFinding(currentAlgo);
 			
 			_currentPathFinding.Initialize(_grid, cellSize);
+			Debug.Log(currentAlgo);
 		}
 
 		#region CreateGrid
