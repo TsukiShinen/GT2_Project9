@@ -1,7 +1,7 @@
 using BehaviourTree;
 using UnityEngine;
 
-public class TankBt : BehaviourTreeRunner
+public class TankBT : BehaviourTreeRunner
 {
 	public Transform point;
 	public LayerMask tankMask;

@@ -31,53 +31,54 @@ public class BTSM : StateMachine<BTSM>
     {
 		Spawn.Instance.OnRedTankCreated += OnTankCreated;
 	}
+    
     private void OnTankCreated(Tank tank)
     {
 		if(tank1 == null)
         {
 			tank1 = tank;
-			tank1.GetComponent<TankBt>().tankMask = tankMask;
-			tank1.GetComponent<TankBt>().point = point;
-			tank1.GetComponent<TankBt>().ChangeTree(tree1);
+			tank1.GetComponent<TankBT>().tankMask = tankMask;
+			tank1.GetComponent<TankBT>().point = point;
+			tank1.GetComponent<TankBT>().ChangeTree(tree1);
 		}
 		else if(tank2 == null)
         {
 			tank2 = tank;
-			tank2.GetComponent<TankBt>().tankMask = tankMask;
-			tank2.GetComponent<TankBt>().point = point;
-			tank2.GetComponent<TankBt>().waypoints = waypointsTank2;
-			tank2.GetComponent<TankBt>().ChangeTree(tree2);
+			tank2.GetComponent<TankBT>().tankMask = tankMask;
+			tank2.GetComponent<TankBT>().point = point;
+			tank2.GetComponent<TankBT>().waypoints = waypointsTank2;
+			tank2.GetComponent<TankBT>().ChangeTree(tree2);
 		}
 		else if (tank3 == null)
 		{
 			tank3 = tank;
-			tank3.GetComponent<TankBt>().tankMask = tankMask;
-			tank3.GetComponent<TankBt>().point = point;
-			tank3.GetComponent<TankBt>().waypoints = waypointsTank3;
-			tank3.GetComponent<TankBt>().ChangeTree(tree3);
+			tank3.GetComponent<TankBT>().tankMask = tankMask;
+			tank3.GetComponent<TankBT>().point = point;
+			tank3.GetComponent<TankBT>().waypoints = waypointsTank3;
+			tank3.GetComponent<TankBT>().ChangeTree(tree3);
 		}
 		else if (!tank1.GetComponentInChildren<LifeBar>().IsAlive)
         {
 			tank1 = tank;
-			tank1.GetComponent<TankBt>().tankMask = tankMask;
-			tank1.GetComponent<TankBt>().point = point;
-			tank1.GetComponent<TankBt>().ChangeTree(tree1);
+			tank1.GetComponent<TankBT>().tankMask = tankMask;
+			tank1.GetComponent<TankBT>().point = point;
+			tank1.GetComponent<TankBT>().ChangeTree(tree1);
 		}
 		else if (!tank2.GetComponentInChildren<LifeBar>().IsAlive)
         {
 			tank2 = tank;
-			tank2.GetComponent<TankBt>().tankMask = tankMask;
-			tank2.GetComponent<TankBt>().point = point;
-			tank2.GetComponent<TankBt>().waypoints = waypointsTank2;
-			tank2.GetComponent<TankBt>().ChangeTree(tree2);
+			tank2.GetComponent<TankBT>().tankMask = tankMask;
+			tank2.GetComponent<TankBT>().point = point;
+			tank2.GetComponent<TankBT>().waypoints = waypointsTank2;
+			tank2.GetComponent<TankBT>().ChangeTree(tree2);
 		}
 		else if (!tank3.GetComponentInChildren<LifeBar>().IsAlive)
         {
 			tank3 = tank;
-			tank3.GetComponent<TankBt>().tankMask = tankMask;
-			tank3.GetComponent<TankBt>().point = point;
-			tank3.GetComponent<TankBt>().waypoints = waypointsTank3;
-			tank3.GetComponent<TankBt>().ChangeTree(tree3);
+			tank3.GetComponent<TankBT>().tankMask = tankMask;
+			tank3.GetComponent<TankBT>().point = point;
+			tank3.GetComponent<TankBT>().waypoints = waypointsTank3;
+			tank3.GetComponent<TankBT>().ChangeTree(tree3);
 		}
 	}
 }

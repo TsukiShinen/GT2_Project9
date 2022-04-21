@@ -28,6 +28,7 @@ public class InputEvent
 
     public void OnRightClick()
     {
+        DeleteDeadTank();
         var hit = Physics2D.Raycast(MousePosition, Vector3.forward);
         if (hit.collider == null) { return; }
 
@@ -45,6 +46,7 @@ public class InputEvent
 
     public void OnLeftClick()
     {
+        DeleteDeadTank();
         if (!Input.GetKey(KeyCode.LeftShift))
         {
             UnSelectTank();
@@ -65,6 +67,16 @@ public class InputEvent
         {
             if (!collider.CompareTag(_parameters.TagTank)) { continue; }
             SelectedTank(collider);
+        }
+    }
+
+    private void DeleteDeadTank()
+    {
+        for (var i = _selectedTanks.Count-1; i >= 0; i--)
+        {
+            
+            if (_selectedTanks[i] != null) continue;
+            _selectedTanks.RemoveAt(i);
         }
     }
 

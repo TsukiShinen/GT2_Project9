@@ -11,8 +11,8 @@ public class CometAttackState : IState<BTSM>
 	{
 		if (!entity.tank1.GetComponentInChildren<LifeBar>().IsAlive)
 		{
-			entity.tank1.GetComponent<TankBt>().ChangeTree(entity.tree2);
-			entity.tank2.GetComponent<TankBt>().ChangeTree(entity.tree1);
+			entity.tank1.GetComponent<TankBT>().ChangeTree(entity.tree2);
+			entity.tank2.GetComponent<TankBT>().ChangeTree(entity.tree1);
 			(entity.tank2, entity.tank1) = (entity.tank1, entity.tank2);
 		}
 	}

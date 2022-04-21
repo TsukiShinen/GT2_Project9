@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
 	[SerializeField] private Animator animator;
 
 	public Transform Target { get; set; }
+	public LifeBar EnemyLife { get; set; }
 
 	private float _timerShoot;
 	private bool _aimed;
@@ -27,6 +28,17 @@ public class Attack : MonoBehaviour
 			_timerShoot -= Time.deltaTime;
 
 		if (Target == null) return;
+
+		if (EnemyLife != null)
+		{
+			if (!EnemyLife.IsAlive)
+			{
+				Target = null;
+				EnemyLife = null;
+				_timerShoot = 0;
+				return;
+			}
+		}
 
 		Aim();
 		ShootUpdate();
@@ -51,6 +63,7 @@ public class Attack : MonoBehaviour
 	{
 		if(!CanShoot) { return; }
 		if(!_aimed) { return; }
+		
 		_timerShoot = parameters.TankShootDelay;
 		StartCoroutine(Shoot());
 	}

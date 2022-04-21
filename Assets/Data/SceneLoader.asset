@@ -23,9 +23,11 @@ MonoBehaviour:
     - Camera
     - Inputs
     - UI
+    - FOW
   - name: Siegfried
     scenesToLoad:
     - SiegfriedMap
     - Camera
     - Inputs
     - UI
+    - FOW

@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SiegfriedMap.unity
     guid: 2ecc5b7f73104d0408775d0297e287b5
+  - enabled: 1
+    path: Assets/Scenes/FOW.unity
+    guid: 714122dd330aeba428ec8f8465e87449
   m_configObjects: {}

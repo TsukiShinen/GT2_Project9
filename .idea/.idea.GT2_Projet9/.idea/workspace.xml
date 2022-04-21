@@ -3,15 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="39a3f9bd-8224-4b78-ba9a-9d3f0847c465" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GT2_Projet9/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SceneBootstrap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SceneBootstrap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/PathFinding.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/PathFinding.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/SceneLoader.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/SceneLoader.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Serene Coast.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Serene Coast.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actions/ActionGoWaipoints.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actions/ActionGoWaipoints.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actions/ActionTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actions/ActionTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BTSM/BTSM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BTSM/BTSM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BTSM/CometAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BTSM/CometAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/Attack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/HealthBarv2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/HealthBarv2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/LifeBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/LifeBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/Tank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/Tank.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/TankBT.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tank/TankAI/TankBT.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +85,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23912">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="23912" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -119,7 +129,8 @@
       <workItem from="1650352500809" duration="16608000" />
       <workItem from="1650441928708" duration="4402000" />
       <workItem from="1650447899047" duration="94000" />
-      <workItem from="1650448040820" duration="3318000" />
+      <workItem from="1650448040820" duration="5123000" />
+      <workItem from="1650531514377" duration="5789000" />
     </task>
     <servers />
   </component>
@@ -144,6 +155,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/InputEvent.cs</url>
+          <line>89</line>
+          <properties documentPath="C:\Users\Tsuki\Documents\Repos\GTech_2\GT2_Projet9\Assets\Scripts\InputEvent.cs" initialLine="83" containingFunctionPresentation="method 'UnSelectTank'">
+            <startOffsets>
+              <option value="2355" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2393" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#BehaviourTree.Node" memberName="Children" />

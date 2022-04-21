@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -25,41 +25,65 @@ public class Spawn : MonoBehaviour
     public delegate void MyTankDelegate(Tank tank);
     public MyTankDelegate OnBlueTankCreated;
     public MyTankDelegate OnRedTankCreated;
+    
+    [SerializeField] private GameObject tankBlue;
+    [SerializeField] private GameObject tankRed;
 
-    [SerializeField]  private Team playerTeam;
+    public Team playerTeam;
 
     public Transform spawnBlue;
     [SerializeField] private Transform spawnRed;
 
     [SerializeField] private Vector3[] spawnPositions;
 
-    public void SpawnInBlueSide(List<GameObject> tanks)
+
+    public void SpawnFromTeam(Team team, int nbr, float time = 0f)
     {
-        for (var i = 0; i < tanks.Count; i++)
+        if (playerTeam == team)
         {
-            CreateTankAt(tanks[i], spawnBlue.position + spawnPositions[i]);
+            SpawnInBlueSide(nbr, time);
+        }
+        else
+        {
+            SpawnInRedSide(nbr, time);
+        }
+        
+    }
+    
+    private void SpawnInBlueSide(int nbr, float time = 0f)
+    {
+        for (var i = 0; i < nbr; i++)
+        {
+            StartCoroutine(CreateTankAt(tankBlue, spawnBlue.position + spawnPositions[i], time));
         }
     }
     
-    public void SpawnInRedSide(List<GameObject> tanks)
+    private void SpawnInRedSide(int nbr, float time = 0f)
     {
-        for (var i = 0; i < tanks.Count; i++)
+        for (var i = 0; i < nbr; i++)
         {
-            CreateTankAt(tanks[i], spawnRed.position + spawnPositions[i]);
+            StartCoroutine(CreateTankAt(tankRed, spawnRed.position + spawnPositions[i], time));
         }
+    }
+
+    private IEnumerator CreateTankAt(GameObject tank, Vector3 position, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        CreateTankAt(tank, position);
     }
 
     private void CreateTankAt(GameObject tank, Vector3 position)
     {
-        var TankTmp = Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity).GetComponent<Tank>();
-
-        if (TankTmp.Team == playerTeam) 
+        var tankTmp = Instantiate(tank, position + new Vector3(0, 0, -9), quaternion.identity).GetComponent<Tank>();
+        
+        if (tankTmp.Team == playerTeam) 
         {
-            OnBlueTankCreated?.Invoke(TankTmp);
+            OnBlueTankCreated?.Invoke(tankTmp);
         }
         else
         {
-            OnRedTankCreated?.Invoke(TankTmp);
+            OnRedTankCreated?.Invoke(tankTmp);
         }
     }
 }

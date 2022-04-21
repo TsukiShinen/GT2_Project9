@@ -24,7 +24,6 @@ public class Tank : MonoBehaviour
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
     private static readonly int Death = Animator.StringToHash("TankDeath");
 
-
     private void Awake()
     {
         Movement = GetComponent<Movement>();
@@ -56,9 +55,12 @@ public class Tank : MonoBehaviour
         _tankTurret.SetActive(false);
         _tankDestrBase.SetActive(true);
         _tankDestrTurret.SetActive(true);
+        GetComponent<Collider2D>().enabled = false;
         Movement.enabled = false;
         Attack.enabled = false;
-        yield return new WaitForSeconds(0.3333f);
+        yield return new WaitForSeconds(1f);
+        Spawn.Instance.SpawnFromTeam(team, 1, 1f);
+        Destroy(gameObject);
     }
 
 }
