@@ -20,6 +20,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: boom
     clip: {fileID: 8300000, guid: 9ebc8575c3994de4fbc332632baa0f68, type: 3}
-    volume: 0.05
+    volume: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: click
+    clip: {fileID: 8300000, guid: 06dba0092d5a4c54dbb67c230ef223e9, type: 3}
+    volume: 0.2
     loop: 0
     source: {fileID: 0}

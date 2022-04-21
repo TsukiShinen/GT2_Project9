@@ -1081,3 +1081,4 @@ MonoBehaviour:
   canon: {fileID: 6704171966508232030}
   animator: {fileID: 8815572296639456539}
   playerTeam: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
+  audioSO: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}

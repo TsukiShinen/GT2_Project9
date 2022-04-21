@@ -514,6 +514,18 @@ MonoBehaviour:
           m_StringArgument: Serene Coast
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139687855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +657,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Siegfried
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &197134603
@@ -1164,6 +1188,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &490712221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,6 +1343,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
           m_BoolArgument: 0
         m_CallState: 2
   m_AlphaFadeSpeed: 0.15
@@ -2194,6 +2242,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &980588347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,6 +2397,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1002357534
@@ -3202,6 +3274,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1487832777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3772,6 +3856,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 90ef12a34a0dfda4fa29bdaf53c4c400, type: 2}
+        m_TargetAssemblyTypeName: AudioSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: click
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1987910027

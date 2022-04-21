@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour
 	[SerializeField] private Transform canon;
 	[SerializeField] private Animator animator;
 	[SerializeField] private Team playerTeam;
+	[SerializeField] private AudioSO audioSO;
 	
 	private Tank _myTank;
 	public Transform Target { get; set; }
@@ -81,6 +82,7 @@ public class Attack : MonoBehaviour
 	
 	private IEnumerator Shoot()
 	{
+		audioSO.Play("boom");
 		var newBullet = Instantiate(bullet, canon.position, Quaternion.Euler(canon.eulerAngles) * Quaternion.Euler(0, 0, 180f)).GetComponent<Bullet>();
 		newBullet.SetTank(gameObject.GetComponent<Collider2D>());
 		newBullet.Init(canon.position, Target.position);
