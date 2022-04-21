@@ -48,8 +48,8 @@ MonoBehaviour:
   Parent: {fileID: -2683741265475954455}
   Children: []
   guid: 2ed8d9de8dc15584c86c3cd2fa8a813d
-  position: {x: 369, y: 527.82965}
-  detectionRange: 0
+  position: {x: 369, y: 538.24}
+  detectionRange: 8
 --- !u!114 &-3667650739528889901
 MonoBehaviour:
   m_ObjectHideFlags: 0
