@@ -31,7 +31,12 @@ public class BTSM : StateMachine<BTSM>
     {
 		Spawn.Instance.OnRedTankCreated += OnTankCreated;
 	}
-    
+
+    private void OnDestroy()
+    {
+		Spawn.Instance.OnRedTankCreated -= OnTankCreated;
+	}
+
     private void OnTankCreated(Tank tank)
     {
 		if(tank1 == null)
