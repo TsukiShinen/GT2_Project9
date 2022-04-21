@@ -24,6 +24,7 @@ MonoBehaviour:
     - Inputs
     - UI
     - FOW
+    - Chrono
   - name: Siegfried
     scenesToLoad:
     - SiegfriedMap
@@ -31,6 +32,7 @@ MonoBehaviour:
     - Inputs
     - UI
     - FOW
+    - Chrono
   - name: EndGame
     scenesToLoad:
     - EndGameMenu
