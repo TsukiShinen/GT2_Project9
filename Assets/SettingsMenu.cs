@@ -34,7 +34,6 @@ public class SettingsMenu : MonoBehaviour
     public void SetPathfinding(int dropdownIndex)
     {
         Algo SelectedAlgoFromDropdown = AlgoList[dropdownIndex];
-        Debug.Log(SelectedAlgoFromDropdown);
         _pathfinding.currentAlgo = SelectedAlgoFromDropdown;
     }
 }

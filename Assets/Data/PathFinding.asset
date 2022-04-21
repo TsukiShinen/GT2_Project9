@@ -15,7 +15,7 @@ MonoBehaviour:
   parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
   terrainMasks:
     serializedVersion: 2
-    m_Bits: 3840
+    m_Bits: 2944
   gridSize: {x: 100, y: 100}
   cellSize: 1
-  currentAlgo: 2
+  currentAlgo: 1

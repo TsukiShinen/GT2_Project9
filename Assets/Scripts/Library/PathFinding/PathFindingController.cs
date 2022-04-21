@@ -9,8 +9,8 @@ namespace PathFinding
 {
 	public enum Algo
 	{
-		AStar,
 		Dijkstra,
+		AStar,
 		FlowField,
 	}
 	
@@ -47,7 +47,6 @@ namespace PathFinding
 			_currentPathFinding = _getPathFinding(currentAlgo);
 			
 			_currentPathFinding.Initialize(_grid, cellSize);
-			Debug.Log(currentAlgo);
 		}
 
 		#region CreateGrid
