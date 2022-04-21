@@ -54,7 +54,6 @@ namespace PathFinding
                 pathCell = nextCellToGoal[pathCell];
                 Path.Enqueue(pathCell.WorldPosition);
             }
-            Debug.Log("Astar");
             return Path;
 
             int Distance(Cell c1, Cell c2)

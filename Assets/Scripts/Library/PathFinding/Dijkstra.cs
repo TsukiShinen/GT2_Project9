@@ -53,7 +53,6 @@ namespace PathFinding
                 pathCell = nextCellToGoal[pathCell];
                 Path.Enqueue(pathCell.WorldPosition);
             }
-            Debug.Log("Dijkstra");
             return Path;
         }
 #if UNITY_EDITOR
