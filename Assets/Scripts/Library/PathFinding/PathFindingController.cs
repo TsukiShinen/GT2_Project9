@@ -42,11 +42,13 @@ namespace PathFinding
 		public void Init()
 		{
 			CreateGrid();
+			Debug.Log("Create Grid");
 			CreateCostField();
 			
 			_currentPathFinding = _getPathFinding(currentAlgo);
 			
 			_currentPathFinding.Initialize(_grid, cellSize);
+			
 		}
 
 		#region CreateGrid

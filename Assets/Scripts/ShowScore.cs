@@ -19,8 +19,8 @@ public class ShowScore : MonoBehaviour
     {
         redName.text = redTeam.Name.ToString();
         blueName.text = blueTeam.Name.ToString();
-        redScore.text = score.enemyScore.score.ToString();
-        blueScore.text = score.playerScore.score.ToString();
+        redScore.text = ((int)score.enemyScore.score).ToString();
+        blueScore.text = ((int)score.playerScore.score).ToString();
 
         if(score.enemyScore.score > score.playerScore.score)
         {
@@ -32,7 +32,7 @@ public class ShowScore : MonoBehaviour
         }
         else
         {
-            result.text = "Egalite";
+            result.text = "Égalité";
         }
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654026f67df9086428b230a279637c2c, type: 3}
   m_Name: Blue Team
   m_EditorClassIdentifier: 
-  Name: Rebelle
+  Name: Les Rebelles
   Color: {r: 0, g: 0.5764303, b: 1, a: 1}

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Inputs.unity
     guid: 43052bb4206c8a645b2e4b77330aeeda
   - enabled: 1
-    path: Assets/Scenes/Serene Coast.unity
+    path: Assets/Scenes/Maps/Serene Coast.unity
     guid: 8dcd2b18c95f1954380e2a22e43eaffc
   - enabled: 1
     path: Assets/Scenes/UI.unity
@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 0c61d5a8938ad0447b5a339b285e4612
   - enabled: 1
-    path: Assets/Scenes/SiegfriedMap.unity
+    path: Assets/Scenes/Maps/SiegfriedMap.unity
     guid: 2ecc5b7f73104d0408775d0297e287b5
   - enabled: 1
     path: Assets/Scenes/FOW.unity
