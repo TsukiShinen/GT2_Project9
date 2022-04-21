@@ -7,7 +7,9 @@ public class Attack : MonoBehaviour
 	[SerializeField] private GameObject bullet;
 	[SerializeField] private Transform canon;
 	[SerializeField] private Animator animator;
-
+	[SerializeField] private Team playerTeam;
+	
+	private Tank _myTank;
 	public Transform Target { get; set; }
 	public LifeBar EnemyLife { get; set; }
 
@@ -19,6 +21,7 @@ public class Attack : MonoBehaviour
 
     private void Start()
     {
+		_myTank = GetComponent<Tank>();
 		_timerShoot = parameters.TankShootDelay;
 	}
 
@@ -63,8 +66,16 @@ public class Attack : MonoBehaviour
 	{
 		if(!CanShoot) { return; }
 		if(!_aimed) { return; }
+
+		if(_myTank.Team == playerTeam)
+        {
+			_timerShoot = parameters.TankShootDelay;
+		}
+        else
+        {
+			_timerShoot = parameters.TankShootDelay + 3;
+		}
 		
-		_timerShoot = parameters.TankShootDelay;
 		StartCoroutine(Shoot());
 	}
 	

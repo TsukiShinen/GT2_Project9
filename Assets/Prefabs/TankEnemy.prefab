@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  LifePoints: 0
 --- !u!212 &6008680635304345890
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -746,6 +747,7 @@ MonoBehaviour:
   _tankDestrTurret: {fileID: 772869672709051896}
   _explosion: {fileID: 7393990135234927287}
   _tracks: {fileID: 658119575527985489}
+  isDead: 0
 --- !u!61 &5528921651584219265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -849,6 +851,7 @@ MonoBehaviour:
   bullet: {fileID: 8201686019607275655, guid: be8aeeeffb591e2419bd4c546594421d, type: 3}
   canon: {fileID: 6704171966508232030}
   animator: {fileID: 8815572296639456539}
+  playerTeam: {fileID: 11400000, guid: 5afd21ae47815e04681dffc9ea69cfd4, type: 2}
 --- !u!114 &8445170663399347771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,3 +886,4 @@ MonoBehaviour:
   tankMask:
     serializedVersion: 2
     m_Bits: 0
+  waypoints: []
