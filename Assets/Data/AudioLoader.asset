@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: AudioLoader
   m_EditorClassIdentifier: 
   sounds:
-  - name: Music1
-    clip: {fileID: 8300000, guid: 90e256c187ac52c418fd1aa3b5373fb4, type: 3}
+  - name: battleMusic
+    clip: {fileID: 8300000, guid: a325aee2dda8cb9458d335ce2acd88e0, type: 3}
     volume: 0.05
-    loop: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: boom
+    clip: {fileID: 8300000, guid: 9ebc8575c3994de4fbc332632baa0f68, type: 3}
+    volume: 0.05
+    loop: 0
     source: {fileID: 0}

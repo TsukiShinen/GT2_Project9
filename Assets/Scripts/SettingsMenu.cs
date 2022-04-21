@@ -30,7 +30,6 @@ public class SettingsMenu : MonoBehaviour
         _dropdown.AddOptions(AlgoStringList);
     }
 
-
     public void SetPathfinding(int dropdownIndex)
     {
         Algo SelectedAlgoFromDropdown = AlgoList[dropdownIndex];
