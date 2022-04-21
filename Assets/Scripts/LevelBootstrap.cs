@@ -11,7 +11,9 @@ public class LevelBootstrap : MonoBehaviour
 
     [SerializeField] private Score score;
     [SerializeField] private PathFinding.PathFindingController pathFindingController;
-    
+
+    [SerializeField] private AudioSO audioLoader;
+
     private void Start()
     {
         pathFindingController.Init();
@@ -26,5 +28,7 @@ public class LevelBootstrap : MonoBehaviour
         Camera.main.transform.position = Spawn.Instance.spawnBlue.position + new Vector3(0, 0, -10);
         
         score.Clear();
+
+        audioLoader.Play("MenuMusic");
     }
 }

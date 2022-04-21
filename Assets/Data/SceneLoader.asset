@@ -17,6 +17,7 @@ MonoBehaviour:
     scenesToLoad:
     - Camera
     - MainMenu
+    - Audio
   - name: Serene Coast
     scenesToLoad:
     - Serene Coast
@@ -25,6 +26,7 @@ MonoBehaviour:
     - UI
     - FOW
     - Chrono
+    - Audio
   - name: Siegfried
     scenesToLoad:
     - SiegfriedMap
@@ -33,7 +35,9 @@ MonoBehaviour:
     - UI
     - FOW
     - Chrono
+    - Audio
   - name: EndGame
     scenesToLoad:
     - EndGameMenu
     - Camera
+    - Audio

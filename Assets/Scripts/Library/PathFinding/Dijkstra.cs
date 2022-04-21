@@ -53,7 +53,7 @@ namespace PathFinding
                 pathCell = nextCellToGoal[pathCell];
                 Path.Enqueue(pathCell.WorldPosition);
             }
-            
+            Debug.Log("Dijkstra");
             return Path;
         }
 #if UNITY_EDITOR
@@ -63,6 +63,11 @@ namespace PathFinding
             foreach (var cell in cellsChecked)
             {
                 Gizmos.DrawCube(cell.WorldPosition, new Vector3(CellSize, CellSize));
+            }
+            Gizmos.color = Color.red;
+            foreach (var position in Path)
+            {
+                Gizmos.DrawCube(position, new Vector3(CellSize, CellSize));
             }
         }
 #endif

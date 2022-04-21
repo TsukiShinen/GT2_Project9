@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGameMenu.unity
     guid: c6fbff5bf470a6d41a0e1d6d051fa85f
+  - enabled: 1
+    path: Assets/Scenes/Audio.unity
+    guid: f5878e4728bdfb442a141ca5b91acc3b
   m_configObjects: {}

@@ -54,6 +54,7 @@ namespace PathFinding
                 pathCell = nextCellToGoal[pathCell];
                 Path.Enqueue(pathCell.WorldPosition);
             }
+            Debug.Log("Astar");
             return Path;
 
             int Distance(Cell c1, Cell c2)
@@ -69,6 +70,11 @@ namespace PathFinding
             foreach(var cell in cellsChecked)
             {
                 Gizmos.DrawCube(cell.WorldPosition, new Vector3(CellSize,CellSize));
+            }
+            Gizmos.color = Color.red;
+            foreach (var position in Path)
+            {
+                Gizmos.DrawCube(position, new Vector3(CellSize, CellSize));
             }
         }
 #endif
