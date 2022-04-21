@@ -9,15 +9,29 @@ public class CometAttackState : IState<BTSM>
 
 	public void Update(BTSM entity)
 	{
-		if (!entity.tank1.GetComponentInChildren<LifeBar>().IsAlive)
+		if (entity.tank1 == null)
 		{
-			entity.tank1.GetComponent<TankBT>().ChangeTree(entity.tree2);
-			entity.tank2.GetComponent<TankBT>().ChangeTree(entity.tree1);
-			(entity.tank2, entity.tank1) = (entity.tank1, entity.tank2);
+			var tank = entity.tank2;
+			if(entity.tank2 != null)
+            {
+				tank = entity.tank2;
+				entity.tank2 = null;
+			}
+			else
+            {
+				tank = entity.tank3;
+				entity.tank3 = null;
+
+			}
+
+			if(tank != null) {
+				tank.GetComponent<TankBT>().ChangeTree(entity.tree1);
+			}
+			entity.tank1 = tank;
 		}
 	}
 
-	public void FixedUpdate(BTSM entity)
+		public void FixedUpdate(BTSM entity)
 	{
 
 	}

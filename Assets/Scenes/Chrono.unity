@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters: {fileID: 11400000, guid: c7af04d7648f1874d971bac052fe6d39, type: 2}
+  sceneLoader: {fileID: 11400000, guid: 23fd4ed1b5f8afd44b736d8cfe5b20a3, type: 2}
 --- !u!114 &811825387
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using TMPro;
 public class Chrono : MonoBehaviour
 {
     [SerializeField] private GameParameters parameters;
+    [SerializeField] private SceneLoader sceneLoader;
+
     private float _timer;
     private TMP_Text _text;
     void Start()
@@ -24,7 +26,7 @@ public class Chrono : MonoBehaviour
         }
         else
         {
-
+            sceneLoader.LoadSceneGroup("EndGame");
         }
     }
 
@@ -37,6 +39,6 @@ public class Chrono : MonoBehaviour
         {
             secondsString = "0" + secondsString;
         }
-        _text.text = minutes.ToString() + " : " + secondsString + " UWU";
+        _text.text = minutes.ToString() + " : " + secondsString;
     }
 }

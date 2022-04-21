@@ -31,3 +31,7 @@ MonoBehaviour:
     - Inputs
     - UI
     - FOW
+  - name: EndGame
+    scenesToLoad:
+    - EndGameMenu
+    - Camera
